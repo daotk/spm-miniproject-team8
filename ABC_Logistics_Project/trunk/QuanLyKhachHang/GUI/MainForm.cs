@@ -18,10 +18,15 @@ namespace QuanLyKhachHang.GUI
 
         private void quảnLýKháchHảngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustumerManagement cusManagement = new CustumerManagement();
+            CustomerManagement cusManagement = new CustomerManagement();
            // cusManagement.MdiParent=this;
             cusManagement.ShowDialog();
 
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
 
         }
     }
