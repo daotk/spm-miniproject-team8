@@ -52,11 +52,11 @@
     <Compile Include="GUI\AddNewCustomer.Designer.cs">
       <DependentUpon>AddNewCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CustumerManagement.cs">
+    <Compile Include="GUI\CustomerManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CustumerManagement.Designer.cs">
-      <DependentUpon>CustumerManagement.cs</DependentUpon>
+    <Compile Include="GUI\CustomerManagement.Designer.cs">
+      <DependentUpon>CustomerManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\EditCustomer.cs">
       <SubType>Form</SubType>
@@ -87,8 +87,8 @@
     <EmbeddedResource Include="GUI\AddNewCustomer.resx">
       <DependentUpon>AddNewCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CustumerManagement.resx">
-      <DependentUpon>CustumerManagement.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\CustomerManagement.resx">
+      <DependentUpon>CustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\EditCustomer.resx">
       <DependentUpon>EditCustomer.cs</DependentUpon>
