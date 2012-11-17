@@ -229,7 +229,7 @@
             this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.btnExit);
             // 
             // button12
             // 
@@ -258,6 +258,7 @@
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.btnQuanLyCongNo);
             // 
             // button3
             // 
@@ -287,6 +288,7 @@
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnQuanLyGiaoDich);
             // 
             // button2
             // 

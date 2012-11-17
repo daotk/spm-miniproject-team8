@@ -57,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 142);
+            this.label1.Location = new System.Drawing.Point(12, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 4;
@@ -66,7 +66,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(112, 136);
+            this.textBox1.Location = new System.Drawing.Point(114, 102);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(270, 22);
             this.textBox1.TabIndex = 5;
@@ -76,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(403, 142);
+            this.label2.Location = new System.Drawing.Point(427, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 16);
             this.label2.TabIndex = 6;
@@ -86,7 +86,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(240, 183);
+            this.radioButton3.Location = new System.Drawing.Point(245, 161);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(61, 20);
             this.radioButton3.TabIndex = 21;
@@ -98,7 +98,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(558, 183);
+            this.radioButton2.Location = new System.Drawing.Point(575, 161);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(164, 20);
             this.radioButton2.TabIndex = 20;
@@ -110,7 +110,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(390, 183);
+            this.radioButton1.Location = new System.Drawing.Point(402, 161);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(96, 20);
             this.radioButton1.TabIndex = 19;
@@ -126,7 +126,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Tên khách hàng",
             "Mã khách hàng"});
-            this.comboBox1.Location = new System.Drawing.Point(612, 134);
+            this.comboBox1.Location = new System.Drawing.Point(575, 102);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(205, 24);
             this.comboBox1.TabIndex = 7;
@@ -156,7 +156,7 @@
             this.button4.Image = global::QuanLyKhachHang.Properties.Resources.Actions_application_exit_icon;
             this.button4.Location = new System.Drawing.Point(630, 19);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 38);
+            this.button4.Size = new System.Drawing.Size(150, 40);
             this.button4.TabIndex = 25;
             this.button4.Text = "Thoát";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -170,7 +170,7 @@
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(446, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 38);
+            this.button3.Size = new System.Drawing.Size(150, 40);
             this.button3.TabIndex = 24;
             this.button3.Text = "Chỉnh sữa thông tin khách hàng";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -182,7 +182,7 @@
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(234, 19);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 38);
+            this.button2.Size = new System.Drawing.Size(150, 40);
             this.button2.TabIndex = 23;
             this.button2.Text = "Thêm mới khách hàng";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -195,7 +195,7 @@
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(15, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 38);
+            this.button1.Size = new System.Drawing.Size(150, 40);
             this.button1.TabIndex = 22;
             this.button1.Text = "Trang chính";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

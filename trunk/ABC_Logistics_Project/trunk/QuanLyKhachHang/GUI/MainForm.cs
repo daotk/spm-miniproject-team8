@@ -121,8 +121,12 @@ namespace QuanLyKhachHang.GUI
 
           
         }
-
-        private void button13_Click(object sender, EventArgs e)
+        /// <summary>
+        /// xử lý sự kiện khi nhấn nút thoát
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExit(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -147,6 +151,34 @@ namespace QuanLyKhachHang.GUI
                 CustomerManagement FCustomerManagement = new CustomerManagement();
                 FCustomerManagement.ShowDialog();
             }
+        }
+        /// <summary>
+        /// sử lý sự kiện khi nhấn nút Quản lý Công nợ trên giao diện chính
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnQuanLyCongNo(object sender, EventArgs e)
+        {
+            button5.Hide();
+            button6.Hide();
+            button7.Hide();
+            button8.Hide();
+            button9.Hide();
+            button10.Hide();
+        }
+        /// <summary>
+        /// sử lý sự kiện khi nhấn nút Quản lý giao dich trên giao diện chính
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnQuanLyGiaoDich(object sender, EventArgs e)
+        {
+            button5.Hide();
+            button6.Hide();
+            button7.Hide();
+            button8.Hide();
+            button9.Hide();
+            button10.Hide();
         }
       
 

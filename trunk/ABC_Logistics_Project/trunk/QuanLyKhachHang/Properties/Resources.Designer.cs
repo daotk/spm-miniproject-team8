@@ -83,6 +83,16 @@ namespace QuanLyKhachHang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Accept_icon {
+            get {
+                object obj = ResourceManager.GetObject("Accept-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_application_exit_icon {
             get {
                 object obj = ResourceManager.GetObject("Actions-application-exit-icon", resourceCulture);
@@ -96,6 +106,16 @@ namespace QuanLyKhachHang.Properties {
         internal static System.Drawing.Bitmap Actions_list_add_user_icon {
             get {
                 object obj = ResourceManager.GetObject("Actions-list-add-user-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check_2_icon {
+            get {
+                object obj = ResourceManager.GetObject("check-2-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

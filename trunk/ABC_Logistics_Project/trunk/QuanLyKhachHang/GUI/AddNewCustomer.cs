@@ -16,6 +16,16 @@ namespace QuanLyKhachHang.GUI
             InitializeComponent();
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         
 
        
