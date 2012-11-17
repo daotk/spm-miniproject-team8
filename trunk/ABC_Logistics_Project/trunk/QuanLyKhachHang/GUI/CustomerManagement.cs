@@ -39,5 +39,23 @@ namespace QuanLyKhachHang.GUI
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddNewCustomer FNewCustomer = new AddNewCustomer();
+            FNewCustomer.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+       
     }
 }
