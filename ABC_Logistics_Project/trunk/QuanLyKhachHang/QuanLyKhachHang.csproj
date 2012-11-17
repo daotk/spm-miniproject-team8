@@ -104,17 +104,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -125,6 +126,54 @@
     <Folder Include="BL\" />
     <Folder Include="DA\" />
     <Folder Include="DO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3DS MAX2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-list-add-user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageres_dll_168_13.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4099-69624.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Msn%28 B &amp; G %29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-group-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\custom-reports-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data-management-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pages-brown-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data-management-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\System-tools-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\small-business-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows-Close-Program-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text-Edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-application-exit-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
