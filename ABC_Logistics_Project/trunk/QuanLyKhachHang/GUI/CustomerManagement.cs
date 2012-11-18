@@ -15,7 +15,7 @@ namespace QuanLyKhachHang.GUI
         {
             InitializeComponent();
         }
-
+        bool Status = false;
    
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -32,18 +32,30 @@ namespace QuanLyKhachHang.GUI
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             EditCustomer EditCustomer = new EditCustomer();
-            EditCustomer.ShowDialog();
+            EditCustomer.Show();
         }
 
         private void CustumerManagement_Load(object sender, EventArgs e)
         {
 
         }
-
+        /// <summary>
+        /// xử lý sự kiện khi nhấn nút thêm mới khách hàng trên giao diện quản lý khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            AddNewCustomer FNewCustomer = new AddNewCustomer();
-            FNewCustomer.ShowDialog();
+            if (Status == false)
+            {
+                AddNewCustomer FNewCustomer = new AddNewCustomer();
+                FNewCustomer.Show();
+                Status = true;
+            }
+            else
+            {
+                MessageBox.Show("Bạn đã mở của sổ thêm mới khách hàng rồi!");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

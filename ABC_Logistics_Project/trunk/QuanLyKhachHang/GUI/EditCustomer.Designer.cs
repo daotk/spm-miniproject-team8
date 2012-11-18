@@ -85,7 +85,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -129,7 +128,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(299, 534);
+            this.button6.Location = new System.Drawing.Point(302, 519);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(79, 35);
             this.button6.TabIndex = 4;
@@ -140,7 +139,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(196, 534);
+            this.button5.Location = new System.Drawing.Point(196, 519);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(79, 35);
             this.button5.TabIndex = 4;
@@ -489,9 +488,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(121, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 18);
+            this.label7.Size = new System.Drawing.Size(104, 18);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Họ và tên điệm";
+            this.label7.Text = "Họ và tên đệm";
             // 
             // label1
             // 
@@ -536,7 +535,6 @@
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.label24);
-            this.tabPage1.Controls.Add(this.checkBox4);
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.comboBox4);
@@ -679,16 +677,6 @@
             this.label24.Size = new System.Drawing.Size(21, 16);
             this.label24.TabIndex = 7;
             this.label24.Text = "(*)";
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(196, 508);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(83, 20);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Chấm dứt";
-            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -880,6 +868,7 @@
             this.ClientSize = new System.Drawing.Size(909, 625);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "EditCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chỉnh sữa thông tin khách hàng";
@@ -956,7 +945,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDiDong;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
