@@ -97,7 +97,11 @@ namespace QuanLyKhachHang.GUI
             button9.Show();
        
         }
-
+        /// <summary>
+        /// xử lý sự kiện khi nhấn nút hệ thống báo cáo trên giao diện chính
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHeThongBaoCao(object sender, EventArgs e)
         {
             //button
@@ -117,7 +121,7 @@ namespace QuanLyKhachHang.GUI
             button8.Text = "Báo cáo thống kê";
             button8.Show();
 
-            button5.Image = global::QuanLyKhachHang.Properties.Resources.statistics_icon;
+            button9.Image = global::QuanLyKhachHang.Properties.Resources.statistics_icon;
             button9.Text = "Báo cáo thông ke doanh thu theo cước phí";
             button9.Show();
 
@@ -163,9 +167,18 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void btnQuanLyCongNo(object sender, EventArgs e)
         {
-            button5.Hide();
-            button6.Hide();
-            button7.Hide();
+            //
+            button5.Image = global::QuanLyKhachHang.Properties.Resources.license_management_icon;
+            button5.Text = "Quản lý Billing Costing";
+            button5.Show();
+
+            button6.Image = global::QuanLyKhachHang.Properties.Resources.card_debit_icon;
+            button6.Text = "Debit note";
+            button6.Show();
+
+            button7.Image = global::QuanLyKhachHang.Properties.Resources.personal_loan_icon;
+            button7.Text = "Quản lý Proposal of Rebate";
+            button7.Show();
             button8.Hide();
             button9.Hide();
             button10.Hide();
@@ -177,17 +190,54 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void btnQuanLyGiaoDich(object sender, EventArgs e)
         {
-            button5.Hide();
-            button6.Hide();
+            //
+            button5.Image = global::QuanLyKhachHang.Properties.Resources.document_quote_icon;
+            button5.Text = "Quản lý báo giá";
+            button5.Show();
+
+            button6.Image = global::QuanLyKhachHang.Properties.Resources.competitors_icon;
+            button6.Text = "Quản lý booking";
+            button6.Show();
             button7.Hide();
             button8.Hide();
             button9.Hide();
             button10.Hide();
         }
-
+        /// <summary>
+        /// Đồng hồ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = DateTime.Now.ToString();
+        }
+        /// <summary>
+        /// Xử lý sự kiện khi nhấp vào button Quản trị hệ thống trên giao diện chính
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button12_Click(object sender, EventArgs e)
+        {
+            button5.Text = "Thêm mới người dùng";
+            button5.Image = global::QuanLyKhachHang.Properties.Resources.user_male_add_icon;
+            button5.Show();
+
+            button6.Image = global::QuanLyKhachHang.Properties.Resources.Groups_Meeting_Light_icon;
+            button6.Text = "Thêm mới nhóm người dùng";
+            button6.Show();
+
+            button7.Image = global::QuanLyKhachHang.Properties.Resources.check_user_icon;
+            button7.Text = "Phân quyền người dùng";
+            button7.Show();
+
+            button8.Image = global::QuanLyKhachHang.Properties.Resources.dollar_folder_icon;
+            button8.Text = "Thiết lập loại đồng tiền chính trong hệ thống";
+            button8.Show();
+
+            button9.Image = global::QuanLyKhachHang.Properties.Resources.conversion_of_currency_icon;
+            button9.Text = "Thiết lập tỉ giá quy đổi";
+            button9.Show();
         }
       
 
