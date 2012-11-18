@@ -41,6 +41,14 @@ namespace QuanLyKhachHang.GUI
             button9.Hide();
             button10.Hide();
 
+            ////lấy kích thước của màn hình
+            //int rong = Screen.PrimaryScreen.WorkingArea.Width;
+            //int cao = Screen.PrimaryScreen.WorkingArea.Height;
+
+
+            ////cho form hiển thị theo kích thước của màn hình
+            //this.Width = rong;
+            //this.Height = cao;
            
         }
         /// <summary>
@@ -238,6 +246,30 @@ namespace QuanLyKhachHang.GUI
             button9.Image = global::QuanLyKhachHang.Properties.Resources.conversion_of_currency_icon;
             button9.Text = "Thiết lập tỉ giá quy đổi";
             button9.Show();
+        }
+        /// <summary>
+        /// Menu about
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Phần mềm Quản Lý Kinh Doanh - Team 08 - K16T01 - DH Văn Lang");
+        }
+        /// <summary>
+        /// xử lý sự kiện khi nhấp nút trang chính trên giao diện chính
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button15_Click(object sender, EventArgs e)
+        {
+            //Hide button
+            button5.Hide();
+            button6.Hide();
+            button7.Hide();
+            button8.Hide();
+            button9.Hide();
+            button10.Hide();
         }
       
 
