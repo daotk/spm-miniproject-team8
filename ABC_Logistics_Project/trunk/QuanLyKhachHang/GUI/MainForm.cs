@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Reflection;
+using System.IO;
 
 namespace QuanLyKhachHang.GUI
 {
@@ -50,13 +52,15 @@ namespace QuanLyKhachHang.GUI
         {
             //show button
             button5.Show();
-            button5.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\boss-icon.png");
+            button5.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
             button5.Text = "Quản lý thông tin khách hàng";
+            
             button6.Show();
-            button6.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\boss-icon.png");
+            button6.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
             button6.Text = "Xem thông tin đối tác của khách hàng";
+            
             button7.Show();
-            button7.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\boss-icon.png");
+            button7.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
             button7.Text = "Xem thông tin Agent";
             button8.Hide();
             button9.Hide();
@@ -72,23 +76,23 @@ namespace QuanLyKhachHang.GUI
         private void btnDanhMuc(object sender, EventArgs e)
         {
             //button  
-            button5.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\Web-icon.png");
+            button5.Image = global::QuanLyKhachHang.Properties.Resources.Web_icon;
             button5.Text = "Danh mục quốc gia";
             button5.Show();
             
-            button6.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\yellow-submarine-icon.png");
+            button6.Image = global::QuanLyKhachHang.Properties.Resources.yellow_submarine_icon;
             button6.Text = "Danh mục cảng vận chuyển";
             button6.Show();
 
-            button7.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\Lorry-icon.png");
+            button7.Image = global::QuanLyKhachHang.Properties.Resources.Lorry_icon;
             button7.Text = "Danh mục các loại container/ các quy chuẩn tính phí";
             button7.Show();
 
-            button8.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\Money-icon.png");
+            button8.Image = global::QuanLyKhachHang.Properties.Resources.Money_icon;
             button8.Text = "Danh mục các loại phí";
             button8.Show();
 
-            button9.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\currency-dollar-icon.png");
+            button9.Image = global::QuanLyKhachHang.Properties.Resources.currency_dollar_icon;
             button9.Text = "Danh mục ngoại tệ";
             button9.Show();
        
@@ -97,23 +101,23 @@ namespace QuanLyKhachHang.GUI
         private void btnHeThongBaoCao(object sender, EventArgs e)
         {
             //button
-            button5.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\statistics-icon.png");
+            button5.Image = global::QuanLyKhachHang.Properties.Resources.statistics_icon;
             button5.Text = "Báo cáo tổng doanh thu theo thời kỳ";
             button5.Show();
 
-            button6.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\statistics-icon.png");
+            button6.Image = global::QuanLyKhachHang.Properties.Resources.statistics_icon;
             button6.Text = "Báo cáo tổng doanh thu theo tuyến vận chuyển";
             button6.Show();
 
-            button7.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\statistics-icon.png");
+            button7.Image = global::QuanLyKhachHang.Properties.Resources.statistics_icon;      
             button7.Text = "Báo cáo tổng doanh thu theo khách hàng";
             button7.Show();
 
-            button8.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\statistics-icon.png");
+            button8.Image = global::QuanLyKhachHang.Properties.Resources.statistics_icon;
             button8.Text = "Báo cáo thống kê";
             button8.Show();
 
-            button9.Image = Image.FromFile("C:\\Users\\Dao Khau\\Pictures\\statistics-icon.png");
+            button5.Image = global::QuanLyKhachHang.Properties.Resources.statistics_icon;
             button9.Text = "Báo cáo thông ke doanh thu theo cước phí";
             button9.Show();
 
@@ -179,6 +183,11 @@ namespace QuanLyKhachHang.GUI
             button8.Hide();
             button9.Hide();
             button10.Hide();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Text = DateTime.Now.ToString();
         }
       
 

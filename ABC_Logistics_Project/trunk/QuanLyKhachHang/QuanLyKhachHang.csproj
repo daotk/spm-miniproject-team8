@@ -128,58 +128,67 @@
     <Folder Include="DO\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\3DS MAX2.png" />
+    <EmbeddedResource Include="Resources\3DS MAX2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Actions-list-add-user-icon.png" />
+    <EmbeddedResource Include="Resources\Actions-list-add-user-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imageres_dll_168_13.ico" />
+    <EmbeddedResource Include="Resources\4099-69624.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\4099-69624.png" />
+    <EmbeddedResource Include="Resources\Msn%28 B &amp; G %29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Msn%28 B &amp; G %29.png" />
+    <EmbeddedResource Include="Resources\user-group-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\user-group-icon.png" />
+    <EmbeddedResource Include="Resources\custom-reports-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\custom-reports-icon.png" />
+    <EmbeddedResource Include="Resources\data-management-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\data-management-icon.png" />
+    <EmbeddedResource Include="Resources\pages-brown-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pages-brown-icon.png" />
+    <EmbeddedResource Include="Resources\data-management-icon1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\data-management-icon1.png" />
+    <EmbeddedResource Include="Resources\System-tools-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\System-tools-icon.png" />
+    <EmbeddedResource Include="Resources\small-business-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\small-business-icon.png" />
+    <EmbeddedResource Include="Resources\Windows-Close-Program-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Windows-Close-Program-icon.png" />
+    <EmbeddedResource Include="Resources\home-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\home-icon.png" />
+    <EmbeddedResource Include="Resources\Text-Edit-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Text-Edit-icon.png" />
+    <EmbeddedResource Include="Resources\Actions-application-exit-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Actions-application-exit-icon.png" />
+    <EmbeddedResource Include="Resources\Accept-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Accept-icon.png" />
+    <EmbeddedResource Include="Resources\check-2-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\check-2-icon.png" />
+    <EmbeddedResource Include="Resources\boss-icon.png" />
+    <EmbeddedResource Include="Resources\currency-dollar-icon.png" />
+    <EmbeddedResource Include="Resources\debt.png" />
+    <EmbeddedResource Include="Resources\Folder-Delete-icon.png" />
+    <EmbeddedResource Include="Resources\Lorry-icon.png" />
+    <EmbeddedResource Include="Resources\Money-Calculator-icon.png" />
+    <EmbeddedResource Include="Resources\Money-icon.png" />
+    <EmbeddedResource Include="Resources\statistics-icon.png" />
+    <EmbeddedResource Include="Resources\Web-icon.png" />
+    <EmbeddedResource Include="Resources\yellow-submarine-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
