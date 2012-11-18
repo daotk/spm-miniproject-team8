@@ -190,6 +190,36 @@
     <EmbeddedResource Include="Resources\Web-icon.png" />
     <EmbeddedResource Include="Resources\yellow-submarine-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-male-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Groups-Meeting-Light-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar-folder-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conversion-of-currency-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-quote-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\competitors-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personal-loan-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card-debit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\license-management-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

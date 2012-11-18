@@ -173,6 +173,16 @@ namespace QuanLyKhachHang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap card_debit_icon {
+            get {
+                object obj = ResourceManager.GetObject("card-debit-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_2_icon {
             get {
                 object obj = ResourceManager.GetObject("check-2-icon", resourceCulture);
@@ -186,6 +196,36 @@ namespace QuanLyKhachHang.Properties {
         internal static System.Drawing.Bitmap check_2_icon1 {
             get {
                 object obj = ResourceManager.GetObject("check-2-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check_user_icon {
+            get {
+                object obj = ResourceManager.GetObject("check-user-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap competitors_icon {
+            get {
+                object obj = ResourceManager.GetObject("competitors-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap conversion_of_currency_icon {
+            get {
+                object obj = ResourceManager.GetObject("conversion-of-currency-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +313,39 @@ namespace QuanLyKhachHang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap document_quote_icon {
+            get {
+                object obj = ResourceManager.GetObject("document-quote-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dollar_folder_icon {
+            get {
+                object obj = ResourceManager.GetObject("dollar-folder-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Folder_Delete_icon {
             get {
                 object obj = ResourceManager.GetObject("Folder-Delete-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Groups_Meeting_Light_icon {
+            get {
+                object obj = ResourceManager.GetObject("Groups-Meeting-Light-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,6 +366,16 @@ namespace QuanLyKhachHang.Properties {
         internal static System.Drawing.Bitmap home_icon1 {
             get {
                 object obj = ResourceManager.GetObject("home-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap license_management_icon {
+            get {
+                object obj = ResourceManager.GetObject("license-management-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +446,16 @@ namespace QuanLyKhachHang.Properties {
         internal static System.Drawing.Bitmap pages_brown_icon1 {
             get {
                 object obj = ResourceManager.GetObject("pages-brown-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap personal_loan_icon {
+            get {
+                object obj = ResourceManager.GetObject("personal-loan-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -456,6 +546,16 @@ namespace QuanLyKhachHang.Properties {
         internal static System.Drawing.Bitmap user_group_icon1 {
             get {
                 object obj = ResourceManager.GetObject("user-group-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_male_add_icon {
+            get {
+                object obj = ResourceManager.GetObject("user-male-add-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
