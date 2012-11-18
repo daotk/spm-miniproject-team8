@@ -154,6 +154,7 @@
             // button4
             // 
             this.button4.Image = global::QuanLyKhachHang.Properties.Resources.Actions_application_exit_icon;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(630, 19);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 40);
@@ -175,6 +176,7 @@
             this.button3.Text = "Chỉnh sữa thông tin khách hàng";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
