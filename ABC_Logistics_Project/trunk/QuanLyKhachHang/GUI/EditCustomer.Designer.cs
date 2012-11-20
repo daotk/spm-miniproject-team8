@@ -75,6 +75,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -103,7 +104,6 @@
             this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -368,11 +368,11 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(18, 443);
+            this.label22.Location = new System.Drawing.Point(21, 446);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(58, 16);
             this.label22.TabIndex = 0;
-            this.label22.Text = "Wedsite";
+            this.label22.Text = "Website";
             // 
             // label3
             // 
@@ -576,6 +576,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7.Image = global::QuanLyKhachHang.Properties.Resources.Zoom_icon__1_;
+            this.button7.Location = new System.Drawing.Point(474, 6);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(67, 40);
+            this.button7.TabIndex = 22;
+            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label32
             // 
@@ -862,18 +874,6 @@
             this.label2.Size = new System.Drawing.Size(79, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Phòng ban";
-            // 
-            // button7
-            // 
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button7.Image = global::QuanLyKhachHang.Properties.Resources.Zoom_icon__1_;
-            this.button7.Location = new System.Drawing.Point(474, 6);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(67, 40);
-            this.button7.TabIndex = 22;
-            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // EditCustomer
             // 
