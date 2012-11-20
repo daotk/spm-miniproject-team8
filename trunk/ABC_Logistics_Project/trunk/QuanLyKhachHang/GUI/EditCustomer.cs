@@ -11,6 +11,7 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class EditCustomer : Form
     {
+   
         public EditCustomer()
         {
             InitializeComponent();
@@ -23,7 +24,18 @@ namespace QuanLyKhachHang.GUI
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Status == false)
+            {
+                Search FSearch = new Search();
+                FSearch.Show();
+                Status = true;
+            }
+            else
+            {
+                MessageBox.Show("Bạn đã mở của sổ tìm kiếm !");
+            }
         }
+
+        public bool Status { get; set; }
     }
 }
