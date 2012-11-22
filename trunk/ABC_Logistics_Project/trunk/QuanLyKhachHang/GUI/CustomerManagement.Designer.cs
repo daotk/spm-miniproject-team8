@@ -49,13 +49,12 @@
             this.lblDongHo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.MaCongTy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGiaoDichVN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenGiaoDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGiaoDichEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoFax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LinhVucKinhDoang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LinhVucKinhDoanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NhanVienQuanLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -216,15 +215,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaCongTy,
+            this.MaKhachHang,
+            this.TenGiaoDichVN,
             this.TenGiaoDich,
-            this.TenGiaoDichEn,
             this.DiaChi,
             this.SoDienThoai,
-            this.SoFax,
-            this.LinhVucKinhDoang,
+            this.LinhVucKinhDoanh,
             this.NhanVienQuanLy});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 216);
@@ -296,60 +295,61 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // MaCongTy
+            // MaKhachHang
             // 
-            this.MaCongTy.HeaderText = "Mã công ty";
-            this.MaCongTy.Name = "MaCongTy";
-            this.MaCongTy.ReadOnly = true;
+            this.MaKhachHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaKhachHang.DataPropertyName = "CustomerID";
+            this.MaKhachHang.HeaderText = "Mã công ty";
+            this.MaKhachHang.Name = "MaKhachHang";
+            this.MaKhachHang.ReadOnly = true;
+            // 
+            // TenGiaoDichVN
+            // 
+            this.TenGiaoDichVN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenGiaoDichVN.DataPropertyName = "CompanyNameV";
+            this.TenGiaoDichVN.HeaderText = "Tên giao dich(VN)";
+            this.TenGiaoDichVN.Name = "TenGiaoDichVN";
+            this.TenGiaoDichVN.ReadOnly = true;
             // 
             // TenGiaoDich
             // 
-            this.TenGiaoDich.HeaderText = "Tên giao dich(V)";
+            this.TenGiaoDich.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenGiaoDich.DataPropertyName = "CompanyNameE";
+            this.TenGiaoDich.HeaderText = "Tên giao dich(EN)";
             this.TenGiaoDich.Name = "TenGiaoDich";
             this.TenGiaoDich.ReadOnly = true;
-            this.TenGiaoDich.Width = 170;
-            // 
-            // TenGiaoDichEn
-            // 
-            this.TenGiaoDichEn.HeaderText = "Ten Giao Dich(E)";
-            this.TenGiaoDichEn.Name = "TenGiaoDichEn";
-            this.TenGiaoDichEn.ReadOnly = true;
-            this.TenGiaoDichEn.Width = 170;
             // 
             // DiaChi
             // 
-            this.DiaChi.HeaderText = "Địa Chỉ";
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiaChi.DataPropertyName = "Address";
+            this.DiaChi.HeaderText = "Địa chỉ";
             this.DiaChi.Name = "DiaChi";
             this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 250;
             // 
             // SoDienThoai
             // 
+            this.SoDienThoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoDienThoai.DataPropertyName = "Phone";
             this.SoDienThoai.HeaderText = "Số Điện Thoại";
             this.SoDienThoai.Name = "SoDienThoai";
             this.SoDienThoai.ReadOnly = true;
-            this.SoDienThoai.Width = 130;
             // 
-            // SoFax
+            // LinhVucKinhDoanh
             // 
-            this.SoFax.HeaderText = "Số Fax";
-            this.SoFax.Name = "SoFax";
-            this.SoFax.ReadOnly = true;
-            this.SoFax.Width = 150;
-            // 
-            // LinhVucKinhDoang
-            // 
-            this.LinhVucKinhDoang.HeaderText = "Lĩnh Vực Kinh Doanh";
-            this.LinhVucKinhDoang.Name = "LinhVucKinhDoang";
-            this.LinhVucKinhDoang.ReadOnly = true;
-            this.LinhVucKinhDoang.Width = 160;
+            this.LinhVucKinhDoanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.LinhVucKinhDoanh.DataPropertyName = "Business";
+            this.LinhVucKinhDoanh.HeaderText = "Lĩnh vực kinh doanh";
+            this.LinhVucKinhDoanh.Name = "LinhVucKinhDoanh";
+            this.LinhVucKinhDoanh.ReadOnly = true;
             // 
             // NhanVienQuanLy
             // 
+            this.NhanVienQuanLy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NhanVienQuanLy.DataPropertyName = "ManagementStaff";
             this.NhanVienQuanLy.HeaderText = "Nhân Viên Quản Lý";
             this.NhanVienQuanLy.Name = "NhanVienQuanLy";
             this.NhanVienQuanLy.ReadOnly = true;
-            this.NhanVienQuanLy.Width = 200;
             // 
             // CustomerManagement
             // 
@@ -368,7 +368,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Khách Hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.CustumerManagement_Load);
+            this.Load += new System.EventHandler(this.CustomerManagement_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -399,13 +399,12 @@
         private System.Windows.Forms.Label lblDongHo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaCongTy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiaoDichVN;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenGiaoDich;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenGiaoDichEn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoFax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LinhVucKinhDoang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LinhVucKinhDoanh;
         private System.Windows.Forms.DataGridViewTextBoxColumn NhanVienQuanLy;
 
     }

@@ -6,17 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using QuanLyKhachHang.DA;
 
 namespace QuanLyKhachHang.GUI
 {
     public partial class CustomerManagement : Form
     {
+
+        ABCLogisticsEntities context = new ABCLogisticsEntities();
         public CustomerManagement()
         {
             InitializeComponent();
         }
         bool Status = false;
-   
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -35,10 +38,7 @@ namespace QuanLyKhachHang.GUI
             EditCustomer.Show();
         }
 
-        private void CustumerManagement_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         /// <summary>
         /// Đồng hồ
@@ -50,24 +50,7 @@ namespace QuanLyKhachHang.GUI
             lblDongHo.Text = DateTime.Now.ToString();
         }
 
-        /// <summary>
-        /// xử lý sự kiện khi nhấn nút thêm mới khách hàng trên giao diện quản lý khách hàng
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (Status == false)
-            {
-                AddNewCustomer FNewCustomer = new AddNewCustomer();
-                FNewCustomer.ShowDialog();
-                Status = true;
-            }
-            else
-            {
-                MessageBox.Show("Bạn đã mở của sổ thêm mới khách hàng rồi!");
-            }
-        }
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -83,10 +66,8 @@ namespace QuanLyKhachHang.GUI
         {
             EditCustomer Fedit = new EditCustomer();
             Fedit.ShowDialog();
-            
-        }
 
-      
+        }
         /// <summary>
         /// Xử lý chọn hết text trong ô tìm kiếm khi chọn vào nó
         /// </summary>
@@ -97,10 +78,22 @@ namespace QuanLyKhachHang.GUI
             textBox1.SelectAll();
         }
 
+        private void CustomerManagement_Load(object sender, EventArgs e)
+        {
+            var cus = from p in context.Customers select new { p.CustomerID, p.CompanyNameV, p.CompanyNameE, p.Address, p.Phone, p.Business, p.ManagementStaff };
+
+            dataGridView1.DataSource = cus.ToList();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddNewCustomer Fadd = new AddNewCustomer();
+            Fadd.ShowDialog();
+        }
 
 
-       
 
-       
+
+
     }
 }
