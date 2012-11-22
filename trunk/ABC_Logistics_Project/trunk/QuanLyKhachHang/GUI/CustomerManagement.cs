@@ -39,6 +39,17 @@ namespace QuanLyKhachHang.GUI
         {
 
         }
+
+        /// <summary>
+        /// Đồng hồ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDongHo.Text = DateTime.Now.ToString();
+        }
+
         /// <summary>
         /// xử lý sự kiện khi nhấn nút thêm mới khách hàng trên giao diện quản lý khách hàng
         /// </summary>
@@ -49,7 +60,7 @@ namespace QuanLyKhachHang.GUI
             if (Status == false)
             {
                 AddNewCustomer FNewCustomer = new AddNewCustomer();
-                FNewCustomer.Show();
+                FNewCustomer.ShowDialog();
                 Status = true;
             }
             else
@@ -74,6 +85,21 @@ namespace QuanLyKhachHang.GUI
             Fedit.ShowDialog();
             
         }
+
+      
+        /// <summary>
+        /// Xử lý chọn hết text trong ô tìm kiếm khi chọn vào nó
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox1.SelectAll();
+        }
+
+
+
+       
 
        
     }

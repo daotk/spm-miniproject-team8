@@ -82,6 +82,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoVaTenLot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,7 +121,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(875, 580);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -214,7 +215,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.ForeColor = System.Drawing.Color.Red;
+            this.label32.ForeColor = System.Drawing.Color.Black;
             this.label32.Location = new System.Drawing.Point(453, 520);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(130, 16);
@@ -224,7 +225,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.Red;
+            this.label31.ForeColor = System.Drawing.Color.Black;
             this.label31.Location = new System.Drawing.Point(562, 457);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(21, 16);
@@ -234,7 +235,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.ForeColor = System.Drawing.Color.Red;
+            this.label30.ForeColor = System.Drawing.Color.Black;
             this.label30.Location = new System.Drawing.Point(562, 330);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(21, 16);
@@ -244,7 +245,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.Red;
+            this.label29.ForeColor = System.Drawing.Color.Black;
             this.label29.Location = new System.Drawing.Point(562, 299);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(21, 16);
@@ -254,7 +255,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.ForeColor = System.Drawing.Color.Red;
+            this.label28.ForeColor = System.Drawing.Color.Black;
             this.label28.Location = new System.Drawing.Point(562, 266);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(21, 16);
@@ -264,7 +265,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.ForeColor = System.Drawing.Color.Red;
+            this.label27.ForeColor = System.Drawing.Color.Black;
             this.label27.Location = new System.Drawing.Point(562, 235);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(21, 16);
@@ -274,7 +275,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.ForeColor = System.Drawing.Color.Red;
+            this.label26.ForeColor = System.Drawing.Color.Black;
             this.label26.Location = new System.Drawing.Point(562, 209);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(21, 16);
@@ -284,7 +285,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.ForeColor = System.Drawing.Color.Black;
             this.label25.Location = new System.Drawing.Point(562, 51);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(21, 16);
@@ -294,7 +295,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.Red;
+            this.label24.ForeColor = System.Drawing.Color.Black;
             this.label24.Location = new System.Drawing.Point(562, 23);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(21, 16);
@@ -632,16 +633,16 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(867, 524);
+            this.tabPage2.Size = new System.Drawing.Size(867, 554);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Thông tin liên lạc";
+            this.tabPage2.Text = "Thông tin người liên lạc";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.Red;
+            this.label35.ForeColor = System.Drawing.Color.Black;
             this.label35.Location = new System.Drawing.Point(390, 470);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(130, 16);
@@ -652,7 +653,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.Red;
+            this.label34.ForeColor = System.Drawing.Color.Black;
             this.label34.Location = new System.Drawing.Point(499, 176);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(21, 16);
@@ -663,7 +664,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.Red;
+            this.label33.ForeColor = System.Drawing.Color.Black;
             this.label33.Location = new System.Drawing.Point(499, 38);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(21, 16);
@@ -692,6 +693,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.HoVaTenLot,
             this.Ten,
             this.PhongBan,
@@ -701,8 +703,14 @@
             this.Email});
             this.dataGridView1.Location = new System.Drawing.Point(6, 338);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(855, 110);
+            this.dataGridView1.Size = new System.Drawing.Size(855, 119);
             this.dataGridView1.TabIndex = 4;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 50;
             // 
             // HoVaTenLot
             // 
@@ -719,7 +727,7 @@
             // 
             this.PhongBan.HeaderText = "Phòng ban";
             this.PhongBan.Name = "PhongBan";
-            this.PhongBan.Width = 150;
+            this.PhongBan.Width = 130;
             // 
             // ChucDanh
             // 
@@ -974,13 +982,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoVaTenLot;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhongBan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ChucDanh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoDiDong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
@@ -997,5 +998,13 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoVaTenLot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhongBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChucDanh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoDiDong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
     }
 }

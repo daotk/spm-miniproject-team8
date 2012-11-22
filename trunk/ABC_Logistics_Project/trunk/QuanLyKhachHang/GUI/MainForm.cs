@@ -41,14 +41,6 @@ namespace QuanLyKhachHang.GUI
             button9.Hide();
             button10.Hide();
 
-            ////lấy kích thước của màn hình
-            //int rong = Screen.PrimaryScreen.WorkingArea.Width;
-            //int cao = Screen.PrimaryScreen.WorkingArea.Height;
-
-
-            ////cho form hiển thị theo kích thước của màn hình
-            //this.Width = rong;
-            //this.Height = cao;
            
         }
         /// <summary>
@@ -59,21 +51,27 @@ namespace QuanLyKhachHang.GUI
         private void btnQuanLyKhachHang(object sender, EventArgs e)
         {
             //show button
-            button5.Show();
-            button5.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
-            button5.Text = "Quản lý thông tin khách hàng";
+            //button5.Show();
+            //button5.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
+            //button5.Text = "Quản lý thông tin khách hàng";
             
-            button6.Show();
-            button6.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
-            button6.Text = "Xem thông tin đối tác của khách hàng";
+            //button6.Show();
+            //button6.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
+            //button6.Text = "Xem thông tin đối tác của khách hàng";
             
-            button7.Show();
-            button7.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
-            button7.Text = "Xem thông tin Agent";
+            //button7.Show();
+            //button7.Image = global::QuanLyKhachHang.Properties.Resources.boss_icon;
+            //button7.Text = "Xem thông tin Agent";
+
+            button5.Hide();
+            button6.Hide();
+            button7.Hide();
             button8.Hide();
             button9.Hide();
             button10.Hide();
-     
+
+            CustomerManagement Cus = new CustomerManagement();
+            Cus.Show();
 
         }
         /// <summary>
@@ -159,13 +157,21 @@ namespace QuanLyKhachHang.GUI
                 e.Cancel = true;
             }
         }
-
+        /// <summary>
+        /// xử lý
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
             if (button5.Text == "Quản lý thông tin khách hàng")
             {
                 CustomerManagement FCustomerManagement = new CustomerManagement();
                 FCustomerManagement.ShowDialog();
+            }
+            else
+            { 
+                
             }
         }
         /// <summary>
@@ -271,7 +277,11 @@ namespace QuanLyKhachHang.GUI
             button9.Hide();
             button10.Hide();
         }
+
       
+
+       
+
 
       
 
