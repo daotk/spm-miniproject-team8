@@ -13,12 +13,12 @@ namespace QuanLyKhachHang.GUI
     public partial class CustomerManagement : Form
     {
 
-        ABCLogisticsEntities context = new ABCLogisticsEntities();
+        ABCLogisticsEntities4 context = new ABCLogisticsEntities4();
         public CustomerManagement()
         {
             InitializeComponent();
         }
-        bool Status = false;
+        //bool Status = false;
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
