@@ -24,18 +24,9 @@ namespace QuanLyKhachHang.GUI
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (Status == false)
-            {
                 Search FSearch = new Search();
-                FSearch.Show();
-                Status = true;
-            }
-            else
-            {
-                MessageBox.Show("Bạn đã mở của sổ tìm kiếm !");
-            }
+                FSearch.ShowDialog();    
         }
 
-        public bool Status { get; set; }
     }
 }

@@ -33,12 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerManagement));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.rdAgent = new System.Windows.Forms.RadioButton();
+            this.rdDoiTacKhachHang = new System.Windows.Forms.RadioButton();
+            this.rdKhachHang = new System.Windows.Forms.RadioButton();
+            this.cboTimKiemTheo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -67,80 +67,83 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(186, 105);
+            this.label1.Location = new System.Drawing.Point(197, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tìm kiếm";
             // 
-            // textBox1
+            // txtTimKiem
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(319, 102);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(287, 22);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Điều kiện tìm kiếm";
-            this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem.Location = new System.Drawing.Point(330, 102);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(287, 22);
+            this.txtTimKiem.TabIndex = 5;
+            this.txtTimKiem.Text = "Điều kiện tìm kiếm";
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(676, 108);
+            this.label2.Location = new System.Drawing.Point(687, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Tìm kiếm theo";
             // 
-            // radioButton3
+            // rdAgent
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(359, 161);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(61, 20);
-            this.radioButton3.TabIndex = 21;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Agent";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdAgent.AutoSize = true;
+            this.rdAgent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdAgent.Location = new System.Drawing.Point(539, 161);
+            this.rdAgent.Name = "rdAgent";
+            this.rdAgent.Size = new System.Drawing.Size(61, 20);
+            this.rdAgent.TabIndex = 21;
+            this.rdAgent.TabStop = true;
+            this.rdAgent.Text = "Agent";
+            this.rdAgent.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdDoiTacKhachHang
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(706, 161);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(164, 20);
-            this.radioButton2.TabIndex = 20;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Đối tác của khách hàng";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdDoiTacKhachHang.AutoSize = true;
+            this.rdDoiTacKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdDoiTacKhachHang.Location = new System.Drawing.Point(737, 161);
+            this.rdDoiTacKhachHang.Name = "rdDoiTacKhachHang";
+            this.rdDoiTacKhachHang.Size = new System.Drawing.Size(164, 20);
+            this.rdDoiTacKhachHang.TabIndex = 20;
+            this.rdDoiTacKhachHang.TabStop = true;
+            this.rdDoiTacKhachHang.Text = "Đối tác của khách hàng";
+            this.rdDoiTacKhachHang.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rdKhachHang
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(515, 161);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(96, 20);
-            this.radioButton1.TabIndex = 19;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Khách hàng";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdKhachHang.AutoSize = true;
+            this.rdKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdKhachHang.Location = new System.Drawing.Point(350, 161);
+            this.rdKhachHang.Name = "rdKhachHang";
+            this.rdKhachHang.Size = new System.Drawing.Size(96, 20);
+            this.rdKhachHang.TabIndex = 19;
+            this.rdKhachHang.TabStop = true;
+            this.rdKhachHang.Text = "Khách hàng";
+            this.rdKhachHang.UseVisualStyleBackColor = true;
+            this.rdKhachHang.CheckedChanged += new System.EventHandler(this.rdKhachHang_CheckedChanged);
             // 
-            // comboBox1
+            // cboTimKiemTheo
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Tên khách hàng",
-            "Mã khách hàng"});
-            this.comboBox1.Location = new System.Drawing.Point(838, 100);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(205, 24);
-            this.comboBox1.TabIndex = 7;
+            this.cboTimKiemTheo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTimKiemTheo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTimKiemTheo.FormattingEnabled = true;
+            this.cboTimKiemTheo.Items.AddRange(new object[] {
+            "Mã khách hàng",
+            "Tên khách hàng VN",
+            "Ten khách hàng EN"});
+            this.cboTimKiemTheo.Location = new System.Drawing.Point(849, 100);
+            this.cboTimKiemTheo.Name = "cboTimKiemTheo";
+            this.cboTimKiemTheo.Size = new System.Drawing.Size(205, 24);
+            this.cboTimKiemTheo.TabIndex = 7;
             // 
             // groupBox1
             // 
@@ -148,12 +151,12 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.cboTimKiemTheo);
+            this.groupBox1.Controls.Add(this.rdKhachHang);
+            this.groupBox1.Controls.Add(this.rdDoiTacKhachHang);
+            this.groupBox1.Controls.Add(this.rdAgent);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtTimKiem);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -397,12 +400,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RadioButton rdAgent;
+        private System.Windows.Forms.RadioButton rdDoiTacKhachHang;
+        private System.Windows.Forms.RadioButton rdKhachHang;
+        private System.Windows.Forms.ComboBox cboTimKiemTheo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;

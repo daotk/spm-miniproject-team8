@@ -27,7 +27,10 @@ namespace QuanLyKhachHang.BL
             return check;
         }
 
-
+        public void SearchCustomer(string MaKH)
+        {
+            
+        }
 
     }
 }
