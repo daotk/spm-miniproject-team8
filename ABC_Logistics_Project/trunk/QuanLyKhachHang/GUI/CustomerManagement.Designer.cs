@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerManagement));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -49,13 +51,13 @@
             this.lblDongHo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGiaoDichVN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGiaoDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LinhVucKinhDoanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NhanVienQuanLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LinhVucKinhDoanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGiaoDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGiaoDichVN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -156,7 +158,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1357, 216);
+            this.groupBox1.Size = new System.Drawing.Size(1250, 216);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             // 
@@ -216,6 +218,14 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKhachHang,
@@ -227,11 +237,14 @@
             this.NhanVienQuanLy});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 216);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1357, 410);
+            this.dataGridView1.Size = new System.Drawing.Size(1250, 410);
             this.dataGridView1.TabIndex = 23;
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // panel1
             // 
@@ -243,7 +256,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 596);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1357, 30);
+            this.panel1.Size = new System.Drawing.Size(1250, 30);
             this.panel1.TabIndex = 24;
             // 
             // button14
@@ -295,45 +308,13 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // MaKhachHang
+            // NhanVienQuanLy
             // 
-            this.MaKhachHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaKhachHang.DataPropertyName = "CustomerID";
-            this.MaKhachHang.HeaderText = "Mã công ty";
-            this.MaKhachHang.Name = "MaKhachHang";
-            this.MaKhachHang.ReadOnly = true;
-            // 
-            // TenGiaoDichVN
-            // 
-            this.TenGiaoDichVN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenGiaoDichVN.DataPropertyName = "CompanyNameV";
-            this.TenGiaoDichVN.HeaderText = "Tên giao dich(VN)";
-            this.TenGiaoDichVN.Name = "TenGiaoDichVN";
-            this.TenGiaoDichVN.ReadOnly = true;
-            // 
-            // TenGiaoDich
-            // 
-            this.TenGiaoDich.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenGiaoDich.DataPropertyName = "CompanyNameE";
-            this.TenGiaoDich.HeaderText = "Tên giao dich(EN)";
-            this.TenGiaoDich.Name = "TenGiaoDich";
-            this.TenGiaoDich.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiaChi.DataPropertyName = "Address";
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoDienThoai.DataPropertyName = "Phone";
-            this.SoDienThoai.HeaderText = "Số Điện Thoại";
-            this.SoDienThoai.Name = "SoDienThoai";
-            this.SoDienThoai.ReadOnly = true;
+            this.NhanVienQuanLy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NhanVienQuanLy.DataPropertyName = "ManagementStaff";
+            this.NhanVienQuanLy.HeaderText = "Nhân Viên Quản Lý";
+            this.NhanVienQuanLy.Name = "NhanVienQuanLy";
+            this.NhanVienQuanLy.ReadOnly = true;
             // 
             // LinhVucKinhDoanh
             // 
@@ -343,22 +324,58 @@
             this.LinhVucKinhDoanh.Name = "LinhVucKinhDoanh";
             this.LinhVucKinhDoanh.ReadOnly = true;
             // 
-            // NhanVienQuanLy
+            // SoDienThoai
             // 
-            this.NhanVienQuanLy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NhanVienQuanLy.DataPropertyName = "ManagementStaff";
-            this.NhanVienQuanLy.HeaderText = "Nhân Viên Quản Lý";
-            this.NhanVienQuanLy.Name = "NhanVienQuanLy";
-            this.NhanVienQuanLy.ReadOnly = true;
+            this.SoDienThoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoDienThoai.DataPropertyName = "Phone";
+            this.SoDienThoai.HeaderText = "Số Điện Thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiaChi.DataPropertyName = "Address";
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
+            // TenGiaoDich
+            // 
+            this.TenGiaoDich.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenGiaoDich.DataPropertyName = "CompanyNameE";
+            this.TenGiaoDich.HeaderText = "Tên giao dich(EN)";
+            this.TenGiaoDich.Name = "TenGiaoDich";
+            this.TenGiaoDich.ReadOnly = true;
+            // 
+            // TenGiaoDichVN
+            // 
+            this.TenGiaoDichVN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenGiaoDichVN.DataPropertyName = "CompanyNameV";
+            this.TenGiaoDichVN.HeaderText = "Tên giao dich(VN)";
+            this.TenGiaoDichVN.Name = "TenGiaoDichVN";
+            this.TenGiaoDichVN.ReadOnly = true;
+            // 
+            // MaKhachHang
+            // 
+            this.MaKhachHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaKhachHang.DataPropertyName = "CustomerID";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.NullValue = null;
+            this.MaKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MaKhachHang.HeaderText = "Mã công ty";
+            this.MaKhachHang.Name = "MaKhachHang";
+            this.MaKhachHang.ReadOnly = true;
             // 
             // CustomerManagement
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1357, 626);
+            this.ClientSize = new System.Drawing.Size(1250, 626);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
@@ -388,7 +405,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -399,6 +415,7 @@
         private System.Windows.Forms.Label lblDongHo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenGiaoDichVN;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenGiaoDich;
