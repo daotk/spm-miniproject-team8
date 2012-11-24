@@ -12,7 +12,7 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class AddNewCustomer : Form
     {
-        ABCLogisticsEntities4 context=new ABCLogisticsEntities4();
+        ABCLogisticsEntities2 context=new ABCLogisticsEntities2();
         public AddNewCustomer()
         {
             InitializeComponent();
@@ -22,9 +22,15 @@ namespace QuanLyKhachHang.GUI
         {
 
         }
-
+        /// <summary>
+        /// xử lý sự kiện khi nhấn nhút "Cancel" trong giao diện thêm mới khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
+            CustomerManagement Fcus = new CustomerManagement();
+            Fcus.Load_Data();
             this.Close();
         }
         /// <summary>
@@ -39,30 +45,52 @@ namespace QuanLyKhachHang.GUI
             p.CompanyNameV = txtTenGiaoDichV.Text;
             p.CompanyNameE = txtTenGiaoDichE.Text;
             p.CompanyNameS = txtTenVietTat.Text;
-            p.Business = (string)cboxLinhVucKinhDoanh.SelectedValue;
-            p.Company = (string)cboxCongTyChuQuan.SelectedValue;
-            p.Classify = rdAgent.Text;
-            p.Classify = rdDoiTac.Text;
-            p.Classify = rdKhachHang.Text;
-            p.NationalName = (string)cboxQuocGia.SelectedValue;
-            p.CityName = (string)cboxTinhThanh.SelectedValue;
+            p.Business = cboxLinhVucKinhDoanh.Text;
+            p.Company = cboxCongTyChuQuan.Text;
+            //
+            if (rdAgent.Checked == true)
+            {
+                p.Classify = rdAgent.Text;
+            }
+            if (rdDoiTac.Checked == true)
+            {
+                p.Classify = rdDoiTac.Text;
+            }
+            if (rdKhachHang.Checked)
+            {
+                p.Classify = rdKhachHang.Text;
+            }
+            p.NationalName = cboxQuocGia.Text;
+            p.CityName = cboxTinhThanh.Text;
             p.Address = txtDiaChiLienLac.Text;
             p.Phone = txtSdt.Text;
             p.Fax = txtSoFax.Text;
             p.Email = txtEmail.Text;
             p.Wed = txtWebsite.Text;
-            p.ManagementStaff = (string)cboxNhanVienQuanLy.SelectedValue;
+            p.ManagementStaff = cboxNhanVienQuanLy.Text;
 
-            context.Customers.AddObject(p);
-            int count = context.SaveChanges();
-            if (count > 0)
+            //kiem tra tính hợp lệ khi nhập từ bàn phím
+            if (p.CustomerID != "" && p.CompanyNameV != "" && p.Classify != "" && p.NationalName != "" && p.CityName != "" && p.Address != "" && p.Phone != "")
             {
-                MessageBox.Show("the new customer have been addeed successfully");
-                this.Close();
+                context.Customers.AddObject(p);
+                int count = context.SaveChanges();
+                if (count > 0)
+                {
+                    DialogResult result = MessageBox.Show("Ban da them thanh cong!","Thong Bao", MessageBoxButtons.OK);
+                    if (result == DialogResult.OK)
+                    {
+                        CustomerManagement Fcus = new CustomerManagement();
+                        Fcus.CustomerManagement_Load(sender,e);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không thể thêm!");
+                }
             }
-            else 
+            else
             {
-                MessageBox.Show("cannot add new customer");
+                MessageBox.Show("Ban Chua nhap het!");
             }
 
         }
@@ -100,17 +128,28 @@ namespace QuanLyKhachHang.GUI
             cboxTinhThanh.ValueMember = "MaTinhThanh";
 
             //doc danh sach linh vuc kinh doanh tu database
-            var linhvuc = from cat in context.Customers
+            var linhvuc = from cat in context.LinhVucKinhDoanhs
                           select cat;
-            cboxLinhVucKinhDoanh.DataSource=linhvuc.ToList<Customer>();
-            cboxLinhVucKinhDoanh.DisplayMember = "Business";
+            cboxLinhVucKinhDoanh.DataSource=linhvuc.ToList<LinhVucKinhDoanh>();
+            cboxLinhVucKinhDoanh.DisplayMember = "TenLinhVuc";
 
             //doc danh sach congtychuquan tu database
             var congty = from cat in context.Customers
                          select cat;
             cboxCongTyChuQuan.DataSource=congty.ToList<Customer>();
             cboxCongTyChuQuan.DisplayMember = "Company";
+
+            //khong cho combobox chon gia tri
+            cboxCongTyChuQuan.SelectedItem = -1;
+            cboxLinhVucKinhDoanh.SelectedItem = -1;
+            cboxNhanVienQuanLy.SelectedItem = -1;
+            cboxQuocGia.SelectedItem = -1;
+            cboxTinhThanh.SelectedItem = -1;
         }
+
+     
+
+      
 
        
 
