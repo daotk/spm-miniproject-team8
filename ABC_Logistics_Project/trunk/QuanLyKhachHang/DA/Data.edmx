@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ABCLogisticsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ABCLogisticsModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="ABCLogisticsModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DanhMucNgoaiTe" EntityType="ABCLogisticsModel.Store.DanhMucNgoaiTe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LinhVucKinhDoanh" EntityType="ABCLogisticsModel.Store.LinhVucKinhDoanh" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NguoiLienHe" EntityType="ABCLogisticsModel.Store.NguoiLienHe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NhanVien" EntityType="ABCLogisticsModel.Store.NhanVien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QuocGia" EntityType="ABCLogisticsModel.Store.QuocGia" store:Type="Tables" store:Schema="dbo" store:Name="QuocGia">
+            <DefiningQuery>SELECT 
+      [QuocGia].[MaQuocGia] AS [MaQuocGia], 
+      [QuocGia].[TenQuocGia] AS [TenQuocGia]
+      FROM [dbo].[QuocGia] AS [QuocGia]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TinhThanh" EntityType="ABCLogisticsModel.Store.TinhThanh" store:Type="Tables" store:Schema="dbo" store:Name="TinhThanh">
+            <DefiningQuery>SELECT 
+      [TinhThanh].[MaTinhThanh] AS [MaTinhThanh], 
+      [TinhThanh].[TenTinhThanh] AS [TenTinhThanh]
+      FROM [dbo].[TinhThanh] AS [TinhThanh]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="nchar" Nullable="false" MaxLength="15" />
+          <Property Name="CompanyNameV" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="CompanyNameE" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="CompanyNameS" Type="nvarchar" MaxLength="20" />
+          <Property Name="Business" Type="nvarchar" MaxLength="30" />
+          <Property Name="Company" Type="nvarchar" MaxLength="30" />
+          <Property Name="Classify" Type="nvarchar" MaxLength="20" />
+          <Property Name="NationalName" Type="nvarchar" MaxLength="30" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" />
+          <Property Name="Wed" Type="nvarchar" MaxLength="20" />
+          <Property Name="ManagementStaff" Type="nvarchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="DanhMucNgoaiTe">
+          <Key>
+            <PropertyRef Name="MaNgoaiTe" />
+          </Key>
+          <Property Name="MaNgoaiTe" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="TenNgoaiTe" Type="nchar" MaxLength="10" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="LinhVucKinhDoanh">
+          <Key>
+            <PropertyRef Name="MaLinhVuc" />
+          </Key>
+          <Property Name="MaLinhVuc" Type="int" Nullable="false" />
+          <Property Name="TenLinhVuc" Type="nvarchar" MaxLength="20" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="NguoiLienHe">
+          <Key>
+            <PropertyRef Name="MaNLH" />
+          </Key>
+          <Property Name="MaNLH" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="HoVaChuLotNLH" Type="nvarchar" MaxLength="30" />
+          <Property Name="TenNLH" Type="nchar" MaxLength="10" />
+          <Property Name="PhongBan" Type="nvarchar" MaxLength="20" />
+          <Property Name="ChucDanh" Type="nvarchar" MaxLength="20" />
+          <Property Name="SDT" Type="varchar" MaxLength="15" />
+          <Property Name="SDT_DD" Type="varchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNhanVien" />
+          </Key>
+          <Property Name="MaNhanVien" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="NickName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="Gender" Type="float" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Birthday" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Department" Type="nvarchar" MaxLength="30" />
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ABCLogistics.dbo.QuocGia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="QuocGia">
+          <Key>
+            <PropertyRef Name="MaQuocGia" />
+            <PropertyRef Name="TenQuocGia" />
+          </Key>
+          <Property Name="MaQuocGia" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="TenQuocGia" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'ABCLogistics.dbo.TinhThanh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="TinhThanh">
+          <Key>
+            <PropertyRef Name="MaTinhThanh" />
+            <PropertyRef Name="TenTinhThanh" />
+          </Key>
+          <Property Name="MaTinhThanh" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="TenTinhThanh" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ABCLogisticsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ABCLogisticsEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="ABCLogisticsModel.Customer" />
+          <EntitySet Name="LinhVucKinhDoanhs" EntityType="ABCLogisticsModel.LinhVucKinhDoanh" />
+          <EntitySet Name="NhanViens" EntityType="ABCLogisticsModel.NhanVien" />
+          <EntitySet Name="QuocGias" EntityType="ABCLogisticsModel.QuocGia" />
+          <EntitySet Name="TinhThanhs" EntityType="ABCLogisticsModel.TinhThanh" />
+          <EntitySet Name="DanhMucNgoaiTes" EntityType="ABCLogisticsModel.DanhMucNgoaiTe" />
+          <EntitySet Name="NguoiLienHes" EntityType="ABCLogisticsModel.NguoiLienHe" />
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="true" />
+          <Property Name="CompanyNameV" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="CompanyNameE" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="CompanyNameS" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Business" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Company" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Classify" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="NationalName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="CityName" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Wed" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="ManagementStaff" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="LinhVucKinhDoanh">
+          <Key>
+            <PropertyRef Name="MaLinhVuc" />
+          </Key>
+          <Property Name="MaLinhVuc" Type="Int32" Nullable="false" />
+          <Property Name="TenLinhVuc" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNhanVien" />
+          </Key>
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="NickName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="Gender" Type="Double" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Birthday" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Department" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="QuocGia">
+          <Key>
+            <PropertyRef Name="MaQuocGia" />
+            <PropertyRef Name="TenQuocGia" />
+          </Key>
+          <Property Name="MaQuocGia" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="TenQuocGia" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TinhThanh">
+          <Key>
+            <PropertyRef Name="MaTinhThanh" />
+            <PropertyRef Name="TenTinhThanh" />
+          </Key>
+          <Property Name="MaTinhThanh" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="TenTinhThanh" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="DanhMucNgoaiTe">
+          <Key>
+            <PropertyRef Name="MaNgoaiTe" />
+          </Key>
+          <Property Type="String" Name="MaNgoaiTe" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="TenNgoaiTe" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="GhiChu" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NguoiLienHe">
+          <Key>
+            <PropertyRef Name="MaNLH" />
+          </Key>
+          <Property Type="String" Name="MaNLH" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="HoVaChuLotNLH" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TenNLH" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="PhongBan" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ChucDanh" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SDT" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SDT_DD" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ABCLogisticsModelStoreContainer" CdmEntityContainer="ABCLogisticsEntities2">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="ABCLogisticsModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CompanyNameV" ColumnName="CompanyNameV" />
+                <ScalarProperty Name="CompanyNameE" ColumnName="CompanyNameE" />
+                <ScalarProperty Name="CompanyNameS" ColumnName="CompanyNameS" />
+                <ScalarProperty Name="Business" ColumnName="Business" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Classify" ColumnName="Classify" />
+                <ScalarProperty Name="NationalName" ColumnName="NationalName" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Wed" ColumnName="Wed" />
+                <ScalarProperty Name="ManagementStaff" ColumnName="ManagementStaff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinhVucKinhDoanhs">
+            <EntityTypeMapping TypeName="ABCLogisticsModel.LinhVucKinhDoanh">
+              <MappingFragment StoreEntitySet="LinhVucKinhDoanh">
+                <ScalarProperty Name="MaLinhVuc" ColumnName="MaLinhVuc" />
+                <ScalarProperty Name="TenLinhVuc" ColumnName="TenLinhVuc" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="ABCLogisticsModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuocGias">
+            <EntityTypeMapping TypeName="ABCLogisticsModel.QuocGia">
+              <MappingFragment StoreEntitySet="QuocGia">
+                <ScalarProperty Name="MaQuocGia" ColumnName="MaQuocGia" />
+                <ScalarProperty Name="TenQuocGia" ColumnName="TenQuocGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinhThanhs">
+            <EntityTypeMapping TypeName="ABCLogisticsModel.TinhThanh">
+              <MappingFragment StoreEntitySet="TinhThanh">
+                <ScalarProperty Name="MaTinhThanh" ColumnName="MaTinhThanh" />
+                <ScalarProperty Name="TenTinhThanh" ColumnName="TenTinhThanh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanhMucNgoaiTes">
+            <EntityTypeMapping TypeName="ABCLogisticsModel.DanhMucNgoaiTe">
+              <MappingFragment StoreEntitySet="DanhMucNgoaiTe">
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="TenNgoaiTe" ColumnName="TenNgoaiTe" />
+                <ScalarProperty Name="MaNgoaiTe" ColumnName="MaNgoaiTe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NguoiLienHes">
+            <EntityTypeMapping TypeName="ABCLogisticsModel.NguoiLienHe">
+              <MappingFragment StoreEntitySet="NguoiLienHe">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SDT_DD" ColumnName="SDT_DD" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
+                <ScalarProperty Name="PhongBan" ColumnName="PhongBan" />
+                <ScalarProperty Name="TenNLH" ColumnName="TenNLH" />
+                <ScalarProperty Name="HoVaChuLotNLH" ColumnName="HoVaChuLotNLH" />
+                <ScalarProperty Name="MaNLH" ColumnName="MaNLH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Data">
+        <EntityTypeShape EntityType="ABCLogisticsModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCLogisticsModel.LinhVucKinhDoanh" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCLogisticsModel.NhanVien" Width="1.5" PointX="2.75" PointY="2.875" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCLogisticsModel.QuocGia" Width="1.5" PointX="4.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCLogisticsModel.TinhThanh" Width="1.5" PointX="5.125" PointY="2.75" Height="1.4033821614583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCLogisticsModel.DanhMucNgoaiTe" Width="1.5" PointX="5.375" PointY="5.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="ABCLogisticsModel.NguoiLienHe" Width="1.5" PointX="7.375" PointY="0.75" Height="2.5571907552083317" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

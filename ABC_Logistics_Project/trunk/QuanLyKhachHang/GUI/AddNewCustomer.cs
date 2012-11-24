@@ -30,7 +30,7 @@ namespace QuanLyKhachHang.GUI
         private void button6_Click(object sender, EventArgs e)
         {
             CustomerManagement Fcus = new CustomerManagement();
-            Fcus.Load_Data();
+           
             this.Close();
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace QuanLyKhachHang.GUI
                     if (result == DialogResult.OK)
                     {
                         CustomerManagement Fcus = new CustomerManagement();
-                        Fcus.CustomerManagement_Load(sender,e);
+                       
                     }
                 }
                 else

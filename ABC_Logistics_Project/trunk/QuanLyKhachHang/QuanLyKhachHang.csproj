@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DA\CustomerData.Designer.cs">
+    <Compile Include="DA\Data.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerData.edmx</DependentUpon>
+      <DependentUpon>Data.edmx</DependentUpon>
     </Compile>
     <Compile Include="GUI\AddNewCustomer.cs">
       <SubType>Form</SubType>
@@ -124,11 +124,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DA\CustomerData.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CustomerData.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="App.Config" />
+    <EntityDeploy Include="DA\Data.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Data.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
