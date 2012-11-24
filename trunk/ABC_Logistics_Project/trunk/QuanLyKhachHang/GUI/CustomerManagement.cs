@@ -18,8 +18,9 @@ namespace QuanLyKhachHang.GUI
         {
             InitializeComponent();
         }
-        //bool Status = false;
-
+<<<<<<< .mine       // bool Status = false;
+=======        //bool Status = false;
+>>>>>>> .theirs
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -83,6 +84,7 @@ namespace QuanLyKhachHang.GUI
             var cus = from p in context.Customers select new { p.CustomerID, p.CompanyNameV, p.CompanyNameE, p.Address, p.Phone, p.Business, p.ManagementStaff };
 
             dataGridView1.DataSource = cus.ToList();
+            comboBox1.SelectedIndex = 1;
         }
 
         private void button2_Click(object sender, EventArgs e)
