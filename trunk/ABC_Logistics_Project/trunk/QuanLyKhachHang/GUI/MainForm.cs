@@ -231,7 +231,7 @@ namespace QuanLyKhachHang.GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button12_Click(object sender, EventArgs e)
+        private void btnQuanTriHeThong(object sender, EventArgs e)
         {
             button5.Text = "Thêm mới người dùng";
             button5.Image = global::QuanLyKhachHang.Properties.Resources.user_male_add_icon;
