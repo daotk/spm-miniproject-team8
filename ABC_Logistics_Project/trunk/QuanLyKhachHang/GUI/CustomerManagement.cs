@@ -102,7 +102,26 @@ namespace QuanLyKhachHang.GUI
         public void Load_Data()
         {
             var cus = from p in context.Customers select new { p.CustomerID, p.CompanyNameV, p.CompanyNameE, p.Address, p.Phone, p.Business, p.ManagementStaff };
-            dataGridView1.DataSource = cus.ToList();           
+            dataGridView1.DataSource = cus.ToList();
+            //Chỉnh màu cho từng dòng trong datagirdview
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if (i%2==0)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.DarkGray;
+                }
+            }
+        }
+        /// <summary>
+        /// Xu ly1 khi nhap double vao 1 cell trong DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string makh = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            ViewCustomer Fview = new ViewCustomer(makh);
+            Fview.ShowDialog();
         }
 
 
