@@ -45,8 +45,6 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
-            CustomerManagement Fcus = new CustomerManagement();
-            Fcus.Load_Data();
             this.Close();
         }
         /// <summary>

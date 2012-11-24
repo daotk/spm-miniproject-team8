@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using QuanLyKhachHang.DA;
+using System.Data.SqlClient;
 
 namespace QuanLyKhachHang.GUI
 {
@@ -73,7 +74,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            textBox1.SelectAll();
+            txtTimKiem.SelectAll();
         }
 
         /// <summary>
@@ -84,6 +85,8 @@ namespace QuanLyKhachHang.GUI
         private void CustomerManagement_Load(object sender, EventArgs e)
         {
             Load_Data();
+            cboTimKiemTheo.SelectedIndex = 0;
+            rdKhachHang.Checked=true;
         }
         /// <summary>
         /// Add new custommer
@@ -123,8 +126,35 @@ namespace QuanLyKhachHang.GUI
             ViewCustomer Fview = new ViewCustomer(makh);
             Fview.ShowDialog();
         }
+        /// <summary>
+        /// xu ly su kien khi đánh text
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string txttext = txtTimKiem.Text;
+            ABCLogisticsEntities2 context = new ABCLogisticsEntities2();
+            var customer = from p in context.Customers
+                           where p.CustomerID.Contains(txttext)
+                           select new { p.CustomerID, p.CompanyNameV, p.CompanyNameE, p.Address, p.Phone, p.Business, p.ManagementStaff };
+            dataGridView1.DataSource = customer.ToList();
+
+
+        }
+        /// <summary>
+        /// check vào nút khách hàng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
+        {
+            Load_Data();
+        }
+         
+          
+        }
 
 
 
     }
-}
