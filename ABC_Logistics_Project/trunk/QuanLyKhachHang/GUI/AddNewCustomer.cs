@@ -30,7 +30,7 @@ namespace QuanLyKhachHang.GUI
         private void button6_Click(object sender, EventArgs e)
         {
             CustomerManagement Fcus = new CustomerManagement();
-           
+            Fcus.Load_Data();
             this.Close();
         }
         /// <summary>
@@ -79,7 +79,6 @@ namespace QuanLyKhachHang.GUI
                     DialogResult result = MessageBox.Show("Ban da them thanh cong!","Thong Bao", MessageBoxButtons.OK);
                     if (result == DialogResult.OK)
                     {
-                        CustomerManagement Fcus = new CustomerManagement();
                        
                     }
                 }

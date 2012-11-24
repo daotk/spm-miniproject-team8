@@ -24,13 +24,12 @@ namespace QuanLyKhachHang.GUI
         {
             this.Close();
         }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            AddNewCustomer NewCustomer = new AddNewCustomer();
-            NewCustomer.ShowDialog();
-        }
-
+       
+        /// <summary>
+        /// chinh sua thong tin khach hang
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             EditCustomer EditCustomer = new EditCustomer();
@@ -77,21 +76,34 @@ namespace QuanLyKhachHang.GUI
             textBox1.SelectAll();
         }
 
+        /// <summary>
+        /// load form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CustomerManagement_Load(object sender, EventArgs e)
         {
-            var cus = from p in context.Customers select new { p.CustomerID, p.CompanyNameV, p.CompanyNameE, p.Address, p.Phone, p.Business, p.ManagementStaff };
-
-            dataGridView1.DataSource = cus.ToList();
-            comboBox1.SelectedIndex = 1;
+            Load_Data();
         }
-
+        /// <summary>
+        /// Add new custommer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             AddNewCustomer Fadd = new AddNewCustomer();
-            Fadd.ShowDialog();
+            if (Fadd.ShowDialog() == DialogResult.Cancel)
+            {
+                Load_Data();
+            }
         }
 
-
+        public void Load_Data()
+        {
+            var cus = from p in context.Customers select new { p.CustomerID, p.CompanyNameV, p.CompanyNameE, p.Address, p.Phone, p.Business, p.ManagementStaff };
+            dataGridView1.DataSource = cus.ToList();           
+        }
 
 
 

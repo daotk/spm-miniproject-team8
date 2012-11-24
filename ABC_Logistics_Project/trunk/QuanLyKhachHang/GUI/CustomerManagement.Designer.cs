@@ -45,19 +45,19 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGiaoDichVN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenGiaoDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LinhVucKinhDoanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhanVienQuanLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button14 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblDongHo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.NhanVienQuanLy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LinhVucKinhDoanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGiaoDich = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenGiaoDichVN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -243,7 +243,65 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1250, 410);
             this.dataGridView1.TabIndex = 23;
-           
+            // 
+            // MaKhachHang
+            // 
+            this.MaKhachHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaKhachHang.DataPropertyName = "CustomerID";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.NullValue = null;
+            this.MaKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MaKhachHang.HeaderText = "Mã công ty";
+            this.MaKhachHang.Name = "MaKhachHang";
+            this.MaKhachHang.ReadOnly = true;
+            // 
+            // TenGiaoDichVN
+            // 
+            this.TenGiaoDichVN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenGiaoDichVN.DataPropertyName = "CompanyNameV";
+            this.TenGiaoDichVN.HeaderText = "Tên giao dich(VN)";
+            this.TenGiaoDichVN.Name = "TenGiaoDichVN";
+            this.TenGiaoDichVN.ReadOnly = true;
+            // 
+            // TenGiaoDich
+            // 
+            this.TenGiaoDich.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenGiaoDich.DataPropertyName = "CompanyNameE";
+            this.TenGiaoDich.HeaderText = "Tên giao dich(EN)";
+            this.TenGiaoDich.Name = "TenGiaoDich";
+            this.TenGiaoDich.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiaChi.DataPropertyName = "Address";
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoDienThoai.DataPropertyName = "Phone";
+            this.SoDienThoai.HeaderText = "Số Điện Thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // LinhVucKinhDoanh
+            // 
+            this.LinhVucKinhDoanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.LinhVucKinhDoanh.DataPropertyName = "Business";
+            this.LinhVucKinhDoanh.HeaderText = "Lĩnh vực kinh doanh";
+            this.LinhVucKinhDoanh.Name = "LinhVucKinhDoanh";
+            this.LinhVucKinhDoanh.ReadOnly = true;
+            // 
+            // NhanVienQuanLy
+            // 
+            this.NhanVienQuanLy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NhanVienQuanLy.DataPropertyName = "ManagementStaff";
+            this.NhanVienQuanLy.HeaderText = "Nhân Viên Quản Lý";
+            this.NhanVienQuanLy.Name = "NhanVienQuanLy";
+            this.NhanVienQuanLy.ReadOnly = true;
             // 
             // panel1
             // 
@@ -306,65 +364,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // NhanVienQuanLy
-            // 
-            this.NhanVienQuanLy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NhanVienQuanLy.DataPropertyName = "ManagementStaff";
-            this.NhanVienQuanLy.HeaderText = "Nhân Viên Quản Lý";
-            this.NhanVienQuanLy.Name = "NhanVienQuanLy";
-            this.NhanVienQuanLy.ReadOnly = true;
-            // 
-            // LinhVucKinhDoanh
-            // 
-            this.LinhVucKinhDoanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.LinhVucKinhDoanh.DataPropertyName = "Business";
-            this.LinhVucKinhDoanh.HeaderText = "Lĩnh vực kinh doanh";
-            this.LinhVucKinhDoanh.Name = "LinhVucKinhDoanh";
-            this.LinhVucKinhDoanh.ReadOnly = true;
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoDienThoai.DataPropertyName = "Phone";
-            this.SoDienThoai.HeaderText = "Số Điện Thoại";
-            this.SoDienThoai.Name = "SoDienThoai";
-            this.SoDienThoai.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DiaChi.DataPropertyName = "Address";
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
-            // TenGiaoDich
-            // 
-            this.TenGiaoDich.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenGiaoDich.DataPropertyName = "CompanyNameE";
-            this.TenGiaoDich.HeaderText = "Tên giao dich(EN)";
-            this.TenGiaoDich.Name = "TenGiaoDich";
-            this.TenGiaoDich.ReadOnly = true;
-            // 
-            // TenGiaoDichVN
-            // 
-            this.TenGiaoDichVN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenGiaoDichVN.DataPropertyName = "CompanyNameV";
-            this.TenGiaoDichVN.HeaderText = "Tên giao dich(VN)";
-            this.TenGiaoDichVN.Name = "TenGiaoDichVN";
-            this.TenGiaoDichVN.ReadOnly = true;
-            // 
-            // MaKhachHang
-            // 
-            this.MaKhachHang.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaKhachHang.DataPropertyName = "CustomerID";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.NullValue = null;
-            this.MaKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MaKhachHang.HeaderText = "Mã công ty";
-            this.MaKhachHang.Name = "MaKhachHang";
-            this.MaKhachHang.ReadOnly = true;
             // 
             // CustomerManagement
             // 
