@@ -35,7 +35,6 @@
             this.rdDoiTac = new System.Windows.Forms.RadioButton();
             this.rdKhachHang = new System.Windows.Forms.RadioButton();
             this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -46,7 +45,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.cboxNhanVienQuanLy = new System.Windows.Forms.ComboBox();
             this.cboxTinhThanh = new System.Windows.Forms.ComboBox();
             this.cboxQuocGia = new System.Windows.Forms.ComboBox();
             this.cboxCongTyChuQuan = new System.Windows.Forms.ComboBox();
@@ -107,6 +105,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtNhanVienQuanLy = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -126,11 +125,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtNhanVienQuanLy);
             this.tabPage1.Controls.Add(this.rdAgent);
             this.tabPage1.Controls.Add(this.rdDoiTac);
             this.tabPage1.Controls.Add(this.rdKhachHang);
             this.tabPage1.Controls.Add(this.label32);
-            this.tabPage1.Controls.Add(this.label31);
             this.tabPage1.Controls.Add(this.label30);
             this.tabPage1.Controls.Add(this.label29);
             this.tabPage1.Controls.Add(this.label28);
@@ -141,7 +140,6 @@
             this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.cboxNhanVienQuanLy);
             this.tabPage1.Controls.Add(this.cboxTinhThanh);
             this.tabPage1.Controls.Add(this.cboxQuocGia);
             this.tabPage1.Controls.Add(this.cboxCongTyChuQuan);
@@ -221,16 +219,6 @@
             this.label32.Size = new System.Drawing.Size(130, 16);
             this.label32.TabIndex = 14;
             this.label32.Text = "(*) : Bắt buộc phải có";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(562, 457);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(21, 16);
-            this.label31.TabIndex = 13;
-            this.label31.Text = "(*)";
             // 
             // label30
             // 
@@ -333,16 +321,6 @@
             this.button5.Text = "Đồng ý";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // cboxNhanVienQuanLy
-            // 
-            this.cboxNhanVienQuanLy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxNhanVienQuanLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxNhanVienQuanLy.FormattingEnabled = true;
-            this.cboxNhanVienQuanLy.Location = new System.Drawing.Point(196, 449);
-            this.cboxNhanVienQuanLy.Name = "cboxNhanVienQuanLy";
-            this.cboxNhanVienQuanLy.Size = new System.Drawing.Size(342, 24);
-            this.cboxNhanVienQuanLy.TabIndex = 17;
             // 
             // cboxTinhThanh
             // 
@@ -906,6 +884,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên";
             // 
+            // txtNhanVienQuanLy
+            // 
+            this.txtNhanVienQuanLy.Enabled = false;
+            this.txtNhanVienQuanLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNhanVienQuanLy.Location = new System.Drawing.Point(196, 457);
+            this.txtNhanVienQuanLy.Name = "txtNhanVienQuanLy";
+            this.txtNhanVienQuanLy.Size = new System.Drawing.Size(342, 22);
+            this.txtNhanVienQuanLy.TabIndex = 20;
+            // 
             // AddNewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -954,7 +941,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox cboxNhanVienQuanLy;
         private System.Windows.Forms.ComboBox cboxTinhThanh;
         private System.Windows.Forms.ComboBox cboxQuocGia;
         private System.Windows.Forms.ComboBox cboxCongTyChuQuan;
@@ -987,7 +973,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
@@ -1009,5 +994,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDiDong;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.TextBox txtNhanVienQuanLy;
     }
 }

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\ControlBL.cs" />
     <Compile Include="DA\Data.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -145,7 +146,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BL\" />
     <Folder Include="DO\" />
   </ItemGroup>
   <ItemGroup>

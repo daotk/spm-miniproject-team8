@@ -40,8 +40,7 @@ namespace QuanLyKhachHang.GUI
             txtWedsite.Text = customer.Wed;
             cboNhanVienQuanLy.SelectedValue = customer.ManagementStaff;
             
-
-            
+     
         }
     }
 }
