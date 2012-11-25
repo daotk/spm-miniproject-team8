@@ -13,7 +13,7 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class AddNewCustomer : Form
     {
-        ABCLogisticsEntities2 context=new ABCLogisticsEntities2();
+        ABCLogisticEntities1 context=new ABCLogisticEntities1();
         bool CheckMAKH = false;
         public AddNewCustomer()
         {
@@ -29,11 +29,11 @@ namespace QuanLyKhachHang.GUI
             string makh = txtMaCongTy.Text;
             if (ControlBL.CheckMaKH(makh) == true)
             {
-                MessageBox.Show("Da Ton tai trong Data");
+                MessageBox.Show("Mã Khách hàng này đã có rồi! Xin vui lòng điền vào mã khách hành khác!");
             }
             else
             {
-                MessageBox.Show("OK");
+                MessageBox.Show("Mã khách hàng hợp lệ! Bạn có thể nhập tiếp các thông tin khác!");
                 CheckMAKH =true;
             }
 
@@ -56,39 +56,41 @@ namespace QuanLyKhachHang.GUI
         {
             if (CheckMAKH == true)
             {
-                Customer p = new Customer();
-                p.CustomerID = txtMaCongTy.Text;
-                p.CompanyNameV = txtTenGiaoDichV.Text;
-                p.CompanyNameE = txtTenGiaoDichE.Text;
-                p.CompanyNameS = txtTenVietTat.Text;
-                p.Business = cboxLinhVucKinhDoanh.Text;
-                p.Company = cboxCongTyChuQuan.Text;
+                string txtnhanvienquanly = "Dao Khau";
+
+                KhachHang p = new KhachHang();
+                p.MaCongTy = txtMaCongTy.Text;
+                p.TenCTyV = txtTenGiaoDichV.Text;
+                p.TenCTyE = txtTenGiaoDichE.Text;
+                p.TenCTyVietTat = txtTenVietTat.Text;
+                p.LinhVucKinhDoanh = cboxLinhVucKinhDoanh.Text;
+                p.CongTyChuQuan = cboxCongTyChuQuan.Text;
                 //
                 if (rdAgent.Checked == true)
                 {
-                    p.Classify = rdAgent.Text;
+                    p.LoaiKhachHang = rdAgent.Text;
                 }
                 if (rdDoiTac.Checked == true)
                 {
-                    p.Classify = rdDoiTac.Text;
+                    p.LoaiKhachHang = rdDoiTac.Text;
                 }
                 if (rdKhachHang.Checked)
                 {
-                    p.Classify = rdKhachHang.Text;
+                    p.LoaiKhachHang = rdKhachHang.Text;
                 }
-                p.NationalName = cboxQuocGia.Text;
-                p.CityName = cboxTinhThanh.Text;
-                p.Address = txtDiaChiLienLac.Text;
-                p.Phone = txtSdt.Text;
+                p.TenQuocGia = cboxQuocGia.Text;
+                p.TinhThanh = cboxTinhThanh.Text;
+                p.DiaChi = txtDiaChiLienLac.Text;
+                p.Sdt = txtSdt.Text;
                 p.Fax = txtSoFax.Text;
                 p.Email = txtEmail.Text;
-                p.Wed = txtWebsite.Text;
-                p.ManagementStaff = txtNhanVienQuanLy.Text;
+                p.Web = txtWebsite.Text;
+                p.NhanVienQuanLy = txtnhanvienquanly ;
 
                 //kiem tra tính hợp lệ khi nhập từ bàn phím
-                if (p.CustomerID != "" && p.CompanyNameV != "" && p.Classify != "" && p.NationalName != "" && p.CityName != "" && p.Address != "" && p.Phone != "")
+                if (p.MaCongTy != "" && p.TenCTyV != "" && p.LoaiKhachHang != "" && p.TenQuocGia != "" && p.TinhThanh != "" && p.DiaChi != "" && p.Sdt != "")
                 {
-                    context.Customers.AddObject(p);
+                    context.KhachHangs.AddObject(p);
                     int count = context.SaveChanges();
                     if (count > 0)
                     {
@@ -105,12 +107,12 @@ namespace QuanLyKhachHang.GUI
                 }
                 else
                 {
-                    MessageBox.Show("Ban Chua nhap het!");
+                    MessageBox.Show("Bạn chưa nhập hết các thông tin bắc buộc! Xin hãy nhập hết các thông tin bắc buộc");
                 }
             }
             else
             {
-                MessageBox.Show("ban chua kiem tra Ma KH");
+                MessageBox.Show("Bạn chưa kiễm tra mã khách hàng. Vui lòng kiễm tra mã khách hàng trước khi nhấn Đồng ý");
             }
 
         }
@@ -134,30 +136,41 @@ namespace QuanLyKhachHang.GUI
             cboxQuocGia.DisplayMember = "TenQuocGia";
             cboxQuocGia.ValueMember = "MaQuocGia";
 
-            //doc danh sach tinh thanh tu database
-            var tinhthanh = from cat in context.TinhThanhs
-                            select cat;
-            cboxTinhThanh.DataSource = tinhthanh.ToList<TinhThanh>();
-            cboxTinhThanh.DisplayMember = "TenTinhThanh";
-            cboxTinhThanh.ValueMember = "MaTinhThanh";
-
             //doc danh sach linh vuc kinh doanh tu database
             var linhvuc = from cat in context.LinhVucKinhDoanhs
                           select cat;
             cboxLinhVucKinhDoanh.DataSource=linhvuc.ToList<LinhVucKinhDoanh>();
-            cboxLinhVucKinhDoanh.DisplayMember = "TenLinhVuc";
+            cboxLinhVucKinhDoanh.DisplayMember = "TenLinhVucKinhDoanh";
 
-            //doc danh sach congtychuquan tu database
-            var congty = from cat in context.Customers
-                         select cat;
-            cboxCongTyChuQuan.DataSource=congty.ToList<Customer>();
-            cboxCongTyChuQuan.DisplayMember = "Company";
+            ////doc danh sach congtychuquan tu database
+            //var congty = from cat in context.Customers
+            //             select cat;
+            //cboxCongTyChuQuan.DataSource=congty.ToList<Customer>();
+            //cboxCongTyChuQuan.DisplayMember = "Company";
 
             //khong cho combobox chon gia tri
             cboxCongTyChuQuan.SelectedItem = -1;
-            cboxLinhVucKinhDoanh.SelectedItem = -1;
-            cboxQuocGia.SelectedItem = -1;
-            cboxTinhThanh.SelectedItem = -1;
+            cboxLinhVucKinhDoanh.SelectedItem = 0;
+            cboxQuocGia.SelectedItem = -2;
+        }
+        /// <summary>
+        /// Loc danh sach tinh thanh khi chon Quoc gia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cboxQuocGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboxQuocGia.SelectedIndex >= 0)
+            {
+                int catID;
+                Int32.TryParse(cboxQuocGia.SelectedValue.ToString(), out catID);
+                var tinhthanh = from p in context.TinhThanhs
+                                where p.MaQuocGia == catID
+                                select p.TenTinhThanh;
+                cboxTinhThanh.DataSource = tinhthanh.ToList();
+
+
+            }
         }
 
      

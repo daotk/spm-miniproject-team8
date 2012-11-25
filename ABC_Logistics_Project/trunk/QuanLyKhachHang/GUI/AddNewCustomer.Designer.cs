@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewCustomer));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtNhanVienQuanLy = new System.Windows.Forms.TextBox();
             this.rdAgent = new System.Windows.Forms.RadioButton();
             this.rdDoiTac = new System.Windows.Forms.RadioButton();
             this.rdKhachHang = new System.Windows.Forms.RadioButton();
@@ -105,7 +106,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNhanVienQuanLy = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -176,6 +176,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtNhanVienQuanLy
+            // 
+            this.txtNhanVienQuanLy.Enabled = false;
+            this.txtNhanVienQuanLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNhanVienQuanLy.Location = new System.Drawing.Point(196, 457);
+            this.txtNhanVienQuanLy.Name = "txtNhanVienQuanLy";
+            this.txtNhanVienQuanLy.Size = new System.Drawing.Size(342, 22);
+            this.txtNhanVienQuanLy.TabIndex = 20;
             // 
             // rdAgent
             // 
@@ -341,6 +350,7 @@
             this.cboxQuocGia.Name = "cboxQuocGia";
             this.cboxQuocGia.Size = new System.Drawing.Size(342, 24);
             this.cboxQuocGia.TabIndex = 10;
+            this.cboxQuocGia.SelectedIndexChanged += new System.EventHandler(this.cboxQuocGia_SelectedIndexChanged);
             // 
             // cboxCongTyChuQuan
             // 
@@ -883,15 +893,6 @@
             this.label1.Size = new System.Drawing.Size(71, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên";
-            // 
-            // txtNhanVienQuanLy
-            // 
-            this.txtNhanVienQuanLy.Enabled = false;
-            this.txtNhanVienQuanLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhanVienQuanLy.Location = new System.Drawing.Point(196, 457);
-            this.txtNhanVienQuanLy.Name = "txtNhanVienQuanLy";
-            this.txtNhanVienQuanLy.Size = new System.Drawing.Size(342, 22);
-            this.txtNhanVienQuanLy.TabIndex = 20;
             // 
             // AddNewCustomer
             // 
