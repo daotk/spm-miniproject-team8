@@ -11,9 +11,9 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class ViewCustomer : Form
     {
-        ABCLogisticsEntities2 context = new ABCLogisticsEntities2();
+        ABCLogisticEntities1 context = new ABCLogisticEntities1();
         string MaKhachHang;
-        Customer customer;
+        KhachHang customer;
         public ViewCustomer(string pMaKhachHang)
         {
             MaKhachHang = pMaKhachHang;
@@ -22,23 +22,23 @@ namespace QuanLyKhachHang.GUI
 
         private void ViewCustomer_Load(object sender, EventArgs e)
         {
-            customer = (from p in context.Customers
-                        where p.CustomerID == MaKhachHang
-                        select p).FirstOrDefault<Customer>();
-            txtMaCongTy.Text = customer.CustomerID;
-            txtTenGiaoDichV.Text = customer.CompanyNameV;
-            txtTenGiaoDichE.Text = customer.CompanyNameE;
-            txtTenGiaoDichS.Text = customer.CompanyNameS;
-            cboLinhVucKinhDoanh.SelectedText = customer.Business;
-            cboCongTyChuQuan.SelectedItem = customer.Company;
-            cboQuocGia.SelectedValue = customer.NationalName;
-            cboTinhThanh.Text = customer.CityName;
-            txtDiaChi.Text = customer.Address;
-            txtSDT.Text = customer.Phone;
-            txtSoFax.Text = customer.Fax;
+            customer = (from p in context.KhachHangs
+                        where p.MaCongTy == MaKhachHang
+                        select p).FirstOrDefault<KhachHang>();
+            txtMaCongTy.Text = customer.MaCongTy;
+            txtTenGiaoDichV.Text = customer.TenCTyV;
+            txtTenGiaoDichE.Text = customer.TenCTyE;
+            txtTenGiaoDichS.Text = customer.TenCTyVietTat;
+            cboLinhVucKinhDoanh.SelectedText = customer.LinhVucKinhDoanh;
+            cboCongTyChuQuan.SelectedItem = customer.CongTyChuQuan;
+            cboQuocGia.SelectedValue = customer.TenQuocGia;
+            cboTinhThanh.Text = customer.TinhThanh;
+            txtDiaChi.Text = customer.DiaChi;
+            txtSDT.Text = customer.Sdt.ToString();
+            txtSoFax.Text = customer.Fax.ToString();
             txtEmail.Text = customer.Email;
-            txtWedsite.Text = customer.Wed;
-            cboNhanVienQuanLy.SelectedValue = customer.ManagementStaff;
+            txtWedsite.Text = customer.Web;
+            cboNhanVienQuanLy.SelectedValue = customer.MaNhanVien;
             
      
         }

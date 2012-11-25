@@ -14,7 +14,7 @@ namespace QuanLyKhachHang.GUI
     public partial class CustomerManagement : Form
     {
 
-        ABCLogisticsEntities2 context = new ABCLogisticsEntities2();
+        ABCLogisticEntities1 context = new ABCLogisticEntities1();
         public CustomerManagement()
         {
             InitializeComponent();
@@ -104,7 +104,7 @@ namespace QuanLyKhachHang.GUI
 
         public void Load_Data()
         {
-            var cus = from p in context.Customers select new { p.CustomerID, p.CompanyNameV, p.CompanyNameE, p.Address, p.Phone, p.Business, p.ManagementStaff };
+            var cus = from p in context.KhachHangs select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh,p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
             dataGridView1.DataSource = cus.ToList();
             //Chỉnh màu cho từng dòng trong datagirdview
             for (int i = 0; i < dataGridView1.RowCount; i++)
@@ -134,10 +134,10 @@ namespace QuanLyKhachHang.GUI
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string txttext = txtTimKiem.Text;
-            ABCLogisticsEntities2 context = new ABCLogisticsEntities2();
-            var customer = from p in context.Customers
-                           where p.CustomerID.Contains(txttext)
-                           select new { p.CustomerID, p.CompanyNameV, p.CompanyNameE, p.Address, p.Phone, p.Business, p.ManagementStaff };
+            ABCLogisticEntities1 context = new ABCLogisticEntities1();
+            var customer = from p in context.KhachHangs
+                           where p.MaCongTy.Contains(txttext)
+                           select new { p.MaCongTy, p.TenCTyV, p.TenCTyE, p.DiaChi, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
             dataGridView1.DataSource = customer.ToList();
 
 
