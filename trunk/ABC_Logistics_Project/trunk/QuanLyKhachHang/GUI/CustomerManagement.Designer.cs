@@ -114,10 +114,10 @@
             this.rdDoiTacKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdDoiTacKhachHang.Location = new System.Drawing.Point(737, 161);
             this.rdDoiTacKhachHang.Name = "rdDoiTacKhachHang";
-            this.rdDoiTacKhachHang.Size = new System.Drawing.Size(164, 20);
+            this.rdDoiTacKhachHang.Size = new System.Drawing.Size(139, 20);
             this.rdDoiTacKhachHang.TabIndex = 20;
             this.rdDoiTacKhachHang.TabStop = true;
-            this.rdDoiTacKhachHang.Text = "Đối tác của khách hàng";
+            this.rdDoiTacKhachHang.Text = "Đối tác khách hàng";
             this.rdDoiTacKhachHang.UseVisualStyleBackColor = true;
             this.rdDoiTacKhachHang.CheckedChanged += new System.EventHandler(this.rdDoiTacKhachHang_CheckedChanged);
             // 
