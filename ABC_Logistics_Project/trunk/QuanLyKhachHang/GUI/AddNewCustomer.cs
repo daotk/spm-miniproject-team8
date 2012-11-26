@@ -13,7 +13,7 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class AddNewCustomer : Form
     {
-        ABCLogisticEntities1 context=new ABCLogisticEntities1();
+        ABCLogisticEntities context=new ABCLogisticEntities();
         bool CheckMAKH = false;
         string strCheck;
         public AddNewCustomer()
@@ -57,27 +57,27 @@ namespace QuanLyKhachHang.GUI
         {
             if (CheckMAKH == true)
             {
-                KhachHang p = new KhachHang();
+                KhachHangTa p = new KhachHangTa();
                 p.MaCongTy = txtMaCongTy.Text;
                 p.TenCTyV = txtTenGiaoDichV.Text;
                 p.TenCTyE = txtTenGiaoDichE.Text;
-                p.TenCTyVietTat = txtTenVietTat.Text;
-                p.LinhVucKinhDoanh = cboxLinhVucKinhDoanh.Text;
+                p.TenCTyVT = txtTenVietTat.Text;
+                p.MaLVKD = (int)cboxLinhVucKinhDoanh.SelectedValue;
                 p.CongTyChuQuan = cboxCongTyChuQuan.Text;
                 p.LoaiKhachHang = strCheck;
-                p.TenQuocGia = cboxQuocGia.Text;
-                p.TinhThanh = cboxTinhThanh.Text;
+                p.MaQuocGia = (int)cboxQuocGia.SelectedValue;
+                p.MaTinhThanh =(int)cboxTinhThanh.SelectedValue;
                 p.DiaChi = txtDiaChiLienLac.Text;
                 p.Sdt = txtSdt.Text;
                 p.Fax = txtSoFax.Text;
                 p.Email = txtEmail.Text;
                 p.Web = txtWebsite.Text;
-                p.NhanVienQuanLy = txtNhanVienQuanLy.Text;
+                p.MaNhanVienQuanLy = 1;
 
                 //kiem tra tính hợp lệ khi nhập từ bàn phím
-                if (p.MaCongTy != "" && p.TenCTyV != "" && p.LoaiKhachHang != "" && p.TenQuocGia != ""  && p.TinhThanh!="" && p.DiaChi != "" && p.Sdt != "")
+                if (p.MaCongTy != "" && p.TenCTyV != "" && p.LoaiKhachHang != "" && p.DiaChi != "" && p.Sdt != "")
                 {
-                    context.KhachHangs.AddObject(p);
+                    context.KhachHangTas.AddObject(p);
                     int count = context.SaveChanges();
                     if (count > 0)
                     {
@@ -113,30 +113,31 @@ namespace QuanLyKhachHang.GUI
         {
           
             //doc danh sach quoc gia tu database
-            var QuocGia = from cat in context.QuocGias
+            var QuocGia = from cat in context.QuocGiaTas
                           select cat;
-            cboxQuocGia.DataSource = QuocGia.ToList<QuocGia>();
+            cboxQuocGia.DataSource = QuocGia.ToList<QuocGiaTa>();
             cboxQuocGia.DisplayMember = "TenQuocGia";
             cboxQuocGia.ValueMember = "MaQuocGia";
 
             //doc danh sach tinh thanh khi chon quoc gia
             int catID;
             Int32.TryParse(cboxQuocGia.SelectedValue.ToString(), out catID);
-            var tinhthanh = from p in context.TinhThanhs
+            var tinhthanh = from p in context.TinhThanhTas
                             where p.MaQuocGia == catID
-                            select p.TenTinhThanh;
-            cboxTinhThanh.DataSource = tinhthanh.ToList();
+                            select p;
+            cboxTinhThanh.DataSource = tinhthanh.ToList<TinhThanhTa>();
             cboxTinhThanh.DisplayMember = "TenTinhThanh";
-
+            cboxTinhThanh.ValueMember = "MaTinhThanh";
+            
             //doc danh sach linh vuc kinh doanh tu database
-            var linhvuc = from cat in context.LinhVucKinhDoanhs
+            var linhvuc = from cat in context.LinhVucKinhDoanhTas
                           select cat;
-            cboxLinhVucKinhDoanh.DataSource=linhvuc.ToList<LinhVucKinhDoanh>();
-            cboxLinhVucKinhDoanh.DisplayMember = "TenLinhVucKinhDoanh";
-
-            txtNhanVienQuanLy.Text = "Đạo Khấu";
+            cboxLinhVucKinhDoanh.DataSource=linhvuc.ToList<LinhVucKinhDoanhTa>();
+            cboxLinhVucKinhDoanh.DisplayMember = "TenLVKD";
+            cboxLinhVucKinhDoanh.ValueMember = "MaLVKD";
 
         }
+
         /// <summary>
         /// Loc danh sach tinh thanh khi chon Quoc gia
         /// </summary>
@@ -148,11 +149,12 @@ namespace QuanLyKhachHang.GUI
             {
                 int catID;
                 Int32.TryParse(cboxQuocGia.SelectedValue.ToString(), out catID);
-                var tinhthanh = from p in context.TinhThanhs
+                var tinhthanh = from p in context.TinhThanhTas
                                 where p.MaQuocGia == catID
-                                select p.TenTinhThanh;
-                cboxTinhThanh.DataSource = tinhthanh.ToList();
+                                select p;
+                cboxTinhThanh.DataSource = tinhthanh.ToList<TinhThanhTa>();
                 cboxTinhThanh.DisplayMember = "TenTinhThanh";
+                cboxTinhThanh.ValueMember = "MaTinhThanh";
 
             }
         }
@@ -164,7 +166,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
         {
-            strCheck =  "Khách hàng";
+            strCheck =  rdKhachHang.Text;
         }
 
         /// <summary>
@@ -208,7 +210,6 @@ namespace QuanLyKhachHang.GUI
 
         
 
-       
 
        
     }

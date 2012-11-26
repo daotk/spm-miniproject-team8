@@ -31,7 +31,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDongY = new System.Windows.Forms.Button();
             this.cboNhanVienQuanLy = new System.Windows.Forms.ComboBox();
             this.cboTinhThanh = new System.Windows.Forms.ComboBox();
             this.cboQuocGia = new System.Windows.Forms.ComboBox();
@@ -73,6 +73,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtCongTyChuQuan = new System.Windows.Forms.TextBox();
             this.rdAgent = new System.Windows.Forms.RadioButton();
             this.rdDoitacKhachHang = new System.Windows.Forms.RadioButton();
             this.rdKhachHang = new System.Windows.Forms.RadioButton();
@@ -92,7 +93,6 @@
             this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtCongTyChuQuan = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -124,16 +124,18 @@
             this.button6.TabIndex = 18;
             this.button6.Text = "Hủy bỏ";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button5
+            // btnDongY
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(196, 517);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(79, 35);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "Chỉnh sữa";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDongY.Location = new System.Drawing.Point(196, 517);
+            this.btnDongY.Name = "btnDongY";
+            this.btnDongY.Size = new System.Drawing.Size(79, 35);
+            this.btnDongY.TabIndex = 17;
+            this.btnDongY.Text = "Chỉnh sữa";
+            this.btnDongY.UseVisualStyleBackColor = true;
+            this.btnDongY.Click += new System.EventHandler(this.button5_Click);
             // 
             // cboNhanVienQuanLy
             // 
@@ -523,7 +525,7 @@
             this.tabPage1.Controls.Add(this.rdDoitacKhachHang);
             this.tabPage1.Controls.Add(this.rdKhachHang);
             this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.btnDongY);
             this.tabPage1.Controls.Add(this.cboNhanVienQuanLy);
             this.tabPage1.Controls.Add(this.cboTinhThanh);
             this.tabPage1.Controls.Add(this.cboQuocGia);
@@ -561,6 +563,15 @@
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtCongTyChuQuan
+            // 
+            this.txtCongTyChuQuan.Enabled = false;
+            this.txtCongTyChuQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCongTyChuQuan.Location = new System.Drawing.Point(199, 171);
+            this.txtCongTyChuQuan.Name = "txtCongTyChuQuan";
+            this.txtCongTyChuQuan.Size = new System.Drawing.Size(342, 22);
+            this.txtCongTyChuQuan.TabIndex = 20;
+            // 
             // rdAgent
             // 
             this.rdAgent.AutoSize = true;
@@ -572,6 +583,7 @@
             this.rdAgent.TabStop = true;
             this.rdAgent.Text = "Agent";
             this.rdAgent.UseVisualStyleBackColor = true;
+            this.rdAgent.CheckedChanged += new System.EventHandler(this.rdAgent_CheckedChanged);
             // 
             // rdDoitacKhachHang
             // 
@@ -584,6 +596,7 @@
             this.rdDoitacKhachHang.TabStop = true;
             this.rdDoitacKhachHang.Text = "Đối tác khách hàng";
             this.rdDoitacKhachHang.UseVisualStyleBackColor = true;
+            this.rdDoitacKhachHang.CheckedChanged += new System.EventHandler(this.rdDoitacKhachHang_CheckedChanged);
             // 
             // rdKhachHang
             // 
@@ -596,6 +609,7 @@
             this.rdKhachHang.TabStop = true;
             this.rdKhachHang.Text = "Khách hàng";
             this.rdKhachHang.UseVisualStyleBackColor = true;
+            this.rdKhachHang.CheckedChanged += new System.EventHandler(this.rdKhachHang_CheckedChanged);
             // 
             // label12
             // 
@@ -754,15 +768,6 @@
             this.tabPage3.Text = "Lịch sử giao dich";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // txtCongTyChuQuan
-            // 
-            this.txtCongTyChuQuan.Enabled = false;
-            this.txtCongTyChuQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCongTyChuQuan.Location = new System.Drawing.Point(199, 171);
-            this.txtCongTyChuQuan.Name = "txtCongTyChuQuan";
-            this.txtCongTyChuQuan.Size = new System.Drawing.Size(342, 22);
-            this.txtCongTyChuQuan.TabIndex = 20;
-            // 
             // ViewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,9 +775,10 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(909, 625);
             this.Controls.Add(this.tabControl1);
+            this.MaximizeBox = false;
             this.Name = "ViewCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ViewCustomer";
+            this.Text = "Xem thông tin khách hàng";
             this.Load += new System.EventHandler(this.ViewCustomer_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -789,7 +795,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDongY;
         private System.Windows.Forms.ComboBox cboNhanVienQuanLy;
         private System.Windows.Forms.ComboBox cboTinhThanh;
         private System.Windows.Forms.ComboBox cboQuocGia;

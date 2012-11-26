@@ -203,17 +203,17 @@
             this.rdDoiTac.AutoSize = true;
             this.rdDoiTac.Location = new System.Drawing.Point(309, 207);
             this.rdDoiTac.Name = "rdDoiTac";
-            this.rdDoiTac.Size = new System.Drawing.Size(142, 20);
+            this.rdDoiTac.Size = new System.Drawing.Size(139, 20);
             this.rdDoiTac.TabIndex = 8;
             this.rdDoiTac.TabStop = true;
-            this.rdDoiTac.Text = "Đối tác  khách hàng";
+            this.rdDoiTac.Text = "Đối tác khách hàng";
             this.rdDoiTac.UseVisualStyleBackColor = true;
             this.rdDoiTac.CheckedChanged += new System.EventHandler(this.rdDoiTac_CheckedChanged);
             // 
             // rdKhachHang
             // 
             this.rdKhachHang.AutoSize = true;
-            this.rdKhachHang.Location = new System.Drawing.Point(196, 205);
+            this.rdKhachHang.Location = new System.Drawing.Point(196, 207);
             this.rdKhachHang.Name = "rdKhachHang";
             this.rdKhachHang.Size = new System.Drawing.Size(96, 20);
             this.rdKhachHang.TabIndex = 7;

@@ -12,7 +12,7 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class Search : Form
     {
-        ABCLogisticEntities1 context = new ABCLogisticEntities1();
+        ABCLogisticEntities context = new ABCLogisticEntities();
         public Search()
         {
             InitializeComponent();
@@ -25,10 +25,9 @@ namespace QuanLyKhachHang.GUI
         private void txttukhoa_TextChanged(object sender, EventArgs e)
         {
             string txttext = txttukhoa.Text;
-            ABCLogisticEntities1 context = new ABCLogisticEntities1();
-            var customer = from p in context.KhachHangs
+            var customer = from p in context.KhachHangTas
                            where p.MaCongTy.Contains(txttext)
-                           select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+                           select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.Sdt, p.MaLVKD, p.MaNhanVienQuanLy };
             grdtimkiem.DataSource = customer.ToList();
         }
 
