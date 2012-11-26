@@ -196,6 +196,7 @@
             this.rdAgent.TabStop = true;
             this.rdAgent.Text = "Agent";
             this.rdAgent.UseVisualStyleBackColor = true;
+            this.rdAgent.CheckedChanged += new System.EventHandler(this.rdAgent_CheckedChanged);
             // 
             // rdDoiTac
             // 
@@ -207,6 +208,7 @@
             this.rdDoiTac.TabStop = true;
             this.rdDoiTac.Text = "Đối tác của khách hàng";
             this.rdDoiTac.UseVisualStyleBackColor = true;
+            this.rdDoiTac.CheckedChanged += new System.EventHandler(this.rdDoiTac_CheckedChanged);
             // 
             // rdKhachHang
             // 
@@ -218,6 +220,7 @@
             this.rdKhachHang.TabStop = true;
             this.rdKhachHang.Text = "Khách hàng";
             this.rdKhachHang.UseVisualStyleBackColor = true;
+            this.rdKhachHang.CheckedChanged += new System.EventHandler(this.rdKhachHang_CheckedChanged);
             // 
             // label32
             // 
@@ -302,9 +305,9 @@
             // button7
             // 
             this.button7.Image = global::QuanLyKhachHang.Properties.Resources.check_2_icon;
-            this.button7.Location = new System.Drawing.Point(507, 17);
+            this.button7.Location = new System.Drawing.Point(504, 14);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(34, 22);
+            this.button7.Size = new System.Drawing.Size(34, 25);
             this.button7.TabIndex = 5;
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -394,6 +397,7 @@
             this.txtSoFax.Name = "txtSoFax";
             this.txtSoFax.Size = new System.Drawing.Size(342, 22);
             this.txtSoFax.TabIndex = 14;
+            this.txtSoFax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtSdt
             // 
@@ -402,6 +406,7 @@
             this.txtSdt.Name = "txtSdt";
             this.txtSdt.Size = new System.Drawing.Size(342, 22);
             this.txtSdt.TabIndex = 13;
+            this.txtSdt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtDiaChiLienLac
             // 
@@ -442,7 +447,6 @@
             this.txtMaCongTy.Name = "txtMaCongTy";
             this.txtMaCongTy.Size = new System.Drawing.Size(301, 22);
             this.txtMaCongTy.TabIndex = 1;
-            this.txtMaCongTy.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label23
             // 

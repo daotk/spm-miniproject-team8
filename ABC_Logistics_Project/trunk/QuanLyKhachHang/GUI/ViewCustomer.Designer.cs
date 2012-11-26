@@ -39,7 +39,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cboCongTyChuQuan = new System.Windows.Forms.ComboBox();
             this.cboLinhVucKinhDoanh = new System.Windows.Forms.ComboBox();
             this.txtWedsite = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -74,6 +73,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.rdAgent = new System.Windows.Forms.RadioButton();
+            this.rdDoitacKhachHang = new System.Windows.Forms.RadioButton();
+            this.rdKhachHang = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -90,9 +92,7 @@
             this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.txtCongTyChuQuan = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -138,6 +138,7 @@
             // cboNhanVienQuanLy
             // 
             this.cboNhanVienQuanLy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNhanVienQuanLy.Enabled = false;
             this.cboNhanVienQuanLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNhanVienQuanLy.FormattingEnabled = true;
             this.cboNhanVienQuanLy.Location = new System.Drawing.Point(196, 467);
@@ -148,6 +149,7 @@
             // cboTinhThanh
             // 
             this.cboTinhThanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTinhThanh.Enabled = false;
             this.cboTinhThanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTinhThanh.FormattingEnabled = true;
             this.cboTinhThanh.Location = new System.Drawing.Point(196, 266);
@@ -158,6 +160,7 @@
             // cboQuocGia
             // 
             this.cboQuocGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboQuocGia.Enabled = false;
             this.cboQuocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboQuocGia.FormattingEnabled = true;
             this.cboQuocGia.Location = new System.Drawing.Point(196, 232);
@@ -197,18 +200,10 @@
             this.textBox1.Size = new System.Drawing.Size(183, 26);
             this.textBox1.TabIndex = 1;
             // 
-            // cboCongTyChuQuan
-            // 
-            this.cboCongTyChuQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboCongTyChuQuan.FormattingEnabled = true;
-            this.cboCongTyChuQuan.Location = new System.Drawing.Point(199, 170);
-            this.cboCongTyChuQuan.Name = "cboCongTyChuQuan";
-            this.cboCongTyChuQuan.Size = new System.Drawing.Size(342, 24);
-            this.cboCongTyChuQuan.TabIndex = 5;
-            // 
             // cboLinhVucKinhDoanh
             // 
             this.cboLinhVucKinhDoanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLinhVucKinhDoanh.Enabled = false;
             this.cboLinhVucKinhDoanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLinhVucKinhDoanh.FormattingEnabled = true;
             this.cboLinhVucKinhDoanh.Location = new System.Drawing.Point(199, 141);
@@ -218,6 +213,7 @@
             // 
             // txtWedsite
             // 
+            this.txtWedsite.Enabled = false;
             this.txtWedsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWedsite.Location = new System.Drawing.Point(196, 434);
             this.txtWedsite.Name = "txtWedsite";
@@ -226,6 +222,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Enabled = false;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(196, 405);
             this.txtEmail.Name = "txtEmail";
@@ -252,6 +249,7 @@
             // 
             // txtSoFax
             // 
+            this.txtSoFax.Enabled = false;
             this.txtSoFax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoFax.Location = new System.Drawing.Point(196, 369);
             this.txtSoFax.Name = "txtSoFax";
@@ -270,6 +268,7 @@
             // 
             // txtSDT
             // 
+            this.txtSDT.Enabled = false;
             this.txtSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDT.Location = new System.Drawing.Point(196, 335);
             this.txtSDT.Name = "txtSDT";
@@ -278,6 +277,7 @@
             // 
             // txtDiaChi
             // 
+            this.txtDiaChi.Enabled = false;
             this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Location = new System.Drawing.Point(196, 302);
             this.txtDiaChi.Name = "txtDiaChi";
@@ -286,6 +286,7 @@
             // 
             // txtTenGiaoDichS
             // 
+            this.txtTenGiaoDichS.Enabled = false;
             this.txtTenGiaoDichS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenGiaoDichS.Location = new System.Drawing.Point(199, 109);
             this.txtTenGiaoDichS.Name = "txtTenGiaoDichS";
@@ -294,6 +295,7 @@
             // 
             // txtTenGiaoDichE
             // 
+            this.txtTenGiaoDichE.Enabled = false;
             this.txtTenGiaoDichE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenGiaoDichE.Location = new System.Drawing.Point(199, 80);
             this.txtTenGiaoDichE.Name = "txtTenGiaoDichE";
@@ -302,6 +304,7 @@
             // 
             // txtTenGiaoDichV
             // 
+            this.txtTenGiaoDichV.Enabled = false;
             this.txtTenGiaoDichV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenGiaoDichV.Location = new System.Drawing.Point(199, 52);
             this.txtTenGiaoDichV.Name = "txtTenGiaoDichV";
@@ -310,10 +313,11 @@
             // 
             // txtMaCongTy
             // 
+            this.txtMaCongTy.Enabled = false;
             this.txtMaCongTy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaCongTy.Location = new System.Drawing.Point(199, 20);
             this.txtMaCongTy.Name = "txtMaCongTy";
-            this.txtMaCongTy.Size = new System.Drawing.Size(301, 22);
+            this.txtMaCongTy.Size = new System.Drawing.Size(342, 22);
             this.txtMaCongTy.TabIndex = 0;
             // 
             // button1
@@ -514,15 +518,15 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.radioButton3);
-            this.tabPage1.Controls.Add(this.radioButton2);
-            this.tabPage1.Controls.Add(this.radioButton1);
+            this.tabPage1.Controls.Add(this.txtCongTyChuQuan);
+            this.tabPage1.Controls.Add(this.rdAgent);
+            this.tabPage1.Controls.Add(this.rdDoitacKhachHang);
+            this.tabPage1.Controls.Add(this.rdKhachHang);
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.cboNhanVienQuanLy);
             this.tabPage1.Controls.Add(this.cboTinhThanh);
             this.tabPage1.Controls.Add(this.cboQuocGia);
-            this.tabPage1.Controls.Add(this.cboCongTyChuQuan);
             this.tabPage1.Controls.Add(this.cboLinhVucKinhDoanh);
             this.tabPage1.Controls.Add(this.txtWedsite);
             this.tabPage1.Controls.Add(this.txtEmail);
@@ -556,6 +560,42 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // rdAgent
+            // 
+            this.rdAgent.AutoSize = true;
+            this.rdAgent.Enabled = false;
+            this.rdAgent.Location = new System.Drawing.Point(477, 201);
+            this.rdAgent.Name = "rdAgent";
+            this.rdAgent.Size = new System.Drawing.Size(61, 20);
+            this.rdAgent.TabIndex = 19;
+            this.rdAgent.TabStop = true;
+            this.rdAgent.Text = "Agent";
+            this.rdAgent.UseVisualStyleBackColor = true;
+            // 
+            // rdDoitacKhachHang
+            // 
+            this.rdDoitacKhachHang.AutoSize = true;
+            this.rdDoitacKhachHang.Enabled = false;
+            this.rdDoitacKhachHang.Location = new System.Drawing.Point(316, 201);
+            this.rdDoitacKhachHang.Name = "rdDoitacKhachHang";
+            this.rdDoitacKhachHang.Size = new System.Drawing.Size(139, 20);
+            this.rdDoitacKhachHang.TabIndex = 19;
+            this.rdDoitacKhachHang.TabStop = true;
+            this.rdDoitacKhachHang.Text = "Đối tác khách hàng";
+            this.rdDoitacKhachHang.UseVisualStyleBackColor = true;
+            // 
+            // rdKhachHang
+            // 
+            this.rdKhachHang.AutoSize = true;
+            this.rdKhachHang.Enabled = false;
+            this.rdKhachHang.Location = new System.Drawing.Point(198, 201);
+            this.rdKhachHang.Name = "rdKhachHang";
+            this.rdKhachHang.Size = new System.Drawing.Size(96, 20);
+            this.rdKhachHang.TabIndex = 19;
+            this.rdKhachHang.TabStop = true;
+            this.rdKhachHang.Text = "Khách hàng";
+            this.rdKhachHang.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -714,38 +754,14 @@
             this.tabPage3.Text = "Lịch sử giao dich";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // txtCongTyChuQuan
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(198, 201);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(96, 20);
-            this.radioButton1.TabIndex = 19;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Khách hàng";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(316, 201);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(139, 20);
-            this.radioButton2.TabIndex = 19;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Đối tác khách hàng";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(477, 201);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(61, 20);
-            this.radioButton3.TabIndex = 19;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Agent";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.txtCongTyChuQuan.Enabled = false;
+            this.txtCongTyChuQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCongTyChuQuan.Location = new System.Drawing.Point(199, 171);
+            this.txtCongTyChuQuan.Name = "txtCongTyChuQuan";
+            this.txtCongTyChuQuan.Size = new System.Drawing.Size(342, 22);
+            this.txtCongTyChuQuan.TabIndex = 20;
             // 
             // ViewCustomer
             // 
@@ -781,7 +797,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox cboCongTyChuQuan;
         private System.Windows.Forms.ComboBox cboLinhVucKinhDoanh;
         private System.Windows.Forms.TextBox txtWedsite;
         private System.Windows.Forms.TextBox txtEmail;
@@ -832,8 +847,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage3;
         public System.Windows.Forms.TextBox txtMaCongTy;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdAgent;
+        private System.Windows.Forms.RadioButton rdDoitacKhachHang;
+        private System.Windows.Forms.RadioButton rdKhachHang;
+        private System.Windows.Forms.TextBox txtCongTyChuQuan;
     }
 }

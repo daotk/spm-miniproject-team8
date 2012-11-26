@@ -26,18 +26,7 @@ namespace QuanLyKhachHang.GUI
             this.Close();
         }
        
-        /// <summary>
-        /// chinh sua thong tin khach hang
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            EditCustomer EditCustomer = new EditCustomer();
-            EditCustomer.Show();
-        }
-
-       
+      
 
         /// <summary>
         /// Đồng hồ
@@ -107,13 +96,6 @@ namespace QuanLyKhachHang.GUI
             var cus = from p in context.KhachHangs select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh,p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
             dataGridView1.DataSource = cus.ToList();
             //Chỉnh màu cho từng dòng trong datagirdview
-            for (int i = 0; i < dataGridView1.RowCount; i++)
-            {
-                if (i%2==0)
-                {
-                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.DarkGray;
-                }
-            }
         }
         /// <summary>
         /// Xu ly1 khi nhap double vao 1 cell trong DataGridView
@@ -133,13 +115,24 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string txttext = txtTimKiem.Text;
-            ABCLogisticEntities1 context = new ABCLogisticEntities1();
-            var customer = from p in context.KhachHangs
-                           where p.MaCongTy.Contains(txttext)
-                           select new { p.MaCongTy, p.TenCTyV, p.TenCTyE, p.DiaChi, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
-            dataGridView1.DataSource = customer.ToList();
-
+            if (cboTimKiemTheo.Text == "Mã khách hàng")
+            {
+                string txttext = txtTimKiem.Text;
+                ABCLogisticEntities1 context = new ABCLogisticEntities1();
+                var customer = from p in context.KhachHangs
+                               where p.MaCongTy.Contains(txttext) 
+                               select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+                dataGridView1.DataSource = customer.ToList();
+            }
+            else
+            {
+                string txttext = txtTimKiem.Text;
+                ABCLogisticEntities1 context = new ABCLogisticEntities1();
+                var customer = from p in context.KhachHangs
+                               where p.TenCTyV.Contains(txttext)
+                               select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+                dataGridView1.DataSource = customer.ToList();
+            }
 
         }
         /// <summary>
@@ -149,7 +142,34 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
         {
-            Load_Data();
+            var cus = from p in context.KhachHangs
+                      where p.LoaiKhachHang == "Khách hàng"
+                      select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+            dataGridView1.DataSource = cus.ToList();
+        }
+        /// <summary>
+        /// loc danh sach agent
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdAgent_CheckedChanged(object sender, EventArgs e)
+        {
+            var cus = from p in context.KhachHangs 
+                      where p.LoaiKhachHang =="Agent"
+                      select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+            dataGridView1.DataSource = cus.ToList();
+        }
+        /// <summary>
+        /// loc danh sach doi tac khach hang
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdDoiTacKhachHang_CheckedChanged(object sender, EventArgs e)
+        {
+            var cus = from p in context.KhachHangs
+                      where p.LoaiKhachHang == "Đối tác khách hàng"
+                      select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+            dataGridView1.DataSource = cus.ToList();
         }
          
           
