@@ -22,6 +22,22 @@ namespace QuanLyKhachHang.GUI
 
         private void ViewCustomer_Load(object sender, EventArgs e)
         {
+           
+            ////doc danh sach quoc gia tu database
+            //var QuocGia = from cat in context.QuocGias
+            //              select cat;
+            //cboQuocGia.DataSource = QuocGia.ToList<QuocGia>();
+          
+            ////doc danh sach linh vuc kinh doanh tu database
+            //var linhvuc = from cat in context.LinhVucKinhDoanhs
+            //              select cat;
+            //cboLinhVucKinhDoanh.DataSource = linhvuc.ToList<LinhVucKinhDoanh>();
+
+            ////doc danh sach tinh thanh tu database
+            //var tinhthanh = from cat in context.TinhThanhs
+            //              select cat;
+            //cboQuocGia.DataSource = tinhthanh.ToList<TinhThanh>();
+
             customer = (from p in context.KhachHangs
                         where p.MaCongTy == MaKhachHang
                         select p).FirstOrDefault<KhachHang>();
@@ -29,18 +45,40 @@ namespace QuanLyKhachHang.GUI
             txtTenGiaoDichV.Text = customer.TenCTyV;
             txtTenGiaoDichE.Text = customer.TenCTyE;
             txtTenGiaoDichS.Text = customer.TenCTyVietTat;
-            cboLinhVucKinhDoanh.SelectedText = customer.LinhVucKinhDoanh;
-            cboCongTyChuQuan.SelectedItem = customer.CongTyChuQuan;
-            cboQuocGia.SelectedValue = customer.TenQuocGia;
-            cboTinhThanh.Text = customer.TinhThanh;
+
+            cboLinhVucKinhDoanh.Items.Add(customer.LinhVucKinhDoanh);
+            cboLinhVucKinhDoanh.SelectedItem = customer.LinhVucKinhDoanh;
+
+            txtCongTyChuQuan.SelectedText = customer.CongTyChuQuan;
+
+            if (customer.LoaiKhachHang.ToString() == "Khách hàng")
+            {
+                rdKhachHang.Checked = true;
+            }
+            if (customer.LoaiKhachHang.ToString() == "Đối tác khách hàng")
+            {
+                rdDoitacKhachHang.Checked = true;
+            }
+            if (customer.LoaiKhachHang.ToString() == "Agent")
+            {
+                rdAgent.Checked = true;
+            }
+
+            cboQuocGia.Items.Add(customer.TenQuocGia);
+            cboQuocGia.SelectedItem = customer.TenQuocGia;
+
+            cboTinhThanh.Items.Add(customer.TinhThanh);
+            cboTinhThanh.SelectedItem = customer.TinhThanh;
             txtDiaChi.Text = customer.DiaChi;
-            txtSDT.Text = customer.Sdt.ToString();
-            txtSoFax.Text = customer.Fax.ToString();
+            txtSDT.Text = customer.Sdt;
+            txtSoFax.Text = customer.Fax;
             txtEmail.Text = customer.Email;
             txtWedsite.Text = customer.Web;
-            cboNhanVienQuanLy.SelectedValue = customer.MaNhanVien;
+
+            cboNhanVienQuanLy.Items.Add(customer.NhanVienQuanLy);
+            cboNhanVienQuanLy.SelectedItem = customer.NhanVienQuanLy;
             
-     
+
         }
     }
 }

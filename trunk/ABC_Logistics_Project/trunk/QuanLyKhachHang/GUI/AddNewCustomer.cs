@@ -15,6 +15,7 @@ namespace QuanLyKhachHang.GUI
     {
         ABCLogisticEntities1 context=new ABCLogisticEntities1();
         bool CheckMAKH = false;
+        string strCheck;
         public AddNewCustomer()
         {
             InitializeComponent();
@@ -56,8 +57,6 @@ namespace QuanLyKhachHang.GUI
         {
             if (CheckMAKH == true)
             {
-                string txtnhanvienquanly = "Dao Khau";
-
                 KhachHang p = new KhachHang();
                 p.MaCongTy = txtMaCongTy.Text;
                 p.TenCTyV = txtTenGiaoDichV.Text;
@@ -65,19 +64,9 @@ namespace QuanLyKhachHang.GUI
                 p.TenCTyVietTat = txtTenVietTat.Text;
                 p.LinhVucKinhDoanh = cboxLinhVucKinhDoanh.Text;
                 p.CongTyChuQuan = cboxCongTyChuQuan.Text;
-                //
-                if (rdAgent.Checked == true)
-                {
-                    p.LoaiKhachHang = rdAgent.Text;
-                }
-                if (rdDoiTac.Checked == true)
-                {
-                    p.LoaiKhachHang = rdDoiTac.Text;
-                }
-                if (rdKhachHang.Checked)
-                {
-                    p.LoaiKhachHang = rdKhachHang.Text;
-                }
+
+                p.LoaiKhachHang = strCheck;
+
                 p.TenQuocGia = cboxQuocGia.Text;
                 p.TinhThanh = cboxTinhThanh.Text;
                 p.DiaChi = txtDiaChiLienLac.Text;
@@ -85,10 +74,10 @@ namespace QuanLyKhachHang.GUI
                 p.Fax = txtSoFax.Text;
                 p.Email = txtEmail.Text;
                 p.Web = txtWebsite.Text;
-                p.NhanVienQuanLy = txtnhanvienquanly ;
+                p.NhanVienQuanLy = txtNhanVienQuanLy.Text;
 
                 //kiem tra tính hợp lệ khi nhập từ bàn phím
-                if (p.MaCongTy != "" && p.TenCTyV != "" && p.LoaiKhachHang != "" && p.TenQuocGia != "" && p.TinhThanh != "" && p.DiaChi != "" && p.Sdt != "")
+                if (p.MaCongTy != "" && p.TenCTyV != "" && p.LoaiKhachHang != "" && p.TenQuocGia != ""  && p.TinhThanh!="" && p.DiaChi != "" && p.Sdt != "")
                 {
                     context.KhachHangs.AddObject(p);
                     int count = context.SaveChanges();
@@ -97,7 +86,7 @@ namespace QuanLyKhachHang.GUI
                         DialogResult result = MessageBox.Show("Ban da them thanh cong!", "Thong Bao", MessageBoxButtons.OK);
                         if (result == DialogResult.OK)
                         {
-
+                            this.Close();
                         }
                     }
                     else
@@ -117,10 +106,6 @@ namespace QuanLyKhachHang.GUI
 
         }
 
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         /// <summary>
         /// xu li khi load form trong them danh sach khach hang
         /// </summary>
@@ -136,22 +121,21 @@ namespace QuanLyKhachHang.GUI
             cboxQuocGia.DisplayMember = "TenQuocGia";
             cboxQuocGia.ValueMember = "MaQuocGia";
 
+            //doc danh sach tinh thanh khi chon quoc gia
+            int catID;
+            Int32.TryParse(cboxQuocGia.SelectedValue.ToString(), out catID);
+            var tinhthanh = from p in context.TinhThanhs
+                            where p.MaQuocGia == catID
+                            select p.TenTinhThanh;
+            cboxTinhThanh.DataSource = tinhthanh.ToList();
+            cboxTinhThanh.DisplayMember = "TenTinhThanh";
+
             //doc danh sach linh vuc kinh doanh tu database
             var linhvuc = from cat in context.LinhVucKinhDoanhs
                           select cat;
             cboxLinhVucKinhDoanh.DataSource=linhvuc.ToList<LinhVucKinhDoanh>();
             cboxLinhVucKinhDoanh.DisplayMember = "TenLinhVucKinhDoanh";
 
-            ////doc danh sach congtychuquan tu database
-            //var congty = from cat in context.Customers
-            //             select cat;
-            //cboxCongTyChuQuan.DataSource=congty.ToList<Customer>();
-            //cboxCongTyChuQuan.DisplayMember = "Company";
-
-            //khong cho combobox chon gia tri
-            cboxCongTyChuQuan.SelectedItem = -1;
-            cboxLinhVucKinhDoanh.SelectedItem = 0;
-            cboxQuocGia.SelectedItem = -2;
         }
         /// <summary>
         /// Loc danh sach tinh thanh khi chon Quoc gia
@@ -168,10 +152,33 @@ namespace QuanLyKhachHang.GUI
                                 where p.MaQuocGia == catID
                                 select p.TenTinhThanh;
                 cboxTinhThanh.DataSource = tinhthanh.ToList();
-
+                cboxTinhThanh.DisplayMember = "TenTinhThanh";
 
             }
         }
+
+        private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
+        {
+            strCheck = "Khách hàng";
+        }
+
+        private void rdDoiTac_CheckedChanged(object sender, EventArgs e)
+        {
+            strCheck = "Đối tác khách hàng";
+        }
+
+        private void rdAgent_CheckedChanged(object sender, EventArgs e)
+        {
+            strCheck = "Agent";
+        }
+
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+       
 
      
 
