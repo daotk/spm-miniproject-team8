@@ -14,7 +14,7 @@ namespace QuanLyKhachHang.GUI
     public partial class CustomerManagement : Form
     {
         string strStatusCheck;
-        ABCLogisticEntities1 context = new ABCLogisticEntities1();
+        ABCLogisticEntities context = new ABCLogisticEntities();
         public CustomerManagement()
         {
             InitializeComponent();
@@ -113,8 +113,29 @@ namespace QuanLyKhachHang.GUI
         {
             string makh = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             ViewCustomer Fview = new ViewCustomer(makh);
-            Fview.ShowDialog();
+            if (Fview.ShowDialog() == DialogResult.Cancel)
+            {
+                if (strStatusCheck == rdAgent.Text)
+                {
+                    LoadData_WhenRadioChange(rdAgent.Text);
+                }
+                else
+                {
+                    if (strStatusCheck == rdDoiTacKhachHang.Text)
+                    {
+                        LoadData_WhenRadioChange(rdDoiTacKhachHang.Text);
+                    }
+                    else
+                    {
+                        if (strStatusCheck == rdKhachHang.Text)
+                        {
+                            LoadData_WhenRadioChange(rdKhachHang.Text);
+                        }
+                    }
+                }
+            }
         }
+
         /// <summary>
         /// xu ly su kien khi đánh text
         /// </summary>
@@ -125,22 +146,19 @@ namespace QuanLyKhachHang.GUI
             if (cboTimKiemTheo.Text == "Mã khách hàng")
             {
                 string txttext = txtTimKiem.Text;
-                ABCLogisticEntities1 context = new ABCLogisticEntities1();
-                var customer = from p in context.KhachHangs
-                               where p.MaCongTy.Contains(txttext) 
-                               select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+                var customer = from p in context.KhachHangTas
+                               where p.MaCongTy.Contains(txttext)
+                               select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
                 dataGridView1.DataSource = customer.ToList();
             }
             else
             {
-                string txttext = txtTimKiem.Text;
-                ABCLogisticEntities1 context = new ABCLogisticEntities1();
-                var customer = from p in context.KhachHangs
+                string txttext = txtTimKiem.Text;      
+                var customer = from p in context.KhachHangTas
                                where p.TenCTyV.Contains(txttext)
-                               select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+                               select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
                 dataGridView1.DataSource = customer.ToList();
             }
-
         }
 
         /// <summary>
@@ -182,9 +200,9 @@ namespace QuanLyKhachHang.GUI
         /// <param name="macheck">loại khách hàng cần phải lộc</param>
         private void LoadData_WhenRadioChange(string macheck)
         {
-            var cus = from p in context.KhachHangs
+            var cus = from p in context.KhachHangTas
                       where p.LoaiKhachHang == macheck
-                      select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
+                      select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
             dataGridView1.DataSource = cus.ToList();
         }
 

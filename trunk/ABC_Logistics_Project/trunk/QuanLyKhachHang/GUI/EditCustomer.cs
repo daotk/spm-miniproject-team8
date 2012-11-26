@@ -12,8 +12,8 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class EditCustomer : Form
     {
-        ABCLogisticEntities1 context = new ABCLogisticEntities1();
-        KhachHang customer;
+        ABCLogisticEntities context = new ABCLogisticEntities();
+        KhachHangTa customer;
         string MaKhachHang;
         public EditCustomer(string makh)
         {
@@ -64,23 +64,21 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void EditCustomer_LoadCustomer()
         {
-            customer = (from p in context.KhachHangs
+            customer = (from p in context.KhachHangTas
                         where p.MaCongTy == MaKhachHang
-                        select p).FirstOrDefault<KhachHang>();
+                        select p).FirstOrDefault<KhachHangTa>();
             txtMaCongTy.Text = customer.MaCongTy;
             txtTenGiaoDichV.Text = customer.TenCTyV;
             txtTenGiaoDichE.Text = customer.TenCTyE;
-            txtTenGiaoDichS.Text = customer.TenCTyVietTat;
-            cboLinhVucKinhDoanh.SelectedText = customer.LinhVucKinhDoanh;
+            txtTenGiaoDichS.Text = customer.TenCTyVT;
+            cboLinhVucKinhDoanh.SelectedText = customer.MaLVKD.ToString();
             txtCongTyChuQuan.SelectedText = customer.CongTyChuQuan;
-            cboQuocGia.SelectedValue = customer.TenQuocGia;
-            cboTinhThanh.Text = customer.TinhThanh;
             txtDiaChi.Text = customer.DiaChi;
             txtSDT.Text = customer.Sdt.ToString();
             txtSoFax.Text = customer.Fax.ToString();
             txtEmail.Text = customer.Email;
             txtWed.Text = customer.Web;
-            cboNhanVienQuanLy.SelectedValue = customer.MaNhanVien;
+            cboNhanVienQuanLy.SelectedValue = customer.MaNhanVienQuanLy;
         }
 
        

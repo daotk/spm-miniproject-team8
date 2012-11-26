@@ -11,11 +11,11 @@ namespace QuanLyKhachHang.BL
        
         public static bool CheckMaKH(string makh)
         {
-            ABCLogisticEntities1 context = new ABCLogisticEntities1();
+            ABCLogisticEntities context = new ABCLogisticEntities();
             bool check = false;
             string MaKhachHang;
             MaKhachHang = makh;
-            KhachHang objCustomer = context.KhachHangs.Where(p=> p.MaCongTy == MaKhachHang).FirstOrDefault();
+            KhachHangTa objCustomer = context.KhachHangTas.Where(p=> p.MaCongTy == MaKhachHang).FirstOrDefault();
             if (objCustomer != null)
             {
                 check = true;
