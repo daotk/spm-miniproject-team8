@@ -203,10 +203,10 @@
             this.rdDoiTac.AutoSize = true;
             this.rdDoiTac.Location = new System.Drawing.Point(309, 207);
             this.rdDoiTac.Name = "rdDoiTac";
-            this.rdDoiTac.Size = new System.Drawing.Size(164, 20);
+            this.rdDoiTac.Size = new System.Drawing.Size(142, 20);
             this.rdDoiTac.TabIndex = 8;
             this.rdDoiTac.TabStop = true;
-            this.rdDoiTac.Text = "Đối tác của khách hàng";
+            this.rdDoiTac.Text = "Đối tác  khách hàng";
             this.rdDoiTac.UseVisualStyleBackColor = true;
             this.rdDoiTac.CheckedChanged += new System.EventHandler(this.rdDoiTac_CheckedChanged);
             // 

@@ -13,7 +13,7 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class CustomerManagement : Form
     {
-
+        string strStatusCheck;
         ABCLogisticEntities1 context = new ABCLogisticEntities1();
         public CustomerManagement()
         {
@@ -26,8 +26,6 @@ namespace QuanLyKhachHang.GUI
             this.Close();
         }
        
-      
-
         /// <summary>
         /// Đồng hồ
         /// </summary>
@@ -37,7 +35,6 @@ namespace QuanLyKhachHang.GUI
         {
             lblDongHo.Text = DateTime.Now.ToString();
         }
-
 
 
         private void button4_Click(object sender, EventArgs e)
@@ -73,7 +70,6 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void CustomerManagement_Load(object sender, EventArgs e)
         {
-            Load_Data();
             cboTimKiemTheo.SelectedIndex = 0;
             rdKhachHang.Checked=true;
         }
@@ -87,16 +83,27 @@ namespace QuanLyKhachHang.GUI
             AddNewCustomer Fadd = new AddNewCustomer();
             if (Fadd.ShowDialog() == DialogResult.Cancel)
             {
-                Load_Data();
+                if (strStatusCheck == rdAgent.Text)
+                {
+                    LoadData_WhenRadioChange(rdAgent.Text);
+                }
+                else
+                {
+                    if (strStatusCheck == rdDoiTacKhachHang.Text)
+                    {
+                        LoadData_WhenRadioChange(rdDoiTacKhachHang.Text);
+                    }
+                    else
+                    {
+                        if (strStatusCheck == rdKhachHang.Text)
+                        {
+                            LoadData_WhenRadioChange(rdKhachHang.Text);
+                        }
+                    }
+                }
             }
         }
 
-        public void Load_Data()
-        {
-            var cus = from p in context.KhachHangs select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh,p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
-            dataGridView1.DataSource = cus.ToList();
-            //Chỉnh màu cho từng dòng trong datagirdview
-        }
         /// <summary>
         /// Xu ly1 khi nhap double vao 1 cell trong DataGridView
         /// </summary>
@@ -135,46 +142,55 @@ namespace QuanLyKhachHang.GUI
             }
 
         }
+
         /// <summary>
-        /// check vào nút khách hàng
+        /// lọc danh sách khách hàng khi check vào radio khách hàng
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
         {
-            var cus = from p in context.KhachHangs
-                      where p.LoaiKhachHang == "Khách hàng"
-                      select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
-            dataGridView1.DataSource = cus.ToList();
+            LoadData_WhenRadioChange(rdKhachHang.Text);
+            strStatusCheck = rdKhachHang.Text;
         }
+
         /// <summary>
-        /// loc danh sach agent
+        /// loc danh sach agent khi check vao radio agent
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void rdAgent_CheckedChanged(object sender, EventArgs e)
         {
-            var cus = from p in context.KhachHangs 
-                      where p.LoaiKhachHang =="Agent"
-                      select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
-            dataGridView1.DataSource = cus.ToList();
+            LoadData_WhenRadioChange(rdAgent.Text);
+            strStatusCheck = rdAgent.Text;
         }
+
         /// <summary>
-        /// loc danh sach doi tac khach hang
+        /// loc danh sach doi tac khach hang khi check vao nut đối tác khách hàng
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void rdDoiTacKhachHang_CheckedChanged(object sender, EventArgs e)
         {
+           LoadData_WhenRadioChange(rdDoiTacKhachHang.Text);
+           strStatusCheck = rdDoiTacKhachHang.Text;
+        }
+
+        /// <summary>
+        /// lộc danh sách khi chọn radio button
+        /// </summary>
+        /// <param name="macheck">loại khách hàng cần phải lộc</param>
+        private void LoadData_WhenRadioChange(string macheck)
+        {
             var cus = from p in context.KhachHangs
-                      where p.LoaiKhachHang == "Đối tác khách hàng"
+                      where p.LoaiKhachHang == macheck
                       select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.TinhThanh, p.TenQuocGia, p.Sdt, p.LinhVucKinhDoanh, p.NhanVienQuanLy };
             dataGridView1.DataSource = cus.ToList();
         }
-         
-          
+
+
+
+
+
         }
-
-
-
     }

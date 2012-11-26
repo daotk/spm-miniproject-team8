@@ -64,9 +64,7 @@ namespace QuanLyKhachHang.GUI
                 p.TenCTyVietTat = txtTenVietTat.Text;
                 p.LinhVucKinhDoanh = cboxLinhVucKinhDoanh.Text;
                 p.CongTyChuQuan = cboxCongTyChuQuan.Text;
-
                 p.LoaiKhachHang = strCheck;
-
                 p.TenQuocGia = cboxQuocGia.Text;
                 p.TinhThanh = cboxTinhThanh.Text;
                 p.DiaChi = txtDiaChiLienLac.Text;
@@ -136,6 +134,8 @@ namespace QuanLyKhachHang.GUI
             cboxLinhVucKinhDoanh.DataSource=linhvuc.ToList<LinhVucKinhDoanh>();
             cboxLinhVucKinhDoanh.DisplayMember = "TenLinhVucKinhDoanh";
 
+            txtNhanVienQuanLy.Text = "Đạo Khấu";
+
         }
         /// <summary>
         /// Loc danh sach tinh thanh khi chon Quoc gia
@@ -157,21 +157,41 @@ namespace QuanLyKhachHang.GUI
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
         {
-            strCheck = "Khách hàng";
+            strCheck =  "Khách hàng";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdDoiTac_CheckedChanged(object sender, EventArgs e)
         {
-            strCheck = "Đối tác khách hàng";
+            strCheck =  rdDoiTac.Text;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdAgent_CheckedChanged(object sender, EventArgs e)
         {
-            strCheck = "Agent";
+            strCheck = rdAgent.Text;
         }
 
+        /// <summary>
+        /// không cho nhập chữ vào các textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
