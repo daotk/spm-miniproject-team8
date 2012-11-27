@@ -320,7 +320,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             dataGridViewCellStyle2.NullValue = null;
             this.MaKhachHang.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MaKhachHang.HeaderText = "Mã công ty";
+            this.MaKhachHang.HeaderText = "Mã khách hàng";
             this.MaKhachHang.Name = "MaKhachHang";
             this.MaKhachHang.ReadOnly = true;
             // 

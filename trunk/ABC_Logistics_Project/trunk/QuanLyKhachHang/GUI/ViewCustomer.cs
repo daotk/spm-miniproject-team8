@@ -337,6 +337,36 @@ namespace QuanLyKhachHang.GUI
             txtEmailNLH.Enabled = false;
         }
 
+        private void btnXoaNLH_Click(object sender, EventArgs e)
+        {
+            int MaNLH;
+            if (Int32.TryParse(dgvNLH.CurrentRow.Cells[0].Value.ToString(), out MaNLH))
+            {
+                using (ABCLogisticEntities newcontext = new ABCLogisticEntities())
+                {
+                    NguoiLienHeTa p = new NguoiLienHeTa() { MaNguoiLienHe = MaNLH };
+                    newcontext.NguoiLienHeTas.Attach(p);
+                    newcontext.ObjectStateManager.ChangeObjectState(p, EntityState.Deleted);
+                    int count = newcontext.SaveChanges();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        Load_DataNLH();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+
+
+
+                }
+
+
+
+            }
+        }
+
 
     }
 }
