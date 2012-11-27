@@ -85,6 +85,12 @@
     <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\QuanLyDanhMuc.Designer.cs">
+      <DependentUpon>QuanLyDanhMuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Search.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\QuanLyDanhMuc.resx">
+      <DependentUpon>QuanLyDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Search.resx">
       <DependentUpon>Search.cs</DependentUpon>
