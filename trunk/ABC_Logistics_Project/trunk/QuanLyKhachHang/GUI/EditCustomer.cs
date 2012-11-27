@@ -124,6 +124,7 @@ namespace QuanLyKhachHang.GUI
             txtEmail.Text = customer.Email;
             txtWed.Text = customer.Web;
             cboNhanVienQuanLy.SelectedValue = customer.MaNhanVienQuanLy;
+            dtNgayTao.Value = customer.NgayTao.Value;
         }
 
         /// <summary>
