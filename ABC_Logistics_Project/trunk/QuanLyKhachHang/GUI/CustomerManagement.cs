@@ -202,7 +202,7 @@ namespace QuanLyKhachHang.GUI
         {
             var cus = from p in context.KhachHangTas
                       where p.LoaiKhachHang == macheck
-                      select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
+                      select new { p.MaCongTy, p.TenCTyV, p.TinhThanhTa.TenTinhThanh, p.QuocGiaTa.TenQuocGia, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
             dataGridView1.DataSource = cus.ToList();
         }
 

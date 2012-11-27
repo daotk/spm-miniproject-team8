@@ -79,14 +79,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoVaTenLot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChucDanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtTenNLH = new System.Windows.Forms.TextBox();
@@ -104,6 +96,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoVaTenLot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChucDanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -675,52 +675,10 @@
             this.Email});
             this.dataGridView1.Location = new System.Drawing.Point(6, 338);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(855, 157);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 50;
-            // 
-            // HoVaTenLot
-            // 
-            this.HoVaTenLot.HeaderText = "Họ và tên lót";
-            this.HoVaTenLot.Name = "HoVaTenLot";
-            this.HoVaTenLot.Width = 150;
-            // 
-            // Ten
-            // 
-            this.Ten.HeaderText = "Tên";
-            this.Ten.Name = "Ten";
-            // 
-            // PhongBan
-            // 
-            this.PhongBan.HeaderText = "Phòng ban";
-            this.PhongBan.Name = "PhongBan";
-            this.PhongBan.Width = 130;
-            // 
-            // ChucDanh
-            // 
-            this.ChucDanh.HeaderText = "Chức danh";
-            this.ChucDanh.Name = "ChucDanh";
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.HeaderText = "Số điện thoại";
-            this.SoDienThoai.Name = "SoDienThoai";
-            // 
-            // SoDiDong
-            // 
-            this.SoDiDong.HeaderText = "Số di động";
-            this.SoDiDong.Name = "SoDiDong";
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.Width = 110;
             // 
             // button2
             // 
@@ -878,6 +836,66 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "MaNguoiLienHe";
+            this.ID.HeaderText = "Mã NLH";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 70;
+            // 
+            // HoVaTenLot
+            // 
+            this.HoVaTenLot.DataPropertyName = "HoVaChuLotNLH";
+            this.HoVaTenLot.HeaderText = "Họ và tên lót";
+            this.HoVaTenLot.Name = "HoVaTenLot";
+            this.HoVaTenLot.ReadOnly = true;
+            this.HoVaTenLot.Width = 150;
+            // 
+            // Ten
+            // 
+            this.Ten.DataPropertyName = "TenNLH";
+            this.Ten.HeaderText = "Tên";
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            // 
+            // PhongBan
+            // 
+            this.PhongBan.DataPropertyName = "PhongBan";
+            this.PhongBan.HeaderText = "Phòng ban";
+            this.PhongBan.Name = "PhongBan";
+            this.PhongBan.ReadOnly = true;
+            this.PhongBan.Width = 130;
+            // 
+            // ChucDanh
+            // 
+            this.ChucDanh.DataPropertyName = "ChucDanh";
+            this.ChucDanh.HeaderText = "Chức danh";
+            this.ChucDanh.Name = "ChucDanh";
+            this.ChucDanh.ReadOnly = true;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.DataPropertyName = "SDT";
+            this.SoDienThoai.HeaderText = "Số điện thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // SoDiDong
+            // 
+            this.SoDiDong.DataPropertyName = "SoDD";
+            this.SoDiDong.HeaderText = "Số di động";
+            this.SoDiDong.Name = "SoDiDong";
+            this.SoDiDong.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 110;
+            // 
             // AddNewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -969,6 +987,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txtNhanVienQuanLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoVaTenLot;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
@@ -977,6 +996,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDiDong;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.TextBox txtNhanVienQuanLy;
     }
 }
