@@ -27,7 +27,7 @@ namespace QuanLyKhachHang.GUI
             string txttext = txttukhoa.Text;
             var customer = from p in context.KhachHangTas
                            where p.MaCongTy.Contains(txttext)
-                           select new { p.MaCongTy, p.TenCTyV, p.DiaChi, p.Sdt, p.MaLVKD, p.MaNhanVienQuanLy };
+                           select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
             grdtimkiem.DataSource = customer.ToList();
         }
 

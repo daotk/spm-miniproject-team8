@@ -14,6 +14,7 @@ namespace QuanLyKhachHang.GUI
         ABCLogisticEntities context = new ABCLogisticEntities();
         string MaKhachHang;
         KhachHangTa customer;
+        NguoiLienHeTa NguoiLH;
         string strCheck;
         public ViewCustomer(string pMaKhachHang)
         {
@@ -63,7 +64,7 @@ namespace QuanLyKhachHang.GUI
             txtTenGiaoDichS.Text = customer.TenCTyVT;
             cboLinhVucKinhDoanh.SelectedValue = customer.MaLVKD;
             txtCongTyChuQuan.SelectedText = customer.CongTyChuQuan;
-            if (customer.LoaiKhachHang.ToString() ==rdKhachHang.Text )
+            if (customer.LoaiKhachHang.ToString() == rdKhachHang.Text)
             {
                 rdKhachHang.Checked = true;
             }
@@ -83,8 +84,21 @@ namespace QuanLyKhachHang.GUI
             txtEmail.Text = customer.Email;
             txtWedsite.Text = customer.Web;
             cboNhanVienQuanLy.SelectedValue = customer.MaNhanVienQuanLy;
-            
 
+            Load_DataNLH();
+
+            //enalble cac cai trong tab nguoi lien he
+
+
+        }
+
+        private void Load_DataNLH()
+        {
+            //load danh sach nguoi lien hệ
+            var nguoilienhe = from cat in context.NguoiLienHeTas
+                              where cat.MaKhachhang == MaKhachHang
+                              select new { cat.MaNguoiLienHe,cat.HoVaChuLotNLH, cat.TenNLH, cat.PhongBan, cat.ChucDanh, cat.SDT, cat.SoDD, cat.Email };
+            dgvNLH.DataSource = nguoilienhe.ToList();
         }
         /// <summary>
         /// xu ly khi nhap nut chinh sua
@@ -142,8 +156,8 @@ namespace QuanLyKhachHang.GUI
                     MessageBox.Show("Cập nhật thất bại");
                 }
             }
-            
-            }
+
+        }
 
         /// <summary>
         /// cancel
@@ -173,5 +187,156 @@ namespace QuanLyKhachHang.GUI
         {
             strCheck = rdAgent.Text;
         }
+
+        /// <summary>
+        /// Loc danh sach tinh thanh khi chon Quoc gia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboQuocGia.SelectedIndex >= 0)
+            {
+                int catID;
+                Int32.TryParse(cboQuocGia.SelectedValue.ToString(), out catID);
+                var tinhthanh = from p in context.TinhThanhTas
+                                where p.MaQuocGia == catID
+                                select p;
+                cboTinhThanh.DataSource = tinhthanh.ToList<TinhThanhTa>();
+                cboTinhThanh.DisplayMember = "TenTinhThanh";
+                cboTinhThanh.ValueMember = "MaTinhThanh";
+
+            }
+        }
+        /// <summary>
+        /// xu ly khi nhan nut hủy bỏ trong tab nguoi lien he
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bntHuyBoNLH_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        /// <summary>
+        /// xủ lý khi nhấn nút chỉnh sữa trong tab người liên hệ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDongYNLH_Click(object sender, EventArgs e)
+        {
+            if (btnDongYNLH.Text == "Chỉnh sữa")
+            {
+                txtHoNLH.Enabled = true;
+                txtTenNLH.Enabled = true;
+                txtPhongBanNLH.Enabled = true;
+                txtChucDanhNLH.Enabled = true;
+                txtSdtNLH.Enabled = true;
+                txtSoDDNLH.Enabled = true;
+                txtEmailNLH.Enabled = true;
+                //load nguoi lien he len textbox
+                Int32 makh = (int)dgvNLH.CurrentRow.Cells[0].Value;
+
+                NguoiLH = (from p in context.NguoiLienHeTas
+                           where p.MaNguoiLienHe == makh
+                           select p).FirstOrDefault<NguoiLienHeTa>();
+
+                txtHoNLH.Text = NguoiLH.HoVaChuLotNLH;
+                txtTenNLH.Text = NguoiLH.TenNLH;
+                txtPhongBanNLH.Text = NguoiLH.PhongBan;
+                txtChucDanhNLH.Text = NguoiLH.ChucDanh;
+                txtSdtNLH.Text = NguoiLH.SDT;
+                txtSoDDNLH.Text = NguoiLH.SoDD;
+                txtEmailNLH.Text = NguoiLH.Email;
+                btnDongYNLH.Text = "Cập nhật";
+            }
+            else
+            {
+                NguoiLH.HoVaChuLotNLH = txtHoNLH.Text;
+                NguoiLH.TenNLH = txtTenNLH.Text;
+                NguoiLH.PhongBan = txtPhongBanNLH.Text;
+                NguoiLH.ChucDanh = txtChucDanhNLH.Text;
+                NguoiLH.SDT = txtSdtNLH.Text;
+                NguoiLH.SoDD = txtSoDDNLH.Text;
+                NguoiLH.Email = txtEmailNLH.Text;
+                int count = context.SaveChanges();
+                if (count > 0)
+                {
+                    MessageBox.Show("Cập nhật thành công");
+                    Load_DataNLH();
+                    btnDongYNLH.Text = "Chỉnh sữa";
+                    Disalble_Textbox();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật thất bại");
+                }
+
+
+
+            }
+
+
+        }
+        /// <summary>
+        /// xu ly khi them 1 nguoi lien he
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (btnThem.Text == "Thêm")
+            {
+                txtHoNLH.Enabled = true;
+                txtTenNLH.Enabled = true;
+                txtPhongBanNLH.Enabled = true;
+                txtChucDanhNLH.Enabled = true;
+                txtSdtNLH.Enabled = true;
+                txtSoDDNLH.Enabled = true;
+                txtEmailNLH.Enabled = true;
+                btnThem.Text = "Lưu";
+            }
+            else
+            {
+                NguoiLienHeTa nguoilienhe = new NguoiLienHeTa();
+                nguoilienhe.HoVaChuLotNLH = txtHoNLH.Text;
+                nguoilienhe.TenNLH = txtTenNLH.Text;
+                nguoilienhe.PhongBan = txtPhongBanNLH.Text;
+                nguoilienhe.ChucDanh = txtChucDanhNLH.Text;
+                nguoilienhe.SDT = txtSdtNLH.Text;
+                nguoilienhe.SoDD = txtSoDDNLH.Text;
+                nguoilienhe.Email = txtEmailNLH.Text;
+                nguoilienhe.MaKhachhang = MaKhachHang;
+
+                context.NguoiLienHeTas.AddObject(nguoilienhe);
+                int count = context.SaveChanges();
+                if (count > 0)
+                {
+                    MessageBox.Show("Thêm Thành công");
+                    Load_DataNLH();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+
+            }
+
+        }
+
+        /// <summary>
+        /// disalble cac textbox
+        /// </summary>
+        private void Disalble_Textbox()
+        {
+            txtHoNLH.Enabled = false;
+            txtTenNLH.Enabled = false;
+            txtPhongBanNLH.Enabled = false;
+            txtChucDanhNLH.Enabled = false;
+            txtSdtNLH.Enabled = false;
+            txtSoDDNLH.Enabled = false;
+            txtEmailNLH.Enabled = false;
+        }
+
+
     }
 }

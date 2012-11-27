@@ -185,7 +185,7 @@
             // 
             // TinhThanh
             // 
-            this.TinhThanh.DataPropertyName = "TinhThanh";
+            this.TinhThanh.DataPropertyName = "TenTinhThanh";
             this.TinhThanh.HeaderText = "Tỉnh Thành";
             this.TinhThanh.Name = "TinhThanh";
             this.TinhThanh.ReadOnly = true;
@@ -208,7 +208,7 @@
             // Column7
             // 
             this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.DataPropertyName = "LinhVucKinhDoanh";
+            this.Column7.DataPropertyName = "TenLVKD";
             this.Column7.HeaderText = "Lĩnh vực kinh doanh";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -216,7 +216,7 @@
             // Column8
             // 
             this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column8.DataPropertyName = "NhanVienQuanLy";
+            this.Column8.DataPropertyName = "HovTen";
             this.Column8.HeaderText = "Nhân viên quản lí";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;

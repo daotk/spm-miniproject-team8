@@ -14,6 +14,8 @@ namespace QuanLyKhachHang.GUI
     public partial class AddNewCustomer : Form
     {
         ABCLogisticEntities context=new ABCLogisticEntities();
+        KhachHangTa p = new KhachHangTa();
+        NguoiLienHeTa nlh = new NguoiLienHeTa();
         bool CheckMAKH = false;
         string strCheck;
         public AddNewCustomer()
@@ -57,7 +59,7 @@ namespace QuanLyKhachHang.GUI
         {
             if (CheckMAKH == true)
             {
-                KhachHangTa p = new KhachHangTa();
+               
                 p.MaCongTy = txtMaCongTy.Text;
                 p.TenCTyV = txtTenGiaoDichV.Text;
                 p.TenCTyE = txtTenGiaoDichE.Text;
@@ -84,7 +86,6 @@ namespace QuanLyKhachHang.GUI
                         DialogResult result = MessageBox.Show("Ban da them thanh cong!", "Thong Bao", MessageBoxButtons.OK);
                         if (result == DialogResult.OK)
                         {
-                            this.Close();
                         }
                     }
                     else
@@ -199,9 +200,35 @@ namespace QuanLyKhachHang.GUI
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
+        /// <summary>
+        /// xử lý nút luu trong tab thêm nguoi liên hệ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            nlh.HoVaChuLotNLH = txtHoTenNLH.Text;
+            nlh.TenNLH = txtTenNLH.Text;
+            nlh.PhongBan = txtPhongBanNLH.Text;
+            nlh.ChucDanh = txtChucDanhNLH.Text;
+            nlh.SDT = txtSdtNLH.Text;
+            nlh.SoDD = txtSdtDDNLH.Text;
+            nlh.Email = txtEmailNLH.Text;
+            nlh.MaKhachhang = p.MaCongTy;
 
-       
+            context.NguoiLienHeTas.AddObject(nlh);
+            int count = context.SaveChanges();
+            if (count > 0)
+            {
+                MessageBox.Show("Thêm Thành công");
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại");
+            }
 
+
+        }
      
 
       
