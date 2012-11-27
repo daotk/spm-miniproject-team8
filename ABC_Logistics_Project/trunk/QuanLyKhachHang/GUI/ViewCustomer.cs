@@ -84,6 +84,8 @@ namespace QuanLyKhachHang.GUI
             txtEmail.Text = customer.Email;
             txtWedsite.Text = customer.Web;
             cboNhanVienQuanLy.SelectedValue = customer.MaNhanVienQuanLy;
+            dtNgayTao.Value = customer.NgayTao.Value;
+
 
             Load_DataNLH();
 
