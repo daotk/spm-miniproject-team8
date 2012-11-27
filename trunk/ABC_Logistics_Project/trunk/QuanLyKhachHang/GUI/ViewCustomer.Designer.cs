@@ -97,6 +97,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dtNgayTao = new System.Windows.Forms.DateTimePicker();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -124,7 +126,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(299, 517);
+            this.button6.Location = new System.Drawing.Point(316, 548);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(79, 35);
             this.button6.TabIndex = 18;
@@ -135,7 +137,7 @@
             // btnDongY
             // 
             this.btnDongY.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDongY.Location = new System.Drawing.Point(196, 517);
+            this.btnDongY.Location = new System.Drawing.Point(196, 548);
             this.btnDongY.Name = "btnDongY";
             this.btnDongY.Size = new System.Drawing.Size(79, 35);
             this.btnDongY.TabIndex = 17;
@@ -523,12 +525,14 @@
             this.tabControl1.Location = new System.Drawing.Point(17, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(928, 601);
+            this.tabControl1.Size = new System.Drawing.Size(928, 632);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label24);
+            this.tabPage1.Controls.Add(this.dtNgayTao);
             this.tabPage1.Controls.Add(this.txtCongTyChuQuan);
             this.tabPage1.Controls.Add(this.rdAgent);
             this.tabPage1.Controls.Add(this.rdDoitacKhachHang);
@@ -567,7 +571,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(920, 575);
+            this.tabPage1.Size = new System.Drawing.Size(920, 606);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -839,12 +843,31 @@
             this.tabPage4.Text = "Lịch sử giao dich";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // dtNgayTao
+            // 
+            this.dtNgayTao.Enabled = false;
+            this.dtNgayTao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayTao.Location = new System.Drawing.Point(196, 500);
+            this.dtNgayTao.Name = "dtNgayTao";
+            this.dtNgayTao.Size = new System.Drawing.Size(130, 22);
+            this.dtNgayTao.TabIndex = 19;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(21, 505);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(63, 16);
+            this.label24.TabIndex = 20;
+            this.label24.Text = "Ngày tạo";
+            // 
             // ViewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(966, 625);
+            this.ClientSize = new System.Drawing.Size(966, 656);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -931,5 +954,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDiDong;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DateTimePicker dtNgayTao;
     }
 }
