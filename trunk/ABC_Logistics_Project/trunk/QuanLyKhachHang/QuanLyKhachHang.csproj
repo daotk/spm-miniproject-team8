@@ -126,8 +126,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.Config" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <EntityDeploy Include="DA\CustomerData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CustomerData.Designer.cs</LastGenOutput>

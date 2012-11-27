@@ -73,6 +73,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtCongTyChuQuan = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.rdAgent = new System.Windows.Forms.RadioButton();
@@ -104,7 +105,6 @@
             this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCongTyChuQuan = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -178,6 +178,7 @@
             this.cboQuocGia.Name = "cboQuocGia";
             this.cboQuocGia.Size = new System.Drawing.Size(342, 24);
             this.cboQuocGia.TabIndex = 2;
+            this.cboQuocGia.SelectedIndexChanged += new System.EventHandler(this.cbox_SelectedIndexChanged);
             // 
             // textBox5
             // 
@@ -564,6 +565,14 @@
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtCongTyChuQuan
+            // 
+            this.txtCongTyChuQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCongTyChuQuan.Location = new System.Drawing.Point(199, 173);
+            this.txtCongTyChuQuan.Name = "txtCongTyChuQuan";
+            this.txtCongTyChuQuan.Size = new System.Drawing.Size(342, 22);
+            this.txtCongTyChuQuan.TabIndex = 23;
+            // 
             // button7
             // 
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -875,14 +884,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Phòng ban";
             // 
-            // txtCongTyChuQuan
-            // 
-            this.txtCongTyChuQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCongTyChuQuan.Location = new System.Drawing.Point(199, 173);
-            this.txtCongTyChuQuan.Name = "txtCongTyChuQuan";
-            this.txtCongTyChuQuan.Size = new System.Drawing.Size(342, 22);
-            this.txtCongTyChuQuan.TabIndex = 23;
-            // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -895,7 +896,7 @@
             this.Name = "EditCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chỉnh sữa thông tin khách hàng";
-             this.tabControl1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
