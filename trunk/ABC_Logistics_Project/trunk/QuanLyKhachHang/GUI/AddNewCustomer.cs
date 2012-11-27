@@ -55,6 +55,7 @@ namespace QuanLyKhachHang.GUI
         private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
+           
         }
         /// <summary>
         /// xu li khi nhan nut "dong y"trong giao dien tim khach hang
@@ -81,6 +82,7 @@ namespace QuanLyKhachHang.GUI
                 p.Email = txtEmail.Text;
                 p.Web = txtWebsite.Text;
                 p.MaNhanVienQuanLy = 1;
+                p.NgayTao = dtNgayTao.Value;
 
                 //kiem tra tính hợp lệ khi nhập từ bàn phím
                 if (p.MaCongTy != "" && p.TenCTyV != "" && p.LoaiKhachHang != "" && p.DiaChi != "" && p.Sdt != "")
@@ -142,6 +144,11 @@ namespace QuanLyKhachHang.GUI
             cboxLinhVucKinhDoanh.DataSource=linhvuc.ToList<LinhVucKinhDoanhTa>();
             cboxLinhVucKinhDoanh.DisplayMember = "TenLVKD";
             cboxLinhVucKinhDoanh.ValueMember = "MaLVKD";
+
+
+            //hien thi de nghi cho cbo
+            cboxCongTyChuQuan.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cboxCongTyChuQuan.AutoCompleteSource = AutoCompleteSource.ListItems;
 
         }
 
@@ -252,11 +259,6 @@ namespace QuanLyKhachHang.GUI
         }
      
 
-      
-
-       
-
-        
 
 
        
