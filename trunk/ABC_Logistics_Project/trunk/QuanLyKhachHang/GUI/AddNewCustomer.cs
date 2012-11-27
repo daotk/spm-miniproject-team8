@@ -228,6 +228,11 @@ namespace QuanLyKhachHang.GUI
             if (count > 0)
             {
                 MessageBox.Show("Thêm Thành công");
+                //load danh sach nguoi lien hệ
+                var nguoilienhe = from cat in context.NguoiLienHeTas
+                                  where cat.MaKhachhang == p.MaCongTy
+                                  select new { cat.MaNguoiLienHe, cat.HoVaChuLotNLH, cat.TenNLH, cat.PhongBan, cat.ChucDanh, cat.SDT, cat.SoDD, cat.Email };
+                dataGridView1.DataSource = nguoilienhe.ToList();
             }
             else
             {

@@ -313,6 +313,7 @@ namespace QuanLyKhachHang.GUI
                 {
                     MessageBox.Show("Thêm Thành công");
                     Load_DataNLH();
+                    btnThem.Text = "Thêm";
                 }
                 else
                 {
