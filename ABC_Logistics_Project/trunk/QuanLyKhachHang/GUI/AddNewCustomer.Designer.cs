@@ -78,8 +78,6 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoVaTenLot = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -603,8 +601,6 @@
             this.tabPage2.Controls.Add(this.label35);
             this.tabPage2.Controls.Add(this.label34);
             this.tabPage2.Controls.Add(this.label33);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.button1);
@@ -637,7 +633,7 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(390, 470);
+            this.label35.Location = new System.Drawing.Point(390, 509);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(130, 16);
             this.label35.TabIndex = 8;
@@ -665,24 +661,6 @@
             this.label33.TabIndex = 6;
             this.label33.Text = "(*)";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(227, 463);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 30);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Xóa tất cả";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(124, 463);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 30);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -697,7 +675,7 @@
             this.Email});
             this.dataGridView1.Location = new System.Drawing.Point(6, 338);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(855, 119);
+            this.dataGridView1.Size = new System.Drawing.Size(855, 157);
             this.dataGridView1.TabIndex = 4;
             // 
             // ID
@@ -752,6 +730,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Hủy bỏ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -945,8 +924,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox cboxTinhThanh;
         private System.Windows.Forms.ComboBox cboxQuocGia;
         private System.Windows.Forms.ComboBox cboxCongTyChuQuan;

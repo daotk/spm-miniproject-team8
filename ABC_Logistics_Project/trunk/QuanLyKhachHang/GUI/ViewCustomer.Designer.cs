@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewCustomer));
             this.txtTenNLH = new System.Windows.Forms.TextBox();
             this.txtSoDDNLH = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -83,11 +84,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnThem = new System.Windows.Forms.Button();
-            this.btnXoaTatCaNLH = new System.Windows.Forms.Button();
             this.btnXoaNLH = new System.Windows.Forms.Button();
             this.dgvNLH = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.MaNLH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoVaTenLot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -518,6 +519,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(17, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -661,7 +663,6 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnThem);
-            this.tabPage2.Controls.Add(this.btnXoaTatCaNLH);
             this.tabPage2.Controls.Add(this.btnXoaNLH);
             this.tabPage2.Controls.Add(this.dgvNLH);
             this.tabPage2.Controls.Add(this.bntHuyBoNLH);
@@ -700,23 +701,15 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnXoaTatCaNLH
-            // 
-            this.btnXoaTatCaNLH.Location = new System.Drawing.Point(227, 498);
-            this.btnXoaTatCaNLH.Name = "btnXoaTatCaNLH";
-            this.btnXoaTatCaNLH.Size = new System.Drawing.Size(80, 30);
-            this.btnXoaTatCaNLH.TabIndex = 5;
-            this.btnXoaTatCaNLH.Text = "Xóa tất cả";
-            this.btnXoaTatCaNLH.UseVisualStyleBackColor = true;
-            // 
             // btnXoaNLH
             // 
-            this.btnXoaNLH.Location = new System.Drawing.Point(124, 498);
+            this.btnXoaNLH.Location = new System.Drawing.Point(124, 511);
             this.btnXoaNLH.Name = "btnXoaNLH";
             this.btnXoaNLH.Size = new System.Drawing.Size(80, 30);
             this.btnXoaNLH.TabIndex = 5;
             this.btnXoaNLH.Text = "Xóa";
             this.btnXoaNLH.UseVisualStyleBackColor = true;
+            this.btnXoaNLH.Click += new System.EventHandler(this.btnXoaNLH_Click);
             // 
             // dgvNLH
             // 
@@ -763,21 +756,31 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(920, 575);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Lịch sử giao dich";
+            this.tabPage3.Text = "Thông tin đối tác";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(920, 575);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Lịch sử giao dich";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // MaNLH
             // 
-            this.MaNLH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.MaNLH.DataPropertyName = "MaNguoiLienHe";
             this.MaNLH.HeaderText = "Mã NLH";
             this.MaNLH.Name = "MaNLH";
             this.MaNLH.ReadOnly = true;
+            this.MaNLH.Width = 70;
             // 
             // HoVaTenLot
             // 
             this.HoVaTenLot.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.HoVaTenLot.DataPropertyName = "HoVaChuLotNLH";
+            this.HoVaTenLot.FillWeight = 56.27266F;
             this.HoVaTenLot.HeaderText = "Họ và tên lót";
             this.HoVaTenLot.Name = "HoVaTenLot";
             this.HoVaTenLot.ReadOnly = true;
@@ -786,6 +789,7 @@
             // 
             this.Ten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Ten.DataPropertyName = "TenNLH";
+            this.Ten.FillWeight = 56.27266F;
             this.Ten.HeaderText = "Tên";
             this.Ten.Name = "Ten";
             this.Ten.ReadOnly = true;
@@ -794,6 +798,7 @@
             // 
             this.PhongBan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.PhongBan.DataPropertyName = "PhongBan";
+            this.PhongBan.FillWeight = 56.27266F;
             this.PhongBan.HeaderText = "Phòng ban";
             this.PhongBan.Name = "PhongBan";
             this.PhongBan.ReadOnly = true;
@@ -802,6 +807,7 @@
             // 
             this.ChucDanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ChucDanh.DataPropertyName = "ChucDanh";
+            this.ChucDanh.FillWeight = 56.27266F;
             this.ChucDanh.HeaderText = "Chức danh";
             this.ChucDanh.Name = "ChucDanh";
             this.ChucDanh.ReadOnly = true;
@@ -810,6 +816,7 @@
             // 
             this.SoDienThoai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SoDienThoai.DataPropertyName = "SDT";
+            this.SoDienThoai.FillWeight = 56.27266F;
             this.SoDienThoai.HeaderText = "Số điện thoại";
             this.SoDienThoai.Name = "SoDienThoai";
             this.SoDienThoai.ReadOnly = true;
@@ -818,6 +825,7 @@
             // 
             this.SoDiDong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SoDiDong.DataPropertyName = "SoDD";
+            this.SoDiDong.FillWeight = 56.27266F;
             this.SoDiDong.HeaderText = "Số di động";
             this.SoDiDong.Name = "SoDiDong";
             this.SoDiDong.ReadOnly = true;
@@ -826,6 +834,7 @@
             // 
             this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Email.DataPropertyName = "Email";
+            this.Email.FillWeight = 56.27266F;
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
@@ -837,6 +846,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(966, 625);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ViewCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -902,7 +912,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnXoaTatCaNLH;
         private System.Windows.Forms.Button btnXoaNLH;
         private System.Windows.Forms.DataGridView dgvNLH;
         private System.Windows.Forms.Label label2;
@@ -913,6 +922,7 @@
         private System.Windows.Forms.RadioButton rdKhachHang;
         private System.Windows.Forms.TextBox txtCongTyChuQuan;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNLH;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoVaTenLot;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;

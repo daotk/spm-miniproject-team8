@@ -215,7 +215,6 @@ namespace QuanLyKhachHang.GUI
             nlh.SoDD = txtSdtDDNLH.Text;
             nlh.Email = txtEmailNLH.Text;
             nlh.MaKhachhang = p.MaCongTy;
-
             context.NguoiLienHeTas.AddObject(nlh);
             int count = context.SaveChanges();
             if (count > 0)
@@ -228,6 +227,15 @@ namespace QuanLyKhachHang.GUI
             }
 
 
+        }
+        /// <summary>
+        /// xủ lý khi nhấn nút hủy bỏ trong tab thêm người liên hệ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
      
 
