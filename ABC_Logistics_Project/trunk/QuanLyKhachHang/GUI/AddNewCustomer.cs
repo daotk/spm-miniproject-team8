@@ -30,16 +30,22 @@ namespace QuanLyKhachHang.GUI
         private void button7_Click(object sender, EventArgs e)
         {
             string makh = txtMaCongTy.Text;
-            if (ControlBL.CheckMaKH(makh) == true)
+            if (makh == "")
             {
-                MessageBox.Show("Mã Khách hàng này đã có rồi! Xin vui lòng điền vào mã khách hành khác!");
+                MessageBox.Show("Thieu ma khach hang. Vui long nhap ma khach hang");
             }
             else
             {
-                MessageBox.Show("Mã khách hàng hợp lệ! Bạn có thể nhập tiếp các thông tin khác!");
-                CheckMAKH =true;
+                if (ControlBL.CheckMaKH(makh) == true)
+                {
+                    MessageBox.Show("Mã Khách hàng này đã có rồi! Xin vui lòng điền vào mã khách hành khác!");
+                }
+                else
+                {
+                    MessageBox.Show("Mã khách hàng hợp lệ! Bạn có thể nhập tiếp các thông tin khác!");
+                    CheckMAKH = true;
+                }
             }
-
         }
         /// <summary>
         /// xử lý sự kiện khi nhấn nhút "Cancel" trong giao diện thêm mới khách hàng
@@ -188,6 +194,8 @@ namespace QuanLyKhachHang.GUI
         private void rdAgent_CheckedChanged(object sender, EventArgs e)
         {
             strCheck = rdAgent.Text;
+            cboxLinhVucKinhDoanh.Enabled = false;
+            cboxLinhVucKinhDoanh.SelectedValue = 3;
         }
 
         /// <summary>
