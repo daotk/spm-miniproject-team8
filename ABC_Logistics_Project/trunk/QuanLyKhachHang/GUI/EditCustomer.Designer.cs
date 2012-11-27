@@ -105,6 +105,8 @@
             this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.dtNgayTao = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -130,7 +132,7 @@
             // btnHuyBo
             // 
             this.btnHuyBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuyBo.Location = new System.Drawing.Point(302, 525);
+            this.btnHuyBo.Location = new System.Drawing.Point(312, 544);
             this.btnHuyBo.Name = "btnHuyBo";
             this.btnHuyBo.Size = new System.Drawing.Size(79, 35);
             this.btnHuyBo.TabIndex = 4;
@@ -141,7 +143,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhat.Location = new System.Drawing.Point(196, 525);
+            this.btnCapNhat.Location = new System.Drawing.Point(196, 544);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(79, 35);
             this.btnCapNhat.TabIndex = 4;
@@ -514,6 +516,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dtNgayTao);
+            this.tabPage1.Controls.Add(this.label34);
             this.tabPage1.Controls.Add(this.txtCongTyChuQuan);
             this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.label32);
@@ -589,7 +593,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.Black;
-            this.label32.Location = new System.Drawing.Point(473, 544);
+            this.label32.Location = new System.Drawing.Point(471, 563);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(130, 16);
             this.label32.TabIndex = 21;
@@ -884,6 +888,24 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Phòng ban";
             // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(23, 512);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(63, 16);
+            this.label34.TabIndex = 24;
+            this.label34.Text = "Ngày tạo";
+            // 
+            // dtNgayTao
+            // 
+            this.dtNgayTao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayTao.Location = new System.Drawing.Point(196, 508);
+            this.dtNgayTao.Name = "dtNgayTao";
+            this.dtNgayTao.Size = new System.Drawing.Size(118, 22);
+            this.dtNgayTao.TabIndex = 25;
+            // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -984,5 +1006,7 @@
         public System.Windows.Forms.RadioButton rdDoiTacKhachHang;
         public System.Windows.Forms.RadioButton rdKhachHang;
         public System.Windows.Forms.TextBox txtCongTyChuQuan;
+        private System.Windows.Forms.DateTimePicker dtNgayTao;
+        private System.Windows.Forms.Label label34;
     }
 }
