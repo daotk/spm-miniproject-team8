@@ -79,6 +79,14 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoVaTenLot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChucDanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtTenNLH = new System.Windows.Forms.TextBox();
@@ -96,14 +104,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoVaTenLot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChucDanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDiDong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtNgayTao = new System.Windows.Forms.DateTimePicker();
+            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -117,12 +119,14 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(875, 580);
+            this.tabControl1.Size = new System.Drawing.Size(875, 613);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label31);
+            this.tabPage1.Controls.Add(this.dtNgayTao);
             this.tabPage1.Controls.Add(this.txtNhanVienQuanLy);
             this.tabPage1.Controls.Add(this.rdAgent);
             this.tabPage1.Controls.Add(this.rdDoiTac);
@@ -170,7 +174,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(867, 554);
+            this.tabPage1.Size = new System.Drawing.Size(867, 587);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -224,7 +228,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.Black;
-            this.label32.Location = new System.Drawing.Point(453, 520);
+            this.label32.Location = new System.Drawing.Point(453, 554);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(130, 16);
             this.label32.TabIndex = 14;
@@ -313,7 +317,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(309, 501);
+            this.button6.Location = new System.Drawing.Point(346, 535);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(79, 35);
             this.button6.TabIndex = 19;
@@ -324,7 +328,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(196, 501);
+            this.button5.Location = new System.Drawing.Point(196, 535);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(79, 35);
             this.button5.TabIndex = 18;
@@ -357,6 +361,10 @@
             // 
             this.cboxCongTyChuQuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCongTyChuQuan.FormattingEnabled = true;
+            this.cboxCongTyChuQuan.Items.AddRange(new object[] {
+            "Logistics",
+            "Uniliver",
+            "Cocacola"});
             this.cboxCongTyChuQuan.Location = new System.Drawing.Point(196, 175);
             this.cboxCongTyChuQuan.Name = "cboxCongTyChuQuan";
             this.cboxCongTyChuQuan.Size = new System.Drawing.Size(342, 24);
@@ -680,6 +688,66 @@
             this.dataGridView1.Size = new System.Drawing.Size(855, 157);
             this.dataGridView1.TabIndex = 4;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "MaNguoiLienHe";
+            this.ID.HeaderText = "Mã NLH";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 70;
+            // 
+            // HoVaTenLot
+            // 
+            this.HoVaTenLot.DataPropertyName = "HoVaChuLotNLH";
+            this.HoVaTenLot.HeaderText = "Họ và tên lót";
+            this.HoVaTenLot.Name = "HoVaTenLot";
+            this.HoVaTenLot.ReadOnly = true;
+            this.HoVaTenLot.Width = 150;
+            // 
+            // Ten
+            // 
+            this.Ten.DataPropertyName = "TenNLH";
+            this.Ten.HeaderText = "Tên";
+            this.Ten.Name = "Ten";
+            this.Ten.ReadOnly = true;
+            // 
+            // PhongBan
+            // 
+            this.PhongBan.DataPropertyName = "PhongBan";
+            this.PhongBan.HeaderText = "Phòng ban";
+            this.PhongBan.Name = "PhongBan";
+            this.PhongBan.ReadOnly = true;
+            this.PhongBan.Width = 130;
+            // 
+            // ChucDanh
+            // 
+            this.ChucDanh.DataPropertyName = "ChucDanh";
+            this.ChucDanh.HeaderText = "Chức danh";
+            this.ChucDanh.Name = "ChucDanh";
+            this.ChucDanh.ReadOnly = true;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.DataPropertyName = "SDT";
+            this.SoDienThoai.HeaderText = "Số điện thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // SoDiDong
+            // 
+            this.SoDiDong.DataPropertyName = "SoDD";
+            this.SoDiDong.HeaderText = "Số di động";
+            this.SoDiDong.Name = "SoDiDong";
+            this.SoDiDong.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 110;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(227, 293);
@@ -836,72 +904,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên";
             // 
-            // ID
+            // dtNgayTao
             // 
-            this.ID.DataPropertyName = "MaNguoiLienHe";
-            this.ID.HeaderText = "Mã NLH";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 70;
+            this.dtNgayTao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayTao.Location = new System.Drawing.Point(196, 496);
+            this.dtNgayTao.Name = "dtNgayTao";
+            this.dtNgayTao.Size = new System.Drawing.Size(104, 22);
+            this.dtNgayTao.TabIndex = 21;
             // 
-            // HoVaTenLot
+            // label31
             // 
-            this.HoVaTenLot.DataPropertyName = "HoVaChuLotNLH";
-            this.HoVaTenLot.HeaderText = "Họ và tên lót";
-            this.HoVaTenLot.Name = "HoVaTenLot";
-            this.HoVaTenLot.ReadOnly = true;
-            this.HoVaTenLot.Width = 150;
-            // 
-            // Ten
-            // 
-            this.Ten.DataPropertyName = "TenNLH";
-            this.Ten.HeaderText = "Tên";
-            this.Ten.Name = "Ten";
-            this.Ten.ReadOnly = true;
-            // 
-            // PhongBan
-            // 
-            this.PhongBan.DataPropertyName = "PhongBan";
-            this.PhongBan.HeaderText = "Phòng ban";
-            this.PhongBan.Name = "PhongBan";
-            this.PhongBan.ReadOnly = true;
-            this.PhongBan.Width = 130;
-            // 
-            // ChucDanh
-            // 
-            this.ChucDanh.DataPropertyName = "ChucDanh";
-            this.ChucDanh.HeaderText = "Chức danh";
-            this.ChucDanh.Name = "ChucDanh";
-            this.ChucDanh.ReadOnly = true;
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.DataPropertyName = "SDT";
-            this.SoDienThoai.HeaderText = "Số điện thoại";
-            this.SoDienThoai.Name = "SoDienThoai";
-            this.SoDienThoai.ReadOnly = true;
-            // 
-            // SoDiDong
-            // 
-            this.SoDiDong.DataPropertyName = "SoDD";
-            this.SoDiDong.HeaderText = "Số di động";
-            this.SoDiDong.Name = "SoDiDong";
-            this.SoDiDong.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 110;
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(20, 496);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(63, 16);
+            this.label31.TabIndex = 22;
+            this.label31.Text = "Ngày tạo";
             // 
             // AddNewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(909, 604);
+            this.ClientSize = new System.Drawing.Size(909, 637);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -996,5 +1022,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDiDong;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.DateTimePicker dtNgayTao;
     }
 }
