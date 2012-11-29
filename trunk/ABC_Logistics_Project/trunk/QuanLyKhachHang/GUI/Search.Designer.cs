@@ -31,12 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Search));
             this.lbltukhoa = new System.Windows.Forms.Label();
-            this.txttukhoa = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.lbltimkiemtheo = new System.Windows.Forms.Label();
-            this.cboxtimkiemtheo = new System.Windows.Forms.ComboBox();
-            this.rdagent = new System.Windows.Forms.RadioButton();
-            this.rdkhachhang = new System.Windows.Forms.RadioButton();
-            this.rddoitac = new System.Windows.Forms.RadioButton();
+            this.cboTimKiemTheo = new System.Windows.Forms.ComboBox();
+            this.rdAgent = new System.Windows.Forms.RadioButton();
+            this.rdKhachHang = new System.Windows.Forms.RadioButton();
+            this.rdDoiTacKhachHang = new System.Windows.Forms.RadioButton();
             this.grdtimkiem = new System.Windows.Forms.DataGridView();
             this.column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,16 +59,16 @@
             this.lbltukhoa.TabIndex = 0;
             this.lbltukhoa.Text = "Từ Khoá";
             // 
-            // txttukhoa
+            // txtTimKiem
             // 
-            this.txttukhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttukhoa.Location = new System.Drawing.Point(364, 38);
-            this.txttukhoa.Name = "txttukhoa";
-            this.txttukhoa.Size = new System.Drawing.Size(220, 22);
-            this.txttukhoa.TabIndex = 1;
-            this.txttukhoa.Text = "Nhập từ khoá tìm kiếm";
-            this.txttukhoa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
-            this.txttukhoa.TextChanged += new System.EventHandler(this.txttukhoa_TextChanged);
+            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem.Location = new System.Drawing.Point(364, 38);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(220, 22);
+            this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.Text = "Nhập từ khoá tìm kiếm";
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txttukhoa_TextChanged);
             // 
             // lbltimkiemtheo
             // 
@@ -80,54 +80,57 @@
             this.lbltimkiemtheo.TabIndex = 2;
             this.lbltimkiemtheo.Text = "Tìm kiếm theo";
             // 
-            // cboxtimkiemtheo
+            // cboTimKiemTheo
             // 
-            this.cboxtimkiemtheo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxtimkiemtheo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxtimkiemtheo.FormattingEnabled = true;
-            this.cboxtimkiemtheo.Items.AddRange(new object[] {
+            this.cboTimKiemTheo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTimKiemTheo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTimKiemTheo.FormattingEnabled = true;
+            this.cboTimKiemTheo.Items.AddRange(new object[] {
             "Mã công ty",
-            "Tên công ty "});
-            this.cboxtimkiemtheo.Location = new System.Drawing.Point(766, 36);
-            this.cboxtimkiemtheo.Name = "cboxtimkiemtheo";
-            this.cboxtimkiemtheo.Size = new System.Drawing.Size(184, 24);
-            this.cboxtimkiemtheo.TabIndex = 3;
+            "Tên công ty"});
+            this.cboTimKiemTheo.Location = new System.Drawing.Point(766, 36);
+            this.cboTimKiemTheo.Name = "cboTimKiemTheo";
+            this.cboTimKiemTheo.Size = new System.Drawing.Size(184, 24);
+            this.cboTimKiemTheo.TabIndex = 3;
             // 
-            // rdagent
+            // rdAgent
             // 
-            this.rdagent.AutoSize = true;
-            this.rdagent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdagent.Location = new System.Drawing.Point(553, 104);
-            this.rdagent.Name = "rdagent";
-            this.rdagent.Size = new System.Drawing.Size(61, 20);
-            this.rdagent.TabIndex = 4;
-            this.rdagent.TabStop = true;
-            this.rdagent.Text = "Agent";
-            this.rdagent.UseVisualStyleBackColor = true;
+            this.rdAgent.AutoSize = true;
+            this.rdAgent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdAgent.Location = new System.Drawing.Point(553, 104);
+            this.rdAgent.Name = "rdAgent";
+            this.rdAgent.Size = new System.Drawing.Size(61, 20);
+            this.rdAgent.TabIndex = 4;
+            this.rdAgent.TabStop = true;
+            this.rdAgent.Text = "Agent";
+            this.rdAgent.UseVisualStyleBackColor = true;
+            this.rdAgent.CheckedChanged += new System.EventHandler(this.rdAgent_CheckedChanged);
             // 
-            // rdkhachhang
+            // rdKhachHang
             // 
-            this.rdkhachhang.AutoSize = true;
-            this.rdkhachhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdkhachhang.Location = new System.Drawing.Point(373, 104);
-            this.rdkhachhang.Name = "rdkhachhang";
-            this.rdkhachhang.Size = new System.Drawing.Size(96, 20);
-            this.rdkhachhang.TabIndex = 5;
-            this.rdkhachhang.TabStop = true;
-            this.rdkhachhang.Text = "Khách hàng";
-            this.rdkhachhang.UseVisualStyleBackColor = true;
+            this.rdKhachHang.AutoSize = true;
+            this.rdKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdKhachHang.Location = new System.Drawing.Point(373, 104);
+            this.rdKhachHang.Name = "rdKhachHang";
+            this.rdKhachHang.Size = new System.Drawing.Size(96, 20);
+            this.rdKhachHang.TabIndex = 5;
+            this.rdKhachHang.TabStop = true;
+            this.rdKhachHang.Text = "Khách hàng";
+            this.rdKhachHang.UseVisualStyleBackColor = true;
+            this.rdKhachHang.CheckedChanged += new System.EventHandler(this.rdKhachHang_CheckedChanged);
             // 
-            // rddoitac
+            // rdDoiTacKhachHang
             // 
-            this.rddoitac.AutoSize = true;
-            this.rddoitac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rddoitac.Location = new System.Drawing.Point(698, 104);
-            this.rddoitac.Name = "rddoitac";
-            this.rddoitac.Size = new System.Drawing.Size(139, 20);
-            this.rddoitac.TabIndex = 6;
-            this.rddoitac.TabStop = true;
-            this.rddoitac.Text = "Đối tác khách hàng";
-            this.rddoitac.UseVisualStyleBackColor = true;
+            this.rdDoiTacKhachHang.AutoSize = true;
+            this.rdDoiTacKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdDoiTacKhachHang.Location = new System.Drawing.Point(698, 104);
+            this.rdDoiTacKhachHang.Name = "rdDoiTacKhachHang";
+            this.rdDoiTacKhachHang.Size = new System.Drawing.Size(139, 20);
+            this.rdDoiTacKhachHang.TabIndex = 6;
+            this.rdDoiTacKhachHang.TabStop = true;
+            this.rdDoiTacKhachHang.Text = "Đối tác khách hàng";
+            this.rdDoiTacKhachHang.UseVisualStyleBackColor = true;
+            this.rdDoiTacKhachHang.CheckedChanged += new System.EventHandler(this.rdDoiTacKhachHang_CheckedChanged);
             // 
             // grdtimkiem
             // 
@@ -228,18 +231,19 @@
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1211, 437);
             this.Controls.Add(this.grdtimkiem);
-            this.Controls.Add(this.rddoitac);
-            this.Controls.Add(this.rdkhachhang);
-            this.Controls.Add(this.rdagent);
-            this.Controls.Add(this.cboxtimkiemtheo);
+            this.Controls.Add(this.rdDoiTacKhachHang);
+            this.Controls.Add(this.rdKhachHang);
+            this.Controls.Add(this.rdAgent);
+            this.Controls.Add(this.cboTimKiemTheo);
             this.Controls.Add(this.lbltimkiemtheo);
-            this.Controls.Add(this.txttukhoa);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.lbltukhoa);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Search";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm kiếm";
+            this.Load += new System.EventHandler(this.Search_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdtimkiem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -249,12 +253,12 @@
         #endregion
 
         private System.Windows.Forms.Label lbltukhoa;
-        private System.Windows.Forms.TextBox txttukhoa;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Label lbltimkiemtheo;
-        private System.Windows.Forms.ComboBox cboxtimkiemtheo;
-        private System.Windows.Forms.RadioButton rdagent;
-        private System.Windows.Forms.RadioButton rdkhachhang;
-        private System.Windows.Forms.RadioButton rddoitac;
+        private System.Windows.Forms.ComboBox cboTimKiemTheo;
+        private System.Windows.Forms.RadioButton rdAgent;
+        private System.Windows.Forms.RadioButton rdKhachHang;
+        private System.Windows.Forms.RadioButton rdDoiTacKhachHang;
         private System.Windows.Forms.DataGridView grdtimkiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn column2;
