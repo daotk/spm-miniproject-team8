@@ -52,8 +52,27 @@ namespace QuanLyKhachHang.GUI
         private void button3_Click(object sender, EventArgs e)
         {
             EditCustomer Fedit = new EditCustomer();
-            Fedit.ShowDialog();
-
+            if (Fedit.ShowDialog() == DialogResult.Cancel)
+            {
+                if (strStatusCheck == rdAgent.Text)
+                {
+                    LoadData_WhenRadioChange(rdAgent.Text);
+                }
+                else
+                {
+                    if (strStatusCheck == rdDoiTacKhachHang.Text)
+                    {
+                        LoadData_WhenRadioChange(rdDoiTacKhachHang.Text);
+                    }
+                    else
+                    {
+                        if (strStatusCheck == rdKhachHang.Text)
+                        {
+                            LoadData_WhenRadioChange(rdKhachHang.Text);
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
