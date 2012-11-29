@@ -278,6 +278,11 @@ namespace QuanLyKhachHang.GUI
             button10.Hide();
         }
 
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
       
 
        
