@@ -15,5 +15,27 @@ namespace QuanLyKhachHang.GUI
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Đồng hồ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDongHo.Text = DateTime.Now.ToString();
+        }
+
+        /// <summary>
+        /// trang chinh
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+      
     }
 }
