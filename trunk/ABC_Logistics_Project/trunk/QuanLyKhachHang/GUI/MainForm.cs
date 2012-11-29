@@ -81,26 +81,30 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void btnDanhMuc(object sender, EventArgs e)
         {
-            //button  
-            button5.Image = global::QuanLyKhachHang.Properties.Resources.Web_icon;
-            button5.Text = "Danh mục quốc gia";
-            button5.Show();
+            ////button  
+            //button5.Image = global::QuanLyKhachHang.Properties.Resources.Web_icon;
+            //button5.Text = "Danh mục quốc gia";
+            //button5.Show();
             
-            button6.Image = global::QuanLyKhachHang.Properties.Resources.yellow_submarine_icon;
-            button6.Text = "Danh mục cảng vận chuyển";
-            button6.Show();
+            //button6.Image = global::QuanLyKhachHang.Properties.Resources.yellow_submarine_icon;
+            //button6.Text = "Danh mục cảng vận chuyển";
+            //button6.Show();
 
-            button7.Image = global::QuanLyKhachHang.Properties.Resources.Lorry_icon;
-            button7.Text = "Danh mục các loại container/ các quy chuẩn tính phí";
-            button7.Show();
+            //button7.Image = global::QuanLyKhachHang.Properties.Resources.Lorry_icon;
+            //button7.Text = "Danh mục các loại container/ các quy chuẩn tính phí";
+            //button7.Show();
 
-            button8.Image = global::QuanLyKhachHang.Properties.Resources.Money_icon;
-            button8.Text = "Danh mục các loại phí";
-            button8.Show();
+            //button8.Image = global::QuanLyKhachHang.Properties.Resources.Money_icon;
+            //button8.Text = "Danh mục các loại phí";
+            //button8.Show();
 
-            button9.Image = global::QuanLyKhachHang.Properties.Resources.currency_dollar_icon;
-            button9.Text = "Danh mục ngoại tệ";
-            button9.Show();
+            //button9.Image = global::QuanLyKhachHang.Properties.Resources.currency_dollar_icon;
+            //button9.Text = "Danh mục ngoại tệ";
+            //button9.Show();
+            QuanLyDanhMuc FQuanLyDanhMuc = new QuanLyDanhMuc();
+            FQuanLyDanhMuc.Show();
+
+
        
         }
         /// <summary>
