@@ -20,7 +20,6 @@ namespace QuanLyKhachHang.GUI
             InitializeComponent();
         }
 
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -36,7 +35,6 @@ namespace QuanLyKhachHang.GUI
             lblDongHo.Text = DateTime.Now.ToString();
         }
 
-
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -46,13 +44,18 @@ namespace QuanLyKhachHang.GUI
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Xủ lý khi nhap nut Edit tren giao dien Customer management
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             EditCustomer Fedit = new EditCustomer();
             Fedit.ShowDialog();
 
         }
+
         /// <summary>
         /// Xử lý chọn hết text trong ô tìm kiếm khi chọn vào nó
         /// </summary>
@@ -73,6 +76,7 @@ namespace QuanLyKhachHang.GUI
             cboTimKiemTheo.SelectedIndex = 0;
             rdKhachHang.Checked=true;
         }
+
         /// <summary>
         /// Add new custommer
         /// </summary>
@@ -105,7 +109,7 @@ namespace QuanLyKhachHang.GUI
         }
 
         /// <summary>
-        /// Xu ly1 khi nhap double vao 1 cell trong DataGridView
+        /// Xu ly khi nhap double vao 1 cell trong DataGridView
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -143,26 +147,72 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (cboTimKiemTheo.Text == "Mã khách hàng")
+            //khach hang
+            if (strStatusCheck == rdKhachHang.Text)
             {
-                string txttext = txtTimKiem.Text;
-                var customer = from p in context.KhachHangTas
-                               where p.MaCongTy.Contains(txttext)
-                               select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
-                dataGridView1.DataSource = customer.ToList();
+                if (cboTimKiemTheo.Text == "Mã khách hàng")
+                {
+                    string txttext = txtTimKiem.Text;
+                    var customer = from p in context.KhachHangTas
+                                   where ((p.MaCongTy.Contains(txttext)) && (p.LoaiKhachHang == rdKhachHang.Text))
+                                   select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
+                    dataGridView1.DataSource = customer.ToList();
+                }
+                else
+                {
+                    string txttext = txtTimKiem.Text;
+                    var customer = from p in context.KhachHangTas
+                                   where ((p.TenCTyV.Contains(txttext)) && (p.LoaiKhachHang == rdKhachHang.Text))
+                                   select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
+                    dataGridView1.DataSource = customer.ToList();
+                }
             }
-            else
+            
+            //Agent
+            if (strStatusCheck == rdAgent.Text)
             {
-                string txttext = txtTimKiem.Text;      
-                var customer = from p in context.KhachHangTas
-                               where p.TenCTyV.Contains(txttext)
-                               select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
-                dataGridView1.DataSource = customer.ToList();
+                if (cboTimKiemTheo.Text == "Mã khách hàng")
+                {
+                    string txttext = txtTimKiem.Text;
+                    var customer = from p in context.KhachHangTas
+                                   where ((p.MaCongTy.Contains(txttext)) && (p.LoaiKhachHang == rdAgent.Text))
+                                   select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
+                    dataGridView1.DataSource = customer.ToList();
+                }
+                else
+                {
+                    string txttext = txtTimKiem.Text;
+                    var customer = from p in context.KhachHangTas
+                                   where ((p.TenCTyV.Contains(txttext)) && (p.LoaiKhachHang == rdAgent.Text))
+                                   select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
+                    dataGridView1.DataSource = customer.ToList();
+                }
+            }
+
+            //Doi tac
+            if (strStatusCheck == rdDoiTacKhachHang.Text)
+            {
+                if (cboTimKiemTheo.Text == "Mã khách hàng")
+                {
+                    string txttext = txtTimKiem.Text;
+                    var customer = from p in context.KhachHangTas
+                                   where ((p.MaCongTy.Contains(txttext)) && (p.LoaiKhachHang == rdDoiTacKhachHang.Text))
+                                   select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
+                    dataGridView1.DataSource = customer.ToList();
+                }
+                else
+                {
+                    string txttext = txtTimKiem.Text;
+                    var customer = from p in context.KhachHangTas
+                                   where ((p.TenCTyV.Contains(txttext)) && (p.LoaiKhachHang == rdDoiTacKhachHang.Text))
+                                   select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
+                    dataGridView1.DataSource = customer.ToList();
+                }
             }
         }
 
         /// <summary>
-        /// lọc danh sách khách hàng khi check vào radio khách hàng
+        /// lọc danh sách khách hàng khi check vào radio khách hàng và cho biến strStatus = Khách hàng
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -173,23 +223,25 @@ namespace QuanLyKhachHang.GUI
         }
 
         /// <summary>
-        /// loc danh sach agent khi check vao radio agent
+        /// loc danh sach agent khi check vao radio agent và cho biến strStatus = Agent
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void rdAgent_CheckedChanged(object sender, EventArgs e)
         {
+
             LoadData_WhenRadioChange(rdAgent.Text);
             strStatusCheck = rdAgent.Text;
         }
 
         /// <summary>
-        /// loc danh sach doi tac khach hang khi check vao nut đối tác khách hàng
+        /// loc danh sach doi tac khach hang khi check vao nut đối tác khách hàng và cho biến strStatus = Đối tác khách hàng
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void rdDoiTacKhachHang_CheckedChanged(object sender, EventArgs e)
         {
+
            LoadData_WhenRadioChange(rdDoiTacKhachHang.Text);
            strStatusCheck = rdDoiTacKhachHang.Text;
         }
