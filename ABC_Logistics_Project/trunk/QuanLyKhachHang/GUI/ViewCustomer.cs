@@ -128,6 +128,7 @@ namespace QuanLyKhachHang.GUI
                 txtEmail.Enabled = true;
                 txtWedsite.Enabled = true;
                 cboNhanVienQuanLy.Enabled = true;
+                dtNgayTao.Enabled = true;
                 //set text
                 btnDongY.Text = "Cập nhật";
 
@@ -148,6 +149,7 @@ namespace QuanLyKhachHang.GUI
                 customer.Email = txtEmail.Text;
                 customer.Web = txtWedsite.Text;
                 customer.MaNhanVienQuanLy = (int)cboNhanVienQuanLy.SelectedValue;
+                customer.NgayTao = dtNgayTao.Value;
                 int count = context.SaveChanges();
                 if (count > 0)
                 {
@@ -339,7 +341,11 @@ namespace QuanLyKhachHang.GUI
             txtSoDDNLH.Enabled = false;
             txtEmailNLH.Enabled = false;
         }
-
+        /// <summary>
+        /// xoa thong tin 1 nguoi lien he
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnXoaNLH_Click(object sender, EventArgs e)
         {
             int MaNLH;
