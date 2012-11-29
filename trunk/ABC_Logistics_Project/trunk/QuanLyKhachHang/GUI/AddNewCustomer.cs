@@ -181,6 +181,7 @@ namespace QuanLyKhachHang.GUI
         private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
         {
             strCheck =  rdKhachHang.Text;
+            cboxLinhVucKinhDoanh.Enabled = true;
         }
 
         /// <summary>
@@ -191,6 +192,7 @@ namespace QuanLyKhachHang.GUI
         private void rdDoiTac_CheckedChanged(object sender, EventArgs e)
         {
             strCheck =  rdDoiTac.Text;
+            cboxLinhVucKinhDoanh.Enabled = true;
         }
 
         /// <summary>
