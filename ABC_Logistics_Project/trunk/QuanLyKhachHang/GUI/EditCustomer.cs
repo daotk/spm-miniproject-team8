@@ -14,14 +14,8 @@ namespace QuanLyKhachHang.GUI
     {
         ABCLogisticEntities context = new ABCLogisticEntities();
         KhachHangTa customer;
-        string MaKhachHang;
-        public EditCustomer(string makh)
-        {
-            MaKhachHang = makh;
-            InitializeComponent();
-            EditCustomer_LoadCustomer();
-        }
-
+        NguoiLienHeTa NguoiLH;
+        string strCheck, makh;
         public EditCustomer()
         {   
             InitializeComponent();
@@ -45,25 +39,14 @@ namespace QuanLyKhachHang.GUI
         private void button7_Click(object sender, EventArgs e)
         {
                 Search FSearch = new Search();
+                FSearch.submit += new Search.Editcusdelegate(FSearch_submit);
                 FSearch.ShowDialog();
                
         }
-        /// <summary>
-        /// xử lý sự kiện khi nhấp nút cập nhật
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button5_Click(object sender, EventArgs e)
-        {
 
-        }
-        /// <summary>
-        /// Load form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EditCustomer_LoadCustomer()
+        void FSearch_submit(string item)
         {
+            makh = item;
             //doc danh sach quoc gia tu database
             var QuocGia = from cat in context.QuocGiaTas
                           select cat;
@@ -96,7 +79,7 @@ namespace QuanLyKhachHang.GUI
             cboNhanVienQuanLy.ValueMember = "MaNhanVien";
 
             customer = (from p in context.KhachHangTas
-                        where p.MaCongTy == MaKhachHang
+                        where p.MaCongTy == item
                         select p).FirstOrDefault<KhachHangTa>();
             txtMaCongTy.Text = customer.MaCongTy;
             txtTenGiaoDichV.Text = customer.TenCTyV;
@@ -125,8 +108,44 @@ namespace QuanLyKhachHang.GUI
             txtWed.Text = customer.Web;
             cboNhanVienQuanLy.SelectedValue = customer.MaNhanVienQuanLy;
             dtNgayTao.Value = customer.NgayTao.Value;
+
+            //load NLH
+            Load_DataNLH();
         }
 
+        /// <summary>
+        /// xử lý sự kiện khi nhấp nút cập nhật
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            customer.TenCTyV = txtTenGiaoDichV.Text;
+            customer.TenCTyE = txtTenGiaoDichE.Text;
+            customer.TenCTyVT = txtTenGiaoDichS.Text;
+            customer.MaLVKD = (int)cboLinhVucKinhDoanh.SelectedValue;
+            customer.CongTyChuQuan = txtCongTyChuQuan.Text;
+            customer.LoaiKhachHang = strCheck;
+            customer.MaQuocGia = (int)cboQuocGia.SelectedValue;
+            customer.MaTinhThanh = (int)cboTinhThanh.SelectedValue;
+            customer.DiaChi = txtDiaChi.Text;
+            customer.Sdt = txtSDT.Text;
+            customer.Fax = txtSoFax.Text;
+            customer.Email = txtEmail.Text;
+            customer.Web = txtWed.Text;
+            customer.MaNhanVienQuanLy = (int)cboNhanVienQuanLy.SelectedValue;
+            customer.NgayTao = dtNgayTao.Value;
+            int count = context.SaveChanges();
+            if (count > 0)
+            {
+                MessageBox.Show("Cập nhật thành công");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thất bại");
+            }
+        }
+  
         /// <summary>
         /// Loc danh sach tinh thanh khi chon Quoc gia
         /// </summary>
@@ -147,7 +166,126 @@ namespace QuanLyKhachHang.GUI
 
             }
         }
-       
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
+        {
+            strCheck = rdKhachHang.Text;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdDoiTacKhachHang_CheckedChanged(object sender, EventArgs e)
+        {
+            strCheck = rdDoiTacKhachHang.Text;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdAgent_CheckedChanged(object sender, EventArgs e)
+        {
+            strCheck = rdAgent.Text;
+        }
+        /// <summary>
+        /// Load data nguoi lien he
+        /// </summary>
+        private void Load_DataNLH()
+        {
+            //load danh sach nguoi lien hệ
+            var nguoilienhe = from cat in context.NguoiLienHeTas
+                              where cat.MaKhachhang == makh
+                              select new { cat.MaNguoiLienHe, cat.HoVaChuLotNLH, cat.TenNLH, cat.PhongBan, cat.ChucDanh, cat.SDT, cat.SoDD, cat.Email };
+            dgvNLH.DataSource = nguoilienhe.ToList();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvNLH_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //load nguoi lien he len textbox
+            Int32 makh = (int)dgvNLH.CurrentRow.Cells[0].Value;
+
+            NguoiLH = (from p in context.NguoiLienHeTas
+                       where p.MaNguoiLienHe == makh
+                       select p).FirstOrDefault<NguoiLienHeTa>();
+
+            txtHoNLH.Text = NguoiLH.HoVaChuLotNLH;
+            txtTenNLH.Text = NguoiLH.TenNLH;
+            txtPhongBanNLH.Text = NguoiLH.PhongBan;
+            txtChucDanhNLH.Text = NguoiLH.ChucDanh;
+            txtSdtNLH.Text = NguoiLH.SDT;
+            txtSoDDNLH.Text = NguoiLH.SoDD;
+            txtEmailNLH.Text = NguoiLH.Email;
+        }
+        /// <summary>
+        /// luu lai chinh sua
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NguoiLH.HoVaChuLotNLH = txtHoNLH.Text;
+            NguoiLH.TenNLH = txtTenNLH.Text;
+            NguoiLH.PhongBan = txtPhongBanNLH.Text;
+            NguoiLH.ChucDanh = txtChucDanhNLH.Text;
+            NguoiLH.SDT = txtSdtNLH.Text;
+            NguoiLH.SoDD = txtSoDDNLH.Text;
+            NguoiLH.Email = txtEmailNLH.Text;
+            int count = context.SaveChanges();
+            if (count > 0)
+            {
+                MessageBox.Show("Cập nhật thành công");
+                Load_DataNLH();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thất bại");
+            }
+
+        }
+        /// <summary>
+        /// huy bo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int MaNLH;
+            if (Int32.TryParse(dgvNLH.CurrentRow.Cells[0].Value.ToString(), out MaNLH))
+            {
+                using (ABCLogisticEntities newcontext = new ABCLogisticEntities())
+                {
+                    NguoiLienHeTa p = new NguoiLienHeTa() { MaNguoiLienHe = MaNLH };
+                    newcontext.NguoiLienHeTas.Attach(p);
+                    newcontext.ObjectStateManager.ChangeObjectState(p, EntityState.Deleted);
+                    int count = newcontext.SaveChanges();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        Load_DataNLH();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
+            }
+        }
+
 
 
     }
