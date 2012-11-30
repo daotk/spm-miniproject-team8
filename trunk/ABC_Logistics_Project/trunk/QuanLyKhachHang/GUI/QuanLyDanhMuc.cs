@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using QuanLyKhachHang.BL;
+using QuanLyKhachHang.DA;
 
 namespace QuanLyKhachHang.GUI
 {
     public partial class QuanLyDanhMuc : Form
     {
+        ABCLogisticEntities context = new ABCLogisticEntities();
         string StrUsername;
         public QuanLyDanhMuc(string strUsername)
         {
@@ -45,6 +48,19 @@ namespace QuanLyKhachHang.GUI
         private void QuanLyDanhMuc_Load(object sender, EventArgs e)
         {
             lblTenNhanVien.Text = StrUsername;
+            //load ngoai te tu database
+            var ngoaite = from cat in context.NgoaiTeTas
+                          select cat;
+            cbngoaite.DataSource = ngoaite.ToList<NgoaiTeTa>();
+            cbngoaite.DisplayMember = "TenNgoaiTe";
+            cbngoaite.ValueMember = "MaNgoaiTe";
+
+            //load quy doi ngoai te tu database
+            var quydoi = from cat in context.NgoaiTeTas
+                          select cat;
+            cbquydoingoaite.DataSource = quydoi.ToList<NgoaiTeTa>();
+            cbquydoingoaite.DisplayMember = "TenNgoaiTe";
+            cbquydoingoaite.ValueMember = "MaNgoaiTe";
         }
 
       
