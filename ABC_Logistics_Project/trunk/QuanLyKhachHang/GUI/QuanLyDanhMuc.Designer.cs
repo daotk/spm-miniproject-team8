@@ -35,8 +35,6 @@
             this.lblDongHo = new System.Windows.Forms.Label();
             this.lblTenNhanVien = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnTrangChinh = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -44,9 +42,25 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnTrangChinh = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbngoaite = new System.Windows.Forms.ComboBox();
+            this.cbquydoingoaite = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,7 +71,7 @@
             this.panel1.Controls.Add(this.lblDongHo);
             this.panel1.Controls.Add(this.lblTenNhanVien);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 363);
+            this.panel1.Location = new System.Drawing.Point(0, 566);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1275, 30);
             this.panel1.TabIndex = 5;
@@ -111,32 +125,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnTrangChinh
-            // 
-            this.btnTrangChinh.Image = global::QuanLyKhachHang.Properties.Resources.home_icon;
-            this.btnTrangChinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTrangChinh.Location = new System.Drawing.Point(12, 12);
-            this.btnTrangChinh.Name = "btnTrangChinh";
-            this.btnTrangChinh.Size = new System.Drawing.Size(150, 40);
-            this.btnTrangChinh.TabIndex = 6;
-            this.btnTrangChinh.Text = "Trang chính";
-            this.btnTrangChinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTrangChinh.UseVisualStyleBackColor = true;
-            this.btnTrangChinh.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button4
-            // 
-            this.button4.Image = global::QuanLyKhachHang.Properties.Resources.Actions_application_exit_icon;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(530, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 40);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Thoát";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button4);
@@ -158,7 +146,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 65);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1275, 298);
+            this.tabControl1.Size = new System.Drawing.Size(1275, 501);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -166,7 +154,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1267, 272);
+            this.tabPage1.Size = new System.Drawing.Size(1267, 475);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Danh mục quốc gia";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -176,7 +164,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1267, 272);
+            this.tabPage2.Size = new System.Drawing.Size(1267, 475);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Danh mục cảng vận chuyển";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -185,7 +173,7 @@
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1267, 272);
+            this.tabPage3.Size = new System.Drawing.Size(1267, 475);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Danh mục các loại container";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -194,26 +182,172 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1267, 272);
+            this.tabPage4.Size = new System.Drawing.Size(1267, 475);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Danh mục các loại phí";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
+            this.tabPage5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage5.Controls.Add(this.groupBox2);
+            this.tabPage5.Controls.Add(this.groupBox1);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1267, 272);
+            this.tabPage5.Size = new System.Drawing.Size(1267, 475);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Danh mục ngoại tệ";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Location = new System.Drawing.Point(17, 21);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(267, 607);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Chức năng";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.cbquydoingoaite);
+            this.groupBox2.Controls.Add(this.cbngoaite);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(309, 21);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1038, 686);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Thông tin ngoại tệ";
+            // 
+            // button3
+            // 
+            this.button3.Image = global::QuanLyKhachHang.Properties.Resources.coin_delete_icon__1_;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(31, 376);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(150, 93);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Loại bỏ ngoại tệ";
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Image = global::QuanLyKhachHang.Properties.Resources.coin_icon;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(31, 227);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 93);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Chỉnh sửa ngoại tệ";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Image = global::QuanLyKhachHang.Properties.Resources.coin_add_icon;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(31, 66);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 93);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Thêm mới ngoại tệ";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Image = global::QuanLyKhachHang.Properties.Resources.Actions_application_exit_icon;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(530, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(150, 40);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "Thoát";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // btnTrangChinh
+            // 
+            this.btnTrangChinh.Image = global::QuanLyKhachHang.Properties.Resources.home_icon;
+            this.btnTrangChinh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrangChinh.Location = new System.Drawing.Point(12, 12);
+            this.btnTrangChinh.Name = "btnTrangChinh";
+            this.btnTrangChinh.Size = new System.Drawing.Size(150, 40);
+            this.btnTrangChinh.TabIndex = 6;
+            this.btnTrangChinh.Text = "Trang chính";
+            this.btnTrangChinh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTrangChinh.UseVisualStyleBackColor = true;
+            this.btnTrangChinh.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(216, 97);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Loại ngoại tệ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(219, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(171, 24);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Giá trị quy đổi sang";
+            // 
+            // cbngoaite
+            // 
+            this.cbngoaite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbngoaite.FormattingEnabled = true;
+            this.cbngoaite.Location = new System.Drawing.Point(435, 99);
+            this.cbngoaite.Name = "cbngoaite";
+            this.cbngoaite.Size = new System.Drawing.Size(214, 21);
+            this.cbngoaite.TabIndex = 2;
+            // 
+            // cbquydoingoaite
+            // 
+            this.cbquydoingoaite.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbquydoingoaite.FormattingEnabled = true;
+            this.cbquydoingoaite.Location = new System.Drawing.Point(435, 155);
+            this.cbquydoingoaite.Name = "cbquydoingoaite";
+            this.cbquydoingoaite.Size = new System.Drawing.Size(214, 21);
+            this.cbquydoingoaite.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(440, 206);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(21, 24);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "=";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(493, 210);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(117, 20);
+            this.textBox1.TabIndex = 5;
             // 
             // QuanLyDanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1275, 393);
+            this.ClientSize = new System.Drawing.Size(1275, 596);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -226,6 +360,10 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -247,5 +385,16 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbquydoingoaite;
+        private System.Windows.Forms.ComboBox cbngoaite;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }
