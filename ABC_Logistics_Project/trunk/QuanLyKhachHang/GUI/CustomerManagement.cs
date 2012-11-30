@@ -15,8 +15,10 @@ namespace QuanLyKhachHang.GUI
     {
         string strStatusCheck;
         ABCLogisticEntities context = new ABCLogisticEntities();
-        public CustomerManagement()
+        string StrUsername;
+        public CustomerManagement(string strUsername)
         {
+            StrUsername = strUsername;
             InitializeComponent();
         }
 
@@ -94,6 +96,7 @@ namespace QuanLyKhachHang.GUI
         {
             cboTimKiemTheo.SelectedIndex = 0;
             rdKhachHang.Checked=true;
+            lblTenNhanVien.Text = StrUsername;
         }
 
         /// <summary>
@@ -277,9 +280,9 @@ namespace QuanLyKhachHang.GUI
             dataGridView1.DataSource = cus.ToList();
         }
 
+     
 
-
-
+      
 
         }
     }

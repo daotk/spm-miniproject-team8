@@ -57,7 +57,7 @@
             this.button14 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lblDongHo = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblTenNhanVien = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -322,7 +322,7 @@
             this.panel1.Controls.Add(this.button14);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lblDongHo);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblTenNhanVien);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 596);
             this.panel1.Name = "panel1";
@@ -336,7 +336,7 @@
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.Location = new System.Drawing.Point(-1, -1);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(952, 30);
+            this.button14.Size = new System.Drawing.Size(898, 30);
             this.button14.TabIndex = 15;
             this.button14.Text = "Quản lý bán hàng\\Quản lý khách hàng";
             this.button14.UseVisualStyleBackColor = false;
@@ -345,7 +345,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(960, 5);
+            this.label3.Location = new System.Drawing.Point(895, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 16;
@@ -363,15 +363,15 @@
             this.lblDongHo.Text = "Đồng hồ";
             this.lblDongHo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // lblTenNhanVien
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1049, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 20);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Nguyễn Văn A";
+            this.lblTenNhanVien.AutoSize = true;
+            this.lblTenNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenNhanVien.Location = new System.Drawing.Point(986, 4);
+            this.lblTenNhanVien.Name = "lblTenNhanVien";
+            this.lblTenNhanVien.Size = new System.Drawing.Size(111, 20);
+            this.lblTenNhanVien.TabIndex = 17;
+            this.lblTenNhanVien.Text = "Nguyễn Văn A";
             // 
             // timer1
             // 
@@ -424,7 +424,7 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblDongHo;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTenNhanVien;
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhachHang;
