@@ -13,18 +13,16 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public string StrUsername;
+        public MainForm(string strUsername)
         {
+            StrUsername = strUsername;
             InitializeComponent();
         }
 
         private void quảnLýKháchHảngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomerManagement cusManagement = new CustomerManagement();
-           // cusManagement.MdiParent=this;
-            cusManagement.ShowDialog();
-
-
+           
         }
         /// <summary>
         /// xử lý khi load form
@@ -40,6 +38,7 @@ namespace QuanLyKhachHang.GUI
             button8.Hide();
             button9.Hide();
             button10.Hide();
+            lblTenNhanVien.Text = StrUsername;
 
            
         }
@@ -70,9 +69,10 @@ namespace QuanLyKhachHang.GUI
             button9.Hide();
             button10.Hide();
 
-            CustomerManagement Cus = new CustomerManagement();
-            Cus.Show();
-
+            CustomerManagement Cus = new CustomerManagement(StrUsername);
+            this.Visible = false;
+            Cus.ShowDialog(); ;
+            this.Visible = true;
         }
         /// <summary>
         /// Xử lý sự kiện khi nhấp button Giao dich trên giao diện chính
@@ -81,31 +81,11 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void btnDanhMuc(object sender, EventArgs e)
         {
-            ////button  
-            //button5.Image = global::QuanLyKhachHang.Properties.Resources.Web_icon;
-            //button5.Text = "Danh mục quốc gia";
-            //button5.Show();
-            
-            //button6.Image = global::QuanLyKhachHang.Properties.Resources.yellow_submarine_icon;
-            //button6.Text = "Danh mục cảng vận chuyển";
-            //button6.Show();
+            QuanLyDanhMuc FQuanLyDanhMuc = new QuanLyDanhMuc(StrUsername);
+            this.Visible = false;
+            FQuanLyDanhMuc.ShowDialog();
+            this.Visible = true;
 
-            //button7.Image = global::QuanLyKhachHang.Properties.Resources.Lorry_icon;
-            //button7.Text = "Danh mục các loại container/ các quy chuẩn tính phí";
-            //button7.Show();
-
-            //button8.Image = global::QuanLyKhachHang.Properties.Resources.Money_icon;
-            //button8.Text = "Danh mục các loại phí";
-            //button8.Show();
-
-            //button9.Image = global::QuanLyKhachHang.Properties.Resources.currency_dollar_icon;
-            //button9.Text = "Danh mục ngoại tệ";
-            //button9.Show();
-            QuanLyDanhMuc FQuanLyDanhMuc = new QuanLyDanhMuc();
-            FQuanLyDanhMuc.Show();
-
-
-       
         }
         /// <summary>
         /// xử lý sự kiện khi nhấn nút hệ thống báo cáo trên giao diện chính
@@ -168,15 +148,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
-            if (button5.Text == "Quản lý thông tin khách hàng")
-            {
-                CustomerManagement FCustomerManagement = new CustomerManagement();
-                FCustomerManagement.ShowDialog();
-            }
-            else
-            { 
-                
-            }
+           
         }
         /// <summary>
         /// sử lý sự kiện khi nhấn nút Quản lý Công nợ trên giao diện chính

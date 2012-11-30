@@ -33,7 +33,7 @@
             this.button14 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDongHo = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTenNhanVien = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnTrangChinh = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@
             this.panel1.Controls.Add(this.button14);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblDongHo);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblTenNhanVien);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 363);
             this.panel1.Name = "panel1";
@@ -69,7 +69,7 @@
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.Location = new System.Drawing.Point(-1, -1);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(970, 30);
+            this.button14.Size = new System.Drawing.Size(883, 30);
             this.button14.TabIndex = 15;
             this.button14.Text = "Quản lý bán hàng/Quản lý danh mục";
             this.button14.UseVisualStyleBackColor = false;
@@ -78,7 +78,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(975, 7);
+            this.label2.Location = new System.Drawing.Point(895, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 16;
@@ -96,15 +96,15 @@
             this.lblDongHo.Text = "Đồng hồ";
             this.lblDongHo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblTenNhanVien
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1063, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 20);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Nguyễn Văn A";
+            this.lblTenNhanVien.AutoSize = true;
+            this.lblTenNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenNhanVien.Location = new System.Drawing.Point(975, 7);
+            this.lblTenNhanVien.Name = "lblTenNhanVien";
+            this.lblTenNhanVien.Size = new System.Drawing.Size(111, 20);
+            this.lblTenNhanVien.TabIndex = 17;
+            this.lblTenNhanVien.Text = "Nguyễn Văn A";
             // 
             // timer1
             // 
@@ -221,6 +221,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý danh mục";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.QuanLyDanhMuc_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -235,7 +236,7 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDongHo;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTenNhanVien;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnTrangChinh;
         private System.Windows.Forms.Button button4;

@@ -11,8 +11,10 @@ namespace QuanLyKhachHang.GUI
 {
     public partial class QuanLyDanhMuc : Form
     {
-        public QuanLyDanhMuc()
+        string StrUsername;
+        public QuanLyDanhMuc(string strUsername)
         {
+            StrUsername = strUsername;
             InitializeComponent();
         }
 
@@ -34,6 +36,15 @@ namespace QuanLyKhachHang.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        /// <summary>
+        /// Load Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QuanLyDanhMuc_Load(object sender, EventArgs e)
+        {
+            lblTenNhanVien.Text = StrUsername;
         }
 
       
