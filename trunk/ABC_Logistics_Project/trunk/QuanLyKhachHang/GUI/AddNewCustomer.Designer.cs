@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewCustomer));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label31 = new System.Windows.Forms.Label();
+            this.dtNgayTao = new System.Windows.Forms.DateTimePicker();
             this.txtNhanVienQuanLy = new System.Windows.Forms.TextBox();
             this.rdAgent = new System.Windows.Forms.RadioButton();
             this.rdDoiTac = new System.Windows.Forms.RadioButton();
@@ -104,8 +106,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtNgayTao = new System.Windows.Forms.DateTimePicker();
-            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -178,6 +178,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(20, 496);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(63, 16);
+            this.label31.TabIndex = 22;
+            this.label31.Text = "Ngày tạo";
+            // 
+            // dtNgayTao
+            // 
+            this.dtNgayTao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNgayTao.Location = new System.Drawing.Point(196, 496);
+            this.dtNgayTao.Name = "dtNgayTao";
+            this.dtNgayTao.Size = new System.Drawing.Size(104, 22);
+            this.dtNgayTao.TabIndex = 21;
             // 
             // txtNhanVienQuanLy
             // 
@@ -306,7 +324,7 @@
             // 
             // button7
             // 
-            this.button7.Image = global::QuanLyKhachHang.Properties.Resources.check_2_icon;
+            this.button7.Image = global::QuanLyKhachHang.Properties.Resources.check_2_icon1;
             this.button7.Location = new System.Drawing.Point(504, 14);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(34, 25);
@@ -631,7 +649,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(867, 554);
+            this.tabPage2.Size = new System.Drawing.Size(867, 587);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thông tin người liên lạc";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -903,24 +921,6 @@
             this.label1.Size = new System.Drawing.Size(71, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên";
-            // 
-            // dtNgayTao
-            // 
-            this.dtNgayTao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNgayTao.Location = new System.Drawing.Point(196, 496);
-            this.dtNgayTao.Name = "dtNgayTao";
-            this.dtNgayTao.Size = new System.Drawing.Size(104, 22);
-            this.dtNgayTao.TabIndex = 21;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(20, 496);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(63, 16);
-            this.label31.TabIndex = 22;
-            this.label31.Text = "Ngày tạo";
             // 
             // AddNewCustomer
             // 
