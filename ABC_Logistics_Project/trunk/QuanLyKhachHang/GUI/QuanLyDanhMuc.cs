@@ -14,8 +14,11 @@ namespace QuanLyKhachHang.GUI
     public partial class QuanLyDanhMuc : Form
     {
         ABCLogisticEntities context = new ABCLogisticEntities();
+        bool bCheckClick = false;
         NgoaiTeTa ngoaite = new NgoaiTeTa();
         string StrUsername;
+        string strCapNhat = "Cập nhật",strHuyBo="Hủy bỏ",strChinhSua="Chỉnh sửa ngoại tệ",strLuu="Lưu",strThemMoi = "Thêm mới ngoại tệ",strChinhSuaTiGia="Chỉnh sửa tỉ giá quy đổi",
+            strXoa = "Xóa ngoại tệ";
         public QuanLyDanhMuc(string strUsername)
         {
             StrUsername = strUsername;
@@ -37,7 +40,7 @@ namespace QuanLyKhachHang.GUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTrangChinh_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -62,35 +65,89 @@ namespace QuanLyKhachHang.GUI
             dataGridView1.DataSource = ngoaite.ToList();
         }
 
+        private void TrangThaiBanDau()
+        {
+            //disabled all
+            lblMaNgoaiTe.Enabled = false;
+            lblTenNgoaiTe.Enabled = false;
+            lblTiGia.Enabled = false;
+            lblNgayTao.Enabled = false;
+            lblGhiChu.Enabled = false;
+            txtTenNgoaiTe.Text = "";
+            txtTenNgoaiTe.Enabled = false;
+            txtMaNgoaiTe.Text = "";
+            txtMaNgoaiTe.Enabled = false;
+            txtTiGia.Text = "";
+            txtTiGia.Enabled = false;
+            txtGhiChu.Text = "";
+            txtGhiChu.Enabled = false;
+            dtNgayTao.Enabled = false;
+            btnChinhsua.Show();
+            btnChinhsua.Text = strChinhSua;
+            btnThemmoi.Show();
+            btnThemmoi.Text = strThemMoi;
+            button3.Show();
+            button3.Text = strXoa;
+            button5.Show();
+            button5.Text = strChinhSuaTiGia;
+            dtNgayTao.Value = DateTime.Today;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            EnalbleAll();
-            button3.Hide();
-            button5.Hide();
-            //
-            if (button2.Text == "Lưu")
+            //bam nut them moi
+            if (btnThemmoi.Text == strThemMoi)
             {
-                ngoaite.MaNgoaiTe = txtMaNgoaiTe.Text;
-                ngoaite.TenNgoaiTe = txtTenNgoaiTe.Text;
-                ngoaite.TiGiaQuyDoi =  Int32.Parse(txtTiGia.Text);
-                ngoaite.NgayTao = dtNgayTao.Value;
-                ngoaite.GhiChu = txtGhiChu.Text;
-
-                context.NgoaiTeTas.AddObject(ngoaite);
-                int count = context.SaveChanges();
-                if (count > 0)
+                EnalbleAll();
+                button3.Hide();
+                button5.Hide();
+                btnThemmoi.Text = strLuu;
+                btnChinhsua.Text = strHuyBo;
+            }
+            else
+            {
+                //luu
+                if (btnThemmoi.Text == strLuu)
                 {
-                    MessageBox.Show("Them thanh cong");
-                    LoadDanhMuc();
+                    ngoaite.MaNgoaiTe = txtMaNgoaiTe.Text;
+                    ngoaite.TenNgoaiTe = txtTenNgoaiTe.Text;
+                    ngoaite.TiGiaQuyDoi = Int32.Parse(txtTiGia.Text);
+                    ngoaite.NgayTao = dtNgayTao.Value;
+                    ngoaite.GhiChu = txtGhiChu.Text;
+                    context.NgoaiTeTas.AddObject(ngoaite);
+                    int count = context.SaveChanges();
+                    if (count > 0)
+                    {
+                        TrangThaiBanDau();
+                        LoadDanhMuc();
+                        MessageBox.Show("Them thanh cong");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Them that bai");
+                    }
                 }
-                else
+                //cap nhat
+                if (btnThemmoi.Text == strCapNhat)
                 {
-                    MessageBox.Show("Them that bai");
+                    ngoaite.TenNgoaiTe = txtTenNgoaiTe.Text;
+                    ngoaite.TiGiaQuyDoi = int.Parse(txtTiGia.Text);
+                    ngoaite.NgayTao = dtNgayTao.Value;
+                    ngoaite.GhiChu = txtGhiChu.Text;
+                    ngoaite.NgayCapNhat = DateTime.Today;
+                    int count = context.SaveChanges();
+                    if (count > 0)
+                    {
+                        TrangThaiBanDau();
+                        LoadDanhMuc();
+                        MessageBox.Show("Cập nhật thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật thất bại");
+                    }
                 }
             }
-            button2.Text = "Lưu";
-            button1.Text = "Hủy bỏ";
-
         }
         /// <summary>
         /// Enabled
@@ -109,42 +166,61 @@ namespace QuanLyKhachHang.GUI
             dtNgayTao.Enabled = true;
         }
         /// <summary>
-        /// button thu 2
+        /// button thu 2 trong tab danh muc
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnChinhSua_Click(object sender, EventArgs e)
         {
-            if (button1.Text == "Hủy bỏ")
+            if (bCheckClick == false)
             {
-                HuyBoKhiLuu();
-                button3.Show();
-                button5.Show();
-                button1.Text = "Chỉnh sửa ngoại tệ";
-                button2.Text = "Thêm mới ngoại tệ";
-
+                MessageBox.Show("Ban chưa chọn ngoại tệ");
+            }
+            else
+            {
+                if (btnChinhsua.Text == strHuyBo)
+                {
+                    TrangThaiBanDau();
+                }
+                else
+                {
+                    if (btnChinhsua.Text == strChinhSua)
+                    {
+                        EnalbleAll();
+                        btnThemmoi.Text = strCapNhat;
+                        btnChinhsua.Text = strHuyBo;
+                        button3.Hide();
+                        button5.Hide();
+                        txtMaNgoaiTe.Enabled = false;
+                    }
+                }
             }
         }
 
-        private void HuyBoKhiLuu()
+        //nut thoat trong tab danh muc
+        private void button4_Click(object sender, EventArgs e)
         {
-            txtMaNgoaiTe.Text = "";
-            txtTenNgoaiTe.Text = "";
-            txtTiGia.Text = "";
-            txtGhiChu.Text = "";
-            dtNgayTao.Value = DateTime.Today;
-            //disabled
-            lblMaNgoaiTe.Enabled = false;
-            lblTenNgoaiTe.Enabled = false;
-            lblTiGia.Enabled = false;
-            lblNgayTao.Enabled = false;
-            lblGhiChu.Enabled = false;
-            txtTenNgoaiTe.Enabled = false;
-            txtMaNgoaiTe.Enabled = false;
-            txtTiGia.Enabled = false;
-            txtGhiChu.Enabled = false;
-            dtNgayTao.Enabled = false;
+            this.Close();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string MaNgoaiTe = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            ngoaite = (from p in context.NgoaiTeTas
+                       where p.MaNgoaiTe == MaNgoaiTe
+                       select p).FirstOrDefault<NgoaiTeTa>();
+            txtMaNgoaiTe.Text = ngoaite.MaNgoaiTe;
+            txtTenNgoaiTe.Text = ngoaite.TenNgoaiTe;
+            txtTiGia.Text = ngoaite.TiGiaQuyDoi.ToString();
+            dtNgayTao.Value = ngoaite.NgayTao;
+            txtGhiChu.Text = ngoaite.GhiChu;
+            bCheckClick = true;
+        }
+
 
       
       
