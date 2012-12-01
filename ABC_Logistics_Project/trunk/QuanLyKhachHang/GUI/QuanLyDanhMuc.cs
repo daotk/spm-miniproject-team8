@@ -63,6 +63,12 @@ namespace QuanLyKhachHang.GUI
             cbquydoingoaite.ValueMember = "MaNgoaiTe";
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            add_ themngoaite = new add_();
+            themngoaite.Show();
+        }
+
       
     }
 }

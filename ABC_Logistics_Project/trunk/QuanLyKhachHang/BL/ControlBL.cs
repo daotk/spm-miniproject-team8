@@ -31,6 +31,22 @@ namespace QuanLyKhachHang.BL
         {
             
         }
-
+        public static bool CheckMangoaite(string mangoaite)
+        {
+            ABCLogisticEntities context = new ABCLogisticEntities();
+            bool check = false;
+            string MaNgoaiTe;
+            MaNgoaiTe = mangoaite;
+            NgoaiTeTa objCustomer = context.NgoaiTeTas.Where(p => p.MaNgoaiTe == MaNgoaiTe).FirstOrDefault();
+            if (objCustomer != null)
+            {
+                check = true;
+            }
+            else
+            {
+                check = false;
+            }
+            return check;
+        }
     }
 }
