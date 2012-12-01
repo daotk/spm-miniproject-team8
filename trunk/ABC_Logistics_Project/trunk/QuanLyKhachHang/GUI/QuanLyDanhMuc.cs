@@ -48,25 +48,12 @@ namespace QuanLyKhachHang.GUI
         private void QuanLyDanhMuc_Load(object sender, EventArgs e)
         {
             lblTenNhanVien.Text = StrUsername;
-            //load ngoai te tu database
-            var ngoaite = from cat in context.NgoaiTeTas
-                          select cat;
-            cbngoaite.DataSource = ngoaite.ToList<NgoaiTeTa>();
-            cbngoaite.DisplayMember = "TenNgoaiTe";
-            cbngoaite.ValueMember = "MaNgoaiTe";
-
-            //load quy doi ngoai te tu database
-            var quydoi = from cat in context.NgoaiTeTas
-                          select cat;
-            cbquydoingoaite.DataSource = quydoi.ToList<NgoaiTeTa>();
-            cbquydoingoaite.DisplayMember = "TenNgoaiTe";
-            cbquydoingoaite.ValueMember = "MaNgoaiTe";
+         
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            add_ themngoaite = new add_();
-            themngoaite.Show();
+            
         }
 
       
