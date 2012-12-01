@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ABCLogisticModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="ABCLogisticModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ABCLogisticModelStoreContainer">
           <EntitySet Name="ContainerTa" EntityType="ABCLogisticModel.Store.ContainerTa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="KhachHangTa" EntityType="ABCLogisticModel.Store.KhachHangTa" store:Type="Tables" Schema="dbo" />
@@ -89,7 +89,10 @@
           </Key>
           <Property Name="MaNgoaiTe" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="TenNgoaiTe" Type="nvarchar" MaxLength="50" />
-          <Property Name="Mota" Type="nvarchar(max)" />
+          <Property Name="NgayTao" Type="datetime" Nullable="false" />
+          <Property Name="TiGiaQuyDoi" Type="int" />
+          <Property Name="NgayCapNhat" Type="datetime" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NguoiLienHeTa">
           <Key>
@@ -280,8 +283,7 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ABCLogisticModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -375,7 +377,10 @@
           </Key>
           <Property Name="MaNgoaiTe" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="TenNgoaiTe" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Mota" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="DateTime" Name="NgayTao" Nullable="false" />
+          <Property Type="Int32" Name="TiGiaQuyDoi" />
+          <Property Type="DateTime" Name="NgayCapNhat" />
+          <Property Type="String" Name="GhiChu" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NguoiLienHeTa">
           <Key>
@@ -592,9 +597,12 @@
           <EntitySetMapping Name="NgoaiTeTas">
             <EntityTypeMapping TypeName="ABCLogisticModel.NgoaiTeTa">
               <MappingFragment StoreEntitySet="NgoaiTeTa">
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="TiGiaQuyDoi" ColumnName="TiGiaQuyDoi" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
                 <ScalarProperty Name="MaNgoaiTe" ColumnName="MaNgoaiTe" />
                 <ScalarProperty Name="TenNgoaiTe" ColumnName="TenNgoaiTe" />
-                <ScalarProperty Name="Mota" ColumnName="Mota" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -703,7 +711,7 @@
         <EntityTypeShape EntityType="ABCLogisticModel.ContainerTa" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.KhachHangTa" Width="1.5" PointX="5.25" PointY="5.5" Height="5.057109375" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.LinhVucKinhDoanhTa" Width="1.5" PointX="3" PointY="4.875" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="ABCLogisticModel.NgoaiTeTa" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCLogisticModel.NgoaiTeTa" Width="1.5" PointX="2.75" PointY="0.75" Height="2.172587890625" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.NguoiLienHeTa" Width="1.5" PointX="7.5" PointY="6.5" Height="2.9417936197916665" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.NhanVienTa" Width="1.5" PointX="3" PointY="13.375" Height="3.7109993489583317" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.PhongBanTa" Width="1.5" PointX="0.75" PointY="14.375" Height="1.7879850260416674" IsExpanded="true" />

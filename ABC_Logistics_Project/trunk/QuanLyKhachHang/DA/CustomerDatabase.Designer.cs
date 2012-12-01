@@ -1198,10 +1198,12 @@ namespace QuanLyKhachHang.DA
         /// Create a new NgoaiTeTa object.
         /// </summary>
         /// <param name="maNgoaiTe">Initial value of the MaNgoaiTe property.</param>
-        public static NgoaiTeTa CreateNgoaiTeTa(global::System.String maNgoaiTe)
+        /// <param name="ngayTao">Initial value of the NgayTao property.</param>
+        public static NgoaiTeTa CreateNgoaiTeTa(global::System.String maNgoaiTe, global::System.DateTime ngayTao)
         {
             NgoaiTeTa ngoaiTeTa = new NgoaiTeTa();
             ngoaiTeTa.MaNgoaiTe = maNgoaiTe;
+            ngoaiTeTa.NgayTao = ngayTao;
             return ngoaiTeTa;
         }
 
@@ -1263,26 +1265,98 @@ namespace QuanLyKhachHang.DA
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Mota
+        public global::System.DateTime NgayTao
         {
             get
             {
-                return _Mota;
+                return _NgayTao;
             }
             set
             {
-                OnMotaChanging(value);
-                ReportPropertyChanging("Mota");
-                _Mota = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Mota");
-                OnMotaChanged();
+                OnNgayTaoChanging(value);
+                ReportPropertyChanging("NgayTao");
+                _NgayTao = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NgayTao");
+                OnNgayTaoChanged();
             }
         }
-        private global::System.String _Mota;
-        partial void OnMotaChanging(global::System.String value);
-        partial void OnMotaChanged();
+        private global::System.DateTime _NgayTao;
+        partial void OnNgayTaoChanging(global::System.DateTime value);
+        partial void OnNgayTaoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> TiGiaQuyDoi
+        {
+            get
+            {
+                return _TiGiaQuyDoi;
+            }
+            set
+            {
+                OnTiGiaQuyDoiChanging(value);
+                ReportPropertyChanging("TiGiaQuyDoi");
+                _TiGiaQuyDoi = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TiGiaQuyDoi");
+                OnTiGiaQuyDoiChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _TiGiaQuyDoi;
+        partial void OnTiGiaQuyDoiChanging(Nullable<global::System.Int32> value);
+        partial void OnTiGiaQuyDoiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> NgayCapNhat
+        {
+            get
+            {
+                return _NgayCapNhat;
+            }
+            set
+            {
+                OnNgayCapNhatChanging(value);
+                ReportPropertyChanging("NgayCapNhat");
+                _NgayCapNhat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NgayCapNhat");
+                OnNgayCapNhatChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _NgayCapNhat;
+        partial void OnNgayCapNhatChanging(Nullable<global::System.DateTime> value);
+        partial void OnNgayCapNhatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GhiChu
+        {
+            get
+            {
+                return _GhiChu;
+            }
+            set
+            {
+                OnGhiChuChanging(value);
+                ReportPropertyChanging("GhiChu");
+                _GhiChu = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GhiChu");
+                OnGhiChuChanged();
+            }
+        }
+        private global::System.String _GhiChu;
+        partial void OnGhiChuChanging(global::System.String value);
+        partial void OnGhiChuChanged();
 
         #endregion
 
