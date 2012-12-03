@@ -274,14 +274,21 @@ namespace QuanLyKhachHang.GUI
             lblTenNhanVien.Text = StrUsername;
             //load tab danh muc ngoai te
             LoadDanhMuc();
-            //load Chau luc trong tab quoc gia
 
+            //load trong tab danh muc quoc gia
             var chauluc = from p in context.ChauTas
                           select p;
             cboChau.DataSource = chauluc.ToList<ChauTa>();
             cboChau.DisplayMember = "TenChauLuc";
             cboChau.ValueMember = "MaChau";
             Load_DanhMucQuocGia();
+
+            var quocgia = from cat in context.QuocGiaTas
+                          select cat;
+            cboTinhThanh.DataSource = quocgia.ToList<QuocGiaTa>();
+            cboTinhThanh.DisplayMember = "TenQuocGia";
+            cboTinhThanh.ValueMember = "MaQuocGia";
+
         }
         /// <summary>
         /// Thêm 1 quốc gia
