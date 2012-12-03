@@ -44,6 +44,8 @@ namespace QuanLyKhachHang.GUI
         {
             this.Close();
         }
+
+        #region Xu ly tab danh muc ngoai te
         /// <summary>
         /// Load Form
         /// </summary>
@@ -52,19 +54,22 @@ namespace QuanLyKhachHang.GUI
         private void QuanLyDanhMuc_Load(object sender, EventArgs e)
         {
             lblTenNhanVien.Text = StrUsername;
-
             //load tab danh muc ngoai te
             LoadDanhMuc();
          
         }
-
+        /// <summary>
+        /// Load danh muc ngoai te vao datagirdview trong tab danh muc
+        /// </summary>
         private void LoadDanhMuc()
         {
             var ngoaite = from p in context.NgoaiTeTas
                           select new { p.MaNgoaiTe, p.TenNgoaiTe, p.TiGiaQuyDoi, p.NgayTao, p.NgayCapNhat, p.GhiChu, };
             dataGridView1.DataSource = ngoaite.ToList();
         }
-
+        /// <summary>
+        /// trang thái ban đầu khi load vào tab ngoai te
+        /// </summary>
         private void TrangThaiBanDau()
         {
             //disabled all
@@ -92,7 +97,11 @@ namespace QuanLyKhachHang.GUI
             button5.Text = strChinhSuaTiGia;
             dtNgayTao.Value = DateTime.Today;
         }
-
+        /// <summary>
+        /// nút đầu tiên trong tab ngoai te
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             //bam nut them moi
@@ -112,19 +121,19 @@ namespace QuanLyKhachHang.GUI
                     ngoaite.MaNgoaiTe = txtMaNgoaiTe.Text;
                     ngoaite.TenNgoaiTe = txtTenNgoaiTe.Text;
                     ngoaite.TiGiaQuyDoi = Int32.Parse(txtTiGia.Text);
-                    ngoaite.NgayTao = dtNgayTao.Value;
+                    ngoaite.NgayTao = dtNgayTao.Value.Date;
                     ngoaite.GhiChu = txtGhiChu.Text;
                     context.NgoaiTeTas.AddObject(ngoaite);
                     int count = context.SaveChanges();
                     if (count > 0)
                     {
+                        MessageBox.Show("Đã thêm thành công một ngoại tệ","Thông báo");
                         TrangThaiBanDau();
                         LoadDanhMuc();
-                        MessageBox.Show("Them thanh cong");
                     }
                     else
                     {
-                        MessageBox.Show("Them that bai");
+                        MessageBox.Show("Thêm thất bại","Thông báo");
                     }
                 }
                 //cap nhat
@@ -140,15 +149,16 @@ namespace QuanLyKhachHang.GUI
                     {
                         TrangThaiBanDau();
                         LoadDanhMuc();
-                        MessageBox.Show("Cập nhật thành công");
+                        MessageBox.Show("Đã cập nhật thành công","Thông báo");
                     }
                     else
                     {
-                        MessageBox.Show("Cập nhật thất bại");
+                        MessageBox.Show("Cập nhật thất bại","Thông báo");
                     }
                 }
             }
         }
+
         /// <summary>
         /// Enabled
         /// </summary>
@@ -172,29 +182,29 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void btnChinhSua_Click(object sender, EventArgs e)
         {
-            if (bCheckClick == false)
-            {
-                MessageBox.Show("Ban chưa chọn ngoại tệ");
-            }
-            else
-            {
                 if (btnChinhsua.Text == strHuyBo)
                 {
                     TrangThaiBanDau();
                 }
                 else
                 {
-                    if (btnChinhsua.Text == strChinhSua)
+                    if (bCheckClick == false)
                     {
-                        EnalbleAll();
-                        btnThemmoi.Text = strCapNhat;
-                        btnChinhsua.Text = strHuyBo;
-                        button3.Hide();
-                        button5.Hide();
-                        txtMaNgoaiTe.Enabled = false;
+                        MessageBox.Show("Bạn chưa chọn ngoại tệ cần chỉnh sữa! Vui lòng chọn 1 loại ngoại tệ để chỉnh sữa", "Thông báo");
+                    }
+                    else
+                    {
+                        if (btnChinhsua.Text == strChinhSua)
+                        {
+                            EnalbleAll();
+                            btnThemmoi.Text = strCapNhat;
+                            btnChinhsua.Text = strHuyBo;
+                            button3.Hide();
+                            button5.Hide();
+                            txtMaNgoaiTe.Enabled = false;
+                        }
                     }
                 }
-            }
         }
 
         //nut thoat trong tab danh muc
@@ -203,7 +213,7 @@ namespace QuanLyKhachHang.GUI
             this.Close();
         }
         /// <summary>
-        /// 
+        /// xủ lý khi click vao 1 cell trong datagirdview
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -216,13 +226,53 @@ namespace QuanLyKhachHang.GUI
             txtMaNgoaiTe.Text = ngoaite.MaNgoaiTe;
             txtTenNgoaiTe.Text = ngoaite.TenNgoaiTe;
             txtTiGia.Text = ngoaite.TiGiaQuyDoi.ToString();
-            dtNgayTao.Value = ngoaite.NgayTao;
+            dtNgayTao.Value = ngoaite.NgayTao.Date;
             txtGhiChu.Text = ngoaite.GhiChu;
             bCheckClick = true;
         }
 
+        /// <summary>
+        /// Xoa ngoai te
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (bCheckClick == false)
+            {
+                MessageBox.Show("Bạn chưa chọn ngoại tệ cần chỉnh sữa! Vui lòng chọn 1 loại ngoại tệ để chỉnh sữa", "Thông báo");
+            }
+            else
+            {
+                string strMaNgoaiTe = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                DialogResult result = MessageBox.Show("Bạn có muốn xóa ngoại tệ có mã là " + strMaNgoaiTe + " Không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (ABCLogisticEntities newcontext = new ABCLogisticEntities())
+                    {
+                        NgoaiTeTa p = new NgoaiTeTa() { MaNgoaiTe = strMaNgoaiTe };
+                        newcontext.NgoaiTeTas.Attach(p);
+                        newcontext.ObjectStateManager.ChangeObjectState(p, EntityState.Deleted);
+                        int count = newcontext.SaveChanges();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Đã xóa thành công","Thông báo");
+                            LoadDanhMuc();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại","Thông báo");
+                        }
+                    }
+                }
+                else
+                {
+                    LoadDanhMuc();
+                }
+            }
+        }
+        #endregion
 
-      
-      
+
     }
 }

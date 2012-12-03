@@ -310,7 +310,7 @@
             // 
             this.ngayCapNhat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ngayCapNhat.DataPropertyName = "NgayCapNhat";
-            this.ngayCapNhat.HeaderText = "Ngày cập nhật";
+            this.ngayCapNhat.HeaderText = "Ngày cập nhật cuối";
             this.ngayCapNhat.Name = "ngayCapNhat";
             // 
             // Column4
@@ -464,6 +464,7 @@
             this.button3.Text = "Loại bỏ ngoại tệ";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button5
             // 
