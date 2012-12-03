@@ -17,7 +17,7 @@ namespace QuanLyKhachHang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm("DaoKhau"));
+            Application.Run(new MainForm("Dao Khau"));
         }
     }
 }

@@ -366,13 +366,7 @@ namespace QuanLyKhachHang.GUI
                     {
                         MessageBox.Show("Xóa thất bại");
                     }
-
-
-
                 }
-
-
-
             }
         }
 
