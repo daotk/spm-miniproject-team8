@@ -50,10 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\ControlBL.cs" />
-    <Compile Include="DA\CustomerDatabase.Designer.cs">
+    <Compile Include="DA\CustomerEntity.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CustomerDatabase.edmx</DependentUpon>
+      <DependentUpon>CustomerEntity.edmx</DependentUpon>
     </Compile>
     <Compile Include="GUI\AddNewCustomer.cs">
       <SubType>Form</SubType>
@@ -144,9 +144,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.Config" />
-    <EntityDeploy Include="DA\CustomerDatabase.edmx">
+    <EntityDeploy Include="DA\CustomerEntity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CustomerDatabase.Designer.cs</LastGenOutput>
+      <LastGenOutput>CustomerEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
