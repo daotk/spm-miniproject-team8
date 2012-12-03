@@ -14,11 +14,13 @@ namespace QuanLyKhachHang.GUI
     public partial class QuanLyDanhMuc : Form
     {
         ABCLogisticEntities context = new ABCLogisticEntities();
-        bool bCheckClick = false;
         NgoaiTeTa ngoaite = new NgoaiTeTa();
+        QuocGiaTa quocgia = new QuocGiaTa();
+      
+        bool bCheckClick = false,bCheckClickQuocGia;
         string StrUsername;
-        string strCapNhat = "Cập nhật",strHuyBo="Hủy bỏ",strChinhSua="Chỉnh sửa ngoại tệ",strLuu="Lưu",strThemMoi = "Thêm mới ngoại tệ",strChinhSuaTiGia="Chỉnh sửa tỉ giá quy đổi",
-            strXoa = "Xóa ngoại tệ";
+        string strCapNhat = "Cập nhật", strHuyBo = "Hủy bỏ", strChinhSua = "Chỉnh sửa ngoại tệ", strLuu = "Lưu", strThemMoi = "Thêm mới ngoại tệ", strChinhSuaTiGia = "Chỉnh sửa tỉ giá quy đổi",
+            strXoa = "Xóa ngoại tệ", strThemQuocGia = "Thêm", strChinhSuaQuocGia = "Chỉnh sửa", strXoaQuocGia = "Xóa", strLuuQuocGia = "Lưu";
         public QuanLyDanhMuc(string strUsername)
         {
             StrUsername = strUsername;
@@ -46,18 +48,7 @@ namespace QuanLyKhachHang.GUI
         }
 
         #region Xu ly tab danh muc ngoai te
-        /// <summary>
-        /// Load Form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void QuanLyDanhMuc_Load(object sender, EventArgs e)
-        {
-            lblTenNhanVien.Text = StrUsername;
-            //load tab danh muc ngoai te
-            LoadDanhMuc();
-         
-        }
+
         /// <summary>
         /// Load danh muc ngoai te vao datagirdview trong tab danh muc
         /// </summary>
@@ -127,13 +118,13 @@ namespace QuanLyKhachHang.GUI
                     int count = context.SaveChanges();
                     if (count > 0)
                     {
-                        MessageBox.Show("Đã thêm thành công một ngoại tệ","Thông báo");
+                        MessageBox.Show("Đã thêm thành công một ngoại tệ", "Thông báo");
                         TrangThaiBanDau();
                         LoadDanhMuc();
                     }
                     else
                     {
-                        MessageBox.Show("Thêm thất bại","Thông báo");
+                        MessageBox.Show("Thêm thất bại", "Thông báo");
                     }
                 }
                 //cap nhat
@@ -149,11 +140,11 @@ namespace QuanLyKhachHang.GUI
                     {
                         TrangThaiBanDau();
                         LoadDanhMuc();
-                        MessageBox.Show("Đã cập nhật thành công","Thông báo");
+                        MessageBox.Show("Đã cập nhật thành công", "Thông báo");
                     }
                     else
                     {
-                        MessageBox.Show("Cập nhật thất bại","Thông báo");
+                        MessageBox.Show("Cập nhật thất bại", "Thông báo");
                     }
                 }
             }
@@ -182,29 +173,29 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void btnChinhSua_Click(object sender, EventArgs e)
         {
-                if (btnChinhsua.Text == strHuyBo)
+            if (btnChinhsua.Text == strHuyBo)
+            {
+                TrangThaiBanDau();
+            }
+            else
+            {
+                if (bCheckClick == false)
                 {
-                    TrangThaiBanDau();
+                    MessageBox.Show("Bạn chưa chọn ngoại tệ cần chỉnh sữa! Vui lòng chọn 1 loại ngoại tệ để chỉnh sữa", "Thông báo");
                 }
                 else
                 {
-                    if (bCheckClick == false)
+                    if (btnChinhsua.Text == strChinhSua)
                     {
-                        MessageBox.Show("Bạn chưa chọn ngoại tệ cần chỉnh sữa! Vui lòng chọn 1 loại ngoại tệ để chỉnh sữa", "Thông báo");
-                    }
-                    else
-                    {
-                        if (btnChinhsua.Text == strChinhSua)
-                        {
-                            EnalbleAll();
-                            btnThemmoi.Text = strCapNhat;
-                            btnChinhsua.Text = strHuyBo;
-                            button3.Hide();
-                            button5.Hide();
-                            txtMaNgoaiTe.Enabled = false;
-                        }
+                        EnalbleAll();
+                        btnThemmoi.Text = strCapNhat;
+                        btnChinhsua.Text = strHuyBo;
+                        button3.Hide();
+                        button5.Hide();
+                        txtMaNgoaiTe.Enabled = false;
                     }
                 }
+            }
         }
 
         //nut thoat trong tab danh muc
@@ -256,12 +247,12 @@ namespace QuanLyKhachHang.GUI
                         int count = newcontext.SaveChanges();
                         if (count > 0)
                         {
-                            MessageBox.Show("Đã xóa thành công","Thông báo");
+                            MessageBox.Show("Đã xóa thành công", "Thông báo");
                             LoadDanhMuc();
                         }
                         else
                         {
-                            MessageBox.Show("Xóa thất bại","Thông báo");
+                            MessageBox.Show("Xóa thất bại", "Thông báo");
                         }
                     }
                 }
@@ -272,6 +263,216 @@ namespace QuanLyKhachHang.GUI
             }
         }
         #endregion
+
+        /// <summary>
+        /// Load Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void QuanLyDanhMuc_Load(object sender, EventArgs e)
+        {
+            lblTenNhanVien.Text = StrUsername;
+            //load tab danh muc ngoai te
+            LoadDanhMuc();
+            //load Chau luc trong tab quoc gia
+
+            var chauluc = from p in context.ChauTas
+                          select p;
+            cboChau.DataSource = chauluc.ToList<ChauTa>();
+            cboChau.DisplayMember = "TenChauLuc";
+            cboChau.ValueMember = "MaChau";
+            Load_DanhMucQuocGia();
+        }
+        /// <summary>
+        /// Thêm 1 quốc gia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnThemQuocGia_Click(object sender, EventArgs e)
+        {
+            if (btnThemQuocGia.Text == strLuu)
+            {
+                QuocGiaTa newguocgia = new QuocGiaTa();
+                newguocgia.TenVietTac = txtMaQuocGia.Text;
+                newguocgia.TenQuocGia = txtTenQuocGia.Text;
+                newguocgia.MaChau = (int)cboChau.SelectedValue;
+                newguocgia.GhiChu = txtGhiChuQuocGia.Text;
+                context.QuocGiaTas.AddObject(newguocgia);
+                int count = context.SaveChanges();
+                if (count > 0)
+                {
+                    MessageBox.Show("Đã thêm thành công", "Thông báo");
+                    Load_DanhMucQuocGia();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại", "Thông báo");
+                }
+            }
+            else
+            {
+                if (btnThemQuocGia.Text == strThemQuocGia)
+                {
+                    EnableDanhMucQuocGia();
+                    txtMaQuocGia.Text = "";
+                    txtTenQuocGia.Text = "";
+                    txtGhiChuQuocGia.Text = "";
+                    btnThemQuocGia.Text = strLuuQuocGia;
+                    btnChinhSuaQuocGia.Text = strHuyBo;
+                    btnXoaQuocGia.Hide();
+                }
+                else
+                {
+                    if (btnThemQuocGia.Text == strCapNhat)
+                    {
+                        quocgia.TenVietTac = txtMaQuocGia.Text;
+                        quocgia.TenQuocGia = txtTenQuocGia.Text;
+                        quocgia.MaChau = (int)cboChau.SelectedValue;
+                        quocgia.GhiChu = txtGhiChuQuocGia.Text;
+                        int count = context.SaveChanges();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Đã cập nhật thành công", "Thông báo");
+                            Load_DanhMucQuocGia();
+                            TrangThaiBanDauQuocGia();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật thất bại", "Thông báo");
+                        }
+
+                    }
+                }
+            }
+
+        }
+        /// <summary>
+        /// Load danh muc quoc gia
+        /// </summary>
+        private void Load_DanhMucQuocGia()
+        {
+            var quocgia = from p in context.QuocGiaTas
+                          select new { p.TenVietTac, p.TenQuocGia, p.ChauTa.TenChauLuc, p.GhiChu };
+            dgQuocGia.DataSource = quocgia.ToList();
+        }
+        /// <summary>
+        /// Chinh sua quoc gia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChinhSuaQuocGia_Click(object sender, EventArgs e)
+        {
+            if (bCheckClickQuocGia == true)
+            {
+                if (btnChinhSuaQuocGia.Text == strChinhSuaQuocGia)
+                {
+                    EnableDanhMucQuocGia();
+                    string strTenQuocGia = dgQuocGia.CurrentRow.Cells[0].Value.ToString();
+                    quocgia = (from p in context.QuocGiaTas
+                               where p.TenVietTac == strTenQuocGia
+                               select p).FirstOrDefault<QuocGiaTa>();
+                    txtMaQuocGia.Text = quocgia.TenVietTac;
+                    txtTenQuocGia.Text = quocgia.TenQuocGia;
+                    cboChau.SelectedValue = quocgia.MaChau;
+                    txtGhiChuQuocGia.Text = quocgia.GhiChu;
+                    btnChinhSuaQuocGia.Text = strHuyBo;
+                    btnThemQuocGia.Text = strCapNhat;
+                    btnXoaQuocGia.Hide();
+                }
+                else
+                {
+                    TrangThaiBanDauQuocGia();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn quốc gia cần chỉnh sữa", "Thông báo");
+            }
+        }
+        /// <summary>
+        /// trang thai ban dau tab danh muc quoc gia
+        /// </summary>
+        private void TrangThaiBanDauQuocGia()
+        {
+            txtMaQuocGia.Enabled = false;
+            txtTenQuocGia.Enabled = false;
+            cboChau.Enabled = false;
+            txtGhiChuQuocGia.Enabled = false;
+
+            btnThemQuocGia.Text = strThemQuocGia;
+            btnChinhSuaQuocGia.Text = strChinhSuaQuocGia;
+            btnXoaQuocGia.Show();
+            btnXoaQuocGia.Text = strXoaQuocGia;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private void EnableDanhMucQuocGia()
+        {
+            txtMaQuocGia.Enabled = true;
+            txtTenQuocGia.Enabled = true;
+            cboChau.Enabled = true;
+            txtGhiChuQuocGia.Enabled = true;
+        }
+        /// <summary>
+        /// Cell Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgQuocGia_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string strTenQuocGia = dgQuocGia.CurrentRow.Cells[0].Value.ToString();
+            quocgia = (from p in context.QuocGiaTas
+                       where p.TenVietTac == strTenQuocGia
+                       select p).FirstOrDefault<QuocGiaTa>();
+            txtMaQuocGia.Text = quocgia.TenVietTac;
+            txtTenQuocGia.Text = quocgia.TenQuocGia;
+            cboChau.SelectedValue = quocgia.MaChau;
+            txtGhiChuQuocGia.Text = quocgia.GhiChu;
+            bCheckClickQuocGia = true;
+        }
+        /// <summary>
+        /// Xoa Quoc Gia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnXoaQuocGia_Click(object sender, EventArgs e)
+        {
+            if (bCheckClickQuocGia == false)
+            {
+                MessageBox.Show("Bạn chưa chọn quốc gia cần xóa!", "Thông báo");
+            }
+            else
+            {
+                string strMaQuocGia = dgQuocGia.CurrentRow.Cells[0].Value.ToString();
+                DialogResult result = MessageBox.Show("Bạn có muốn xóa quoc gia có mã là " + strMaQuocGia + " Không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (ABCLogisticEntities newcontext = new ABCLogisticEntities())
+                    {
+                        QuocGiaTa p = new QuocGiaTa() { TenVietTac = strMaQuocGia };
+                        newcontext.QuocGiaTas.Attach(p);
+                        newcontext.ObjectStateManager.ChangeObjectState(p, EntityState.Deleted);
+                        int count = newcontext.SaveChanges();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Đã xóa thành công", "Thông báo");
+                            Load_DanhMucQuocGia();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại", "Thông báo");
+                        }
+                    }
+                }
+                else
+                {
+                    Load_DanhMucQuocGia();
+                }
+            }
+        }
+
+
 
 
     }
