@@ -361,7 +361,6 @@
             this.cboxTinhThanh.Location = new System.Drawing.Point(196, 263);
             this.cboxTinhThanh.Name = "cboxTinhThanh";
             this.cboxTinhThanh.Size = new System.Drawing.Size(342, 24);
-            this.cboxTinhThanh.Sorted = true;
             this.cboxTinhThanh.TabIndex = 11;
             // 
             // cboxQuocGia
@@ -372,7 +371,6 @@
             this.cboxQuocGia.Location = new System.Drawing.Point(196, 232);
             this.cboxQuocGia.Name = "cboxQuocGia";
             this.cboxQuocGia.Size = new System.Drawing.Size(342, 24);
-            this.cboxQuocGia.Sorted = true;
             this.cboxQuocGia.TabIndex = 10;
             this.cboxQuocGia.SelectedIndexChanged += new System.EventHandler(this.cboxQuocGia_SelectedIndexChanged);
             // 
@@ -397,7 +395,6 @@
             this.cboxLinhVucKinhDoanh.Location = new System.Drawing.Point(196, 144);
             this.cboxLinhVucKinhDoanh.Name = "cboxLinhVucKinhDoanh";
             this.cboxLinhVucKinhDoanh.Size = new System.Drawing.Size(342, 24);
-            this.cboxLinhVucKinhDoanh.Sorted = true;
             this.cboxLinhVucKinhDoanh.TabIndex = 5;
             // 
             // txtWebsite
