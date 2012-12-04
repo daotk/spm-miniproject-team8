@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddNewCustomer));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cboNhanVienQuanLy = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.dtNgayTao = new System.Windows.Forms.DateTimePicker();
-            this.txtNhanVienQuanLy = new System.Windows.Forms.TextBox();
             this.rdAgent = new System.Windows.Forms.RadioButton();
             this.rdDoiTac = new System.Windows.Forms.RadioButton();
             this.rdKhachHang = new System.Windows.Forms.RadioButton();
@@ -45,7 +45,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.cboxTinhThanh = new System.Windows.Forms.ComboBox();
@@ -125,9 +125,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cboNhanVienQuanLy);
             this.tabPage1.Controls.Add(this.label31);
             this.tabPage1.Controls.Add(this.dtNgayTao);
-            this.tabPage1.Controls.Add(this.txtNhanVienQuanLy);
             this.tabPage1.Controls.Add(this.rdAgent);
             this.tabPage1.Controls.Add(this.rdDoiTac);
             this.tabPage1.Controls.Add(this.rdKhachHang);
@@ -139,7 +139,7 @@
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.label25);
             this.tabPage1.Controls.Add(this.label24);
-            this.tabPage1.Controls.Add(this.button7);
+            this.tabPage1.Controls.Add(this.btnCheck);
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.cboxTinhThanh);
@@ -179,6 +179,16 @@
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // cboNhanVienQuanLy
+            // 
+            this.cboNhanVienQuanLy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNhanVienQuanLy.Enabled = false;
+            this.cboNhanVienQuanLy.FormattingEnabled = true;
+            this.cboNhanVienQuanLy.Location = new System.Drawing.Point(193, 449);
+            this.cboNhanVienQuanLy.Name = "cboNhanVienQuanLy";
+            this.cboNhanVienQuanLy.Size = new System.Drawing.Size(345, 24);
+            this.cboNhanVienQuanLy.TabIndex = 23;
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -196,15 +206,6 @@
             this.dtNgayTao.Name = "dtNgayTao";
             this.dtNgayTao.Size = new System.Drawing.Size(104, 22);
             this.dtNgayTao.TabIndex = 21;
-            // 
-            // txtNhanVienQuanLy
-            // 
-            this.txtNhanVienQuanLy.Enabled = false;
-            this.txtNhanVienQuanLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhanVienQuanLy.Location = new System.Drawing.Point(196, 457);
-            this.txtNhanVienQuanLy.Name = "txtNhanVienQuanLy";
-            this.txtNhanVienQuanLy.Size = new System.Drawing.Size(342, 22);
-            this.txtNhanVienQuanLy.TabIndex = 20;
             // 
             // rdAgent
             // 
@@ -322,15 +323,13 @@
             this.label24.TabIndex = 6;
             this.label24.Text = "(*)";
             // 
-            // button7
+            // btnCheck
             // 
-            this.button7.Image = global::QuanLyKhachHang.Properties.Resources.check_2_icon1;
-            this.button7.Location = new System.Drawing.Point(504, 14);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(34, 25);
-            this.button7.TabIndex = 5;
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btnCheck.Location = new System.Drawing.Point(504, 14);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(34, 25);
+            this.btnCheck.TabIndex = 5;
+            this.btnCheck.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -362,6 +361,7 @@
             this.cboxTinhThanh.Location = new System.Drawing.Point(196, 263);
             this.cboxTinhThanh.Name = "cboxTinhThanh";
             this.cboxTinhThanh.Size = new System.Drawing.Size(342, 24);
+            this.cboxTinhThanh.Sorted = true;
             this.cboxTinhThanh.TabIndex = 11;
             // 
             // cboxQuocGia
@@ -372,6 +372,7 @@
             this.cboxQuocGia.Location = new System.Drawing.Point(196, 232);
             this.cboxQuocGia.Name = "cboxQuocGia";
             this.cboxQuocGia.Size = new System.Drawing.Size(342, 24);
+            this.cboxQuocGia.Sorted = true;
             this.cboxQuocGia.TabIndex = 10;
             this.cboxQuocGia.SelectedIndexChanged += new System.EventHandler(this.cboxQuocGia_SelectedIndexChanged);
             // 
@@ -396,6 +397,7 @@
             this.cboxLinhVucKinhDoanh.Location = new System.Drawing.Point(196, 144);
             this.cboxLinhVucKinhDoanh.Name = "cboxLinhVucKinhDoanh";
             this.cboxLinhVucKinhDoanh.Size = new System.Drawing.Size(342, 24);
+            this.cboxLinhVucKinhDoanh.Sorted = true;
             this.cboxLinhVucKinhDoanh.TabIndex = 5;
             // 
             // txtWebsite
@@ -471,6 +473,7 @@
             this.txtMaCongTy.Name = "txtMaCongTy";
             this.txtMaCongTy.Size = new System.Drawing.Size(301, 22);
             this.txtMaCongTy.TabIndex = 1;
+            this.txtMaCongTy.TextChanged += new System.EventHandler(this.txtMaCongTy_TextChanged);
             // 
             // label23
             // 
@@ -998,7 +1001,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
@@ -1013,7 +1016,6 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox txtNhanVienQuanLy;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoVaTenLot;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
@@ -1024,5 +1026,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.DateTimePicker dtNgayTao;
+        private System.Windows.Forms.ComboBox cboNhanVienQuanLy;
     }
 }

@@ -18,35 +18,41 @@ namespace QuanLyKhachHang.GUI
         NguoiLienHeTa nlh = new NguoiLienHeTa();
         bool CheckMAKH = false;
         string strCheck;
-        public AddNewCustomer()
+        bool bcheck = false;
+        string strUsername;
+        public AddNewCustomer(string strusername)
         {
+            strUsername = strusername;
             InitializeComponent();
         }
+       
+
         /// <summary>
-        /// kiểm tra xem có bị trùng mã khách hàng hay không
+        /// text change
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button7_Click(object sender, EventArgs e)
+        private void txtMaCongTy_TextChanged(object sender, EventArgs e)
         {
             string makh = txtMaCongTy.Text;
             if (makh == "")
             {
-                MessageBox.Show("Thieu ma khach hang. Vui long nhap ma khach hang");
+                btnCheck.Image = global::QuanLyKhachHang.Properties.Resources.no_icon;
             }
             else
             {
                 if (ControlBL.CheckMaKH(makh) == true)
                 {
-                    MessageBox.Show("Mã Khách hàng này đã có rồi! Xin vui lòng điền vào mã khách hành khác!");
+                    btnCheck.Image = global::QuanLyKhachHang.Properties.Resources.no_icon;
                 }
                 else
                 {
-                    MessageBox.Show("Mã khách hàng hợp lệ! Bạn có thể nhập tiếp các thông tin khác!");
+                    btnCheck.Image = global::QuanLyKhachHang.Properties.Resources.check_2_icon;
                     CheckMAKH = true;
                 }
             }
         }
+
         /// <summary>
         /// xử lý sự kiện khi nhấn nhút "Cancel" trong giao diện thêm mới khách hàng
         /// </summary>
@@ -66,7 +72,6 @@ namespace QuanLyKhachHang.GUI
         {
             if (CheckMAKH == true)
             {
-               
                 p.MaCongTy = txtMaCongTy.Text;
                 p.TenCTyV = txtTenGiaoDichV.Text;
                 p.TenCTyE = txtTenGiaoDichE.Text;
@@ -75,42 +80,39 @@ namespace QuanLyKhachHang.GUI
                 p.CongTyChuQuan = cboxCongTyChuQuan.Text;
                 p.LoaiKhachHang = strCheck;
                 p.MaQuocGia = (int)cboxQuocGia.SelectedValue;
-                p.MaTinhThanh =(int)cboxTinhThanh.SelectedValue;
+                p.MaTinhThanh = (int)cboxTinhThanh.SelectedValue;
                 p.DiaChi = txtDiaChiLienLac.Text;
                 p.Sdt = txtSdt.Text;
                 p.Fax = txtSoFax.Text;
                 p.Email = txtEmail.Text;
                 p.Web = txtWebsite.Text;
-                p.MaNhanVienQuanLy = 1;
+                p.MaNhanVienQuanLy = (int)cboNhanVienQuanLy.SelectedValue;
                 p.NgayTao = dtNgayTao.Value;
 
                 //kiem tra tính hợp lệ khi nhập từ bàn phím
-                if (p.MaCongTy != "" && p.TenCTyV != "" && p.LoaiKhachHang != "" && p.DiaChi != "" && p.Sdt != "")
+                if (p.MaCongTy != "" && p.TenCTyV != "" && bcheck==true && p.MaTinhThanh != null && p.MaQuocGia != null && p.DiaChi != "" && p.Sdt != "")
                 {
                     context.KhachHangTas.AddObject(p);
                     int count = context.SaveChanges();
                     if (count > 0)
                     {
-                        DialogResult result = MessageBox.Show("Ban da them thanh cong!", "Thong Bao", MessageBoxButtons.OK);
-                        if (result == DialogResult.OK)
-                        {
-                        }
+                        MessageBox.Show("Đã thêm thành công!", "Thông báo");
+                        TrangThaiBanDau();
                     }
                     else
                     {
-                        MessageBox.Show("Không thể thêm!");
+                        MessageBox.Show("Thêm thất bại!", "Thông báo");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Bạn chưa nhập hết các thông tin bắc buộc! Xin hãy nhập hết các thông tin bắc buộc");
+                    MessageBox.Show("Bạn chưa điền đầy đủ thông tin bắc buộc", "Thông báo");
                 }
             }
             else
             {
-                MessageBox.Show("Bạn chưa kiễm tra mã khách hàng. Vui lòng kiễm tra mã khách hàng trước khi nhấn Đồng ý");
+                MessageBox.Show("Bạn chưa kiễm tra ma khác hàng", "Thông báo");
             }
-
         }
 
         /// <summary>
@@ -122,7 +124,7 @@ namespace QuanLyKhachHang.GUI
         {
           
             //doc danh sach quoc gia tu database
-            var QuocGia = from cat in context.QuocGiaTas
+            var QuocGia = from cat in context.GetAllQuocGia()
                           select cat;
             cboxQuocGia.DataSource = QuocGia.ToList<QuocGiaTa>();
             cboxQuocGia.DisplayMember = "TenQuocGia";
@@ -150,6 +152,16 @@ namespace QuanLyKhachHang.GUI
             cboxCongTyChuQuan.AutoCompleteMode = AutoCompleteMode.Suggest;
             cboxCongTyChuQuan.AutoCompleteSource = AutoCompleteSource.ListItems;
 
+            if (txtMaCongTy.Text == "")
+            {
+                btnCheck.Image = global::QuanLyKhachHang.Properties.Resources.no_icon;
+            }
+            //load danh sach nhan vien
+            var nhanvien1 = from pa in context.GetNhanVien_TenNhanVien(strUsername)
+                           select pa;
+            cboNhanVienQuanLy.DataSource = nhanvien1.ToList();
+            cboNhanVienQuanLy.DisplayMember = "HovTen";
+            cboNhanVienQuanLy.ValueMember = "MaNhanVien";
         }
 
         /// <summary>
@@ -180,6 +192,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void rdKhachHang_CheckedChanged(object sender, EventArgs e)
         {
+            bcheck = true;
             strCheck =  rdKhachHang.Text;
             cboxLinhVucKinhDoanh.Enabled = true;
         }
@@ -191,6 +204,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void rdDoiTac_CheckedChanged(object sender, EventArgs e)
         {
+            bcheck = true;
             strCheck =  rdDoiTac.Text;
             cboxLinhVucKinhDoanh.Enabled = true;
         }
@@ -202,6 +216,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void rdAgent_CheckedChanged(object sender, EventArgs e)
         {
+            bcheck = true;
             strCheck = rdAgent.Text;
             cboxLinhVucKinhDoanh.Enabled = false;
             cboxLinhVucKinhDoanh.SelectedValue = 3;
@@ -236,7 +251,7 @@ namespace QuanLyKhachHang.GUI
             int count = context.SaveChanges();
             if (count > 0)
             {
-                MessageBox.Show("Thêm Thành công");
+                MessageBox.Show("Thêm Thành công","Thông báo");
                 //load danh sach nguoi lien hệ
                 var nguoilienhe = from cat in context.NguoiLienHeTas
                                   where cat.MaKhachhang == p.MaCongTy
@@ -245,7 +260,7 @@ namespace QuanLyKhachHang.GUI
             }
             else
             {
-                MessageBox.Show("Thêm thất bại");
+                MessageBox.Show("Thêm thất bại","Thông báo");
             }
 
 
@@ -259,7 +274,28 @@ namespace QuanLyKhachHang.GUI
         {
             this.Close();
         }
-     
+
+        private void TrangThaiBanDau()
+        {
+            txtMaCongTy.Enabled = false;
+            txtTenGiaoDichV.Enabled = false;
+            txtTenGiaoDichE.Enabled = false;
+            txtTenVietTat.Enabled = false;
+            cboxCongTyChuQuan.Enabled = false;
+            rdKhachHang.Enabled = false;
+            rdDoiTac.Enabled = false;
+            rdAgent.Enabled = false;
+            txtDiaChiLienLac.Enabled = false;
+            txtSdt.Enabled = false;
+            txtSoFax.Enabled = false;
+            txtEmail.Enabled = false;
+            txtWebsite.Enabled = false;
+            dtNgayTao.Enabled = false;
+            cboxCongTyChuQuan.Enabled = false;
+            cboxLinhVucKinhDoanh.Enabled = false;
+            cboxQuocGia.Enabled = false;
+            cboxTinhThanh.Enabled = false;
+        }
 
 
 

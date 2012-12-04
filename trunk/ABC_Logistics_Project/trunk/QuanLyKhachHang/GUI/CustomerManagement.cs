@@ -106,7 +106,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            AddNewCustomer Fadd = new AddNewCustomer();
+            AddNewCustomer Fadd = new AddNewCustomer(StrUsername);
             if (Fadd.ShowDialog() == DialogResult.Cancel)
             {
                 if (strStatusCheck == rdAgent.Text)
@@ -137,7 +137,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string makh = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string makh = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             ViewCustomer Fview = new ViewCustomer(makh);
             if (Fview.ShowDialog() == DialogResult.Cancel)
             {
@@ -179,6 +179,12 @@ namespace QuanLyKhachHang.GUI
                                    where ((p.MaCongTy.Contains(txttext)) && (p.LoaiKhachHang == rdKhachHang.Text))
                                    select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
                     dataGridView1.DataSource = customer.ToList();
+                    //stt
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                    }
+                  
                 }
                 else
                 {
@@ -187,6 +193,12 @@ namespace QuanLyKhachHang.GUI
                                    where ((p.TenCTyV.Contains(txttext)) && (p.LoaiKhachHang == rdKhachHang.Text))
                                    select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
                     dataGridView1.DataSource = customer.ToList();
+                    //stt
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                    }
+                   
                 }
             }
             
@@ -200,6 +212,12 @@ namespace QuanLyKhachHang.GUI
                                    where ((p.MaCongTy.Contains(txttext)) && (p.LoaiKhachHang == rdAgent.Text))
                                    select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
                     dataGridView1.DataSource = customer.ToList();
+                    //stt
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                    }
+                   
                 }
                 else
                 {
@@ -208,6 +226,12 @@ namespace QuanLyKhachHang.GUI
                                    where ((p.TenCTyV.Contains(txttext)) && (p.LoaiKhachHang == rdAgent.Text))
                                    select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
                     dataGridView1.DataSource = customer.ToList();
+                    //stt
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                    }
+                   
                 }
             }
 
@@ -221,6 +245,12 @@ namespace QuanLyKhachHang.GUI
                                    where ((p.MaCongTy.Contains(txttext)) && (p.LoaiKhachHang == rdDoiTacKhachHang.Text))
                                    select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
                     dataGridView1.DataSource = customer.ToList();
+                    //stt
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                    }
+                    
                 }
                 else
                 {
@@ -229,6 +259,12 @@ namespace QuanLyKhachHang.GUI
                                    where ((p.TenCTyV.Contains(txttext)) && (p.LoaiKhachHang == rdDoiTacKhachHang.Text))
                                    select new { p.MaCongTy, p.TenCTyV, p.QuocGiaTa.TenQuocGia, p.TinhThanhTa.TenTinhThanh, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
                     dataGridView1.DataSource = customer.ToList();
+                    //stt
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                    }
+                  
                 }
             }
         }
@@ -274,15 +310,16 @@ namespace QuanLyKhachHang.GUI
         /// <param name="macheck">loại khách hàng cần phải lộc</param>
         private void LoadData_WhenRadioChange(string macheck)
         {
-            var cus = from p in context.KhachHangTas
-                      where p.LoaiKhachHang == macheck
+            var cus = from p in context.GetLoaiKhachHang(macheck)
                       select new { p.MaCongTy, p.TenCTyV, p.TinhThanhTa.TenTinhThanh, p.QuocGiaTa.TenQuocGia, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
             dataGridView1.DataSource = cus.ToList();
+            //stt
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = i + 1;
+            }
         }
 
-     
-
-      
 
         }
     }
