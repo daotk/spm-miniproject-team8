@@ -17,7 +17,7 @@ namespace QuanLyKhachHang.GUI
         NgoaiTeTa ngoaite = new NgoaiTeTa();
         QuocGiaTa quocgia = new QuocGiaTa();
         TinhThanhTa tinhthanh = new TinhThanhTa();
-      
+        bool check;
         bool bCheckClick = false,bCheckClickQuocGia;
         string StrUsername;
         string strCapNhat = "Cập nhật", strHuyBo = "Hủy bỏ", strChinhSua = "Chỉnh sửa ngoại tệ", strLuu = "Lưu", strThemMoi = "Thêm mới ngoại tệ", strChinhSuaTiGia = "Chỉnh sửa tỉ giá quy đổi",
@@ -296,6 +296,26 @@ namespace QuanLyKhachHang.GUI
 
         #region Danh Muc Quoc Gia
         /// <summary>
+        /// check su ton tai cua ma quoc gia
+        /// </summary>
+        /// <param name="strMaQuocGia"></param>
+        /// <returns></returns>
+        private bool CheckMaQuocGia(string strMaQuocGia)
+        {
+           
+            QuocGiaTa objQuocGia = context.QuocGiaTas.Where(p => p.TenVietTac == strMaQuocGia).FirstOrDefault();
+            if (objQuocGia != null)
+            {
+                check = true;
+            }
+            else
+            {
+                check = false;
+            }
+            return check;
+        }
+
+        /// <summary>
         /// Thêm 1 quốc gia
         /// </summary>
         /// <param name="sender"></param>
@@ -304,21 +324,29 @@ namespace QuanLyKhachHang.GUI
         {
             if (btnThemQuocGia.Text == strLuu)
             {
-                QuocGiaTa newguocgia = new QuocGiaTa();
-                newguocgia.TenVietTac = txtMaQuocGia.Text;
-                newguocgia.TenQuocGia = txtTenQuocGia.Text;
-                newguocgia.MaChau = (int)cboChau.SelectedValue;
-                newguocgia.GhiChu = txtGhiChuQuocGia.Text;
-                context.QuocGiaTas.AddObject(newguocgia);
-                int count = context.SaveChanges();
-                if (count > 0)
+                if (CheckMaQuocGia(txtMaQuocGia.Text) == false)
                 {
-                    MessageBox.Show("Đã thêm thành công", "Thông báo");
-                    Load_DanhMucQuocGia();
+                    QuocGiaTa newguocgia = new QuocGiaTa();
+                    newguocgia.TenVietTac = txtMaQuocGia.Text;
+                    newguocgia.TenQuocGia = txtTenQuocGia.Text;
+                    newguocgia.TenQuocGiaE = txtTenQuocGiaE.Text;
+                    newguocgia.MaChau = (int)cboChau.SelectedValue;
+                    newguocgia.GhiChu = txtGhiChuQuocGia.Text;
+                    context.QuocGiaTas.AddObject(newguocgia);
+                    int count = context.SaveChanges();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Đã thêm thành công", "Thông báo");
+                        Load_DanhMucQuocGia();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại", "Thông báo");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại", "Thông báo");
+                    MessageBox.Show("Bạn đã nhập trùng mã quốc gia");
                 }
             }
             else
@@ -328,6 +356,7 @@ namespace QuanLyKhachHang.GUI
                     EnableDanhMucQuocGia();
                     txtMaQuocGia.Text = "";
                     txtTenQuocGia.Text = "";
+                    txtTenQuocGiaE.Text = "";
                     txtGhiChuQuocGia.Text = "";
                     btnThemQuocGia.Text = strLuuQuocGia;
                     btnChinhSuaQuocGia.Text = strHuyBo;
@@ -339,6 +368,7 @@ namespace QuanLyKhachHang.GUI
                     {
                         quocgia.TenVietTac = txtMaQuocGia.Text;
                         quocgia.TenQuocGia = txtTenQuocGia.Text;
+                        quocgia.TenQuocGiaE = txtTenQuocGiaE.Text;
                         quocgia.MaChau = (int)cboChau.SelectedValue;
                         quocgia.GhiChu = txtGhiChuQuocGia.Text;
                         int count = context.SaveChanges();
@@ -364,7 +394,7 @@ namespace QuanLyKhachHang.GUI
         private void Load_DanhMucQuocGia()
         {
             var quocgia = from p in context.GetAllQuocGia()
-                          select new { p.TenVietTac, p.TenQuocGia, p.ChauTa.TenChauLuc, p.GhiChu };
+                          select new { p.TenVietTac, p.TenQuocGia,p.TenQuocGiaE, p.ChauTa.TenChauLuc, p.GhiChu };
             dgQuocGia.DataSource = quocgia.ToList();
             //stt
             for (int i = 0; i < dgQuocGia.Rows.Count; i++)
@@ -390,6 +420,7 @@ namespace QuanLyKhachHang.GUI
                                select p).FirstOrDefault<QuocGiaTa>();
                     txtMaQuocGia.Text = quocgia.TenVietTac;
                     txtTenQuocGia.Text = quocgia.TenQuocGia;
+                    txtTenQuocGiaE.Text = quocgia.TenQuocGiaE;
                     cboChau.SelectedValue = quocgia.MaChau;
                     txtGhiChuQuocGia.Text = quocgia.GhiChu;
                     btnChinhSuaQuocGia.Text = strHuyBo;
@@ -413,6 +444,7 @@ namespace QuanLyKhachHang.GUI
         {
             txtMaQuocGia.Enabled = false;
             txtTenQuocGia.Enabled = false;
+            txtTenQuocGiaE.Enabled = false;
             cboChau.Enabled = false;
             txtGhiChuQuocGia.Enabled = false;
 
@@ -428,6 +460,7 @@ namespace QuanLyKhachHang.GUI
         {
             txtMaQuocGia.Enabled = true;
             txtTenQuocGia.Enabled = true;
+            txtTenQuocGiaE.Enabled = true;
             cboChau.Enabled = true;
             txtGhiChuQuocGia.Enabled = true;
         }
@@ -444,6 +477,7 @@ namespace QuanLyKhachHang.GUI
                        select p).FirstOrDefault<QuocGiaTa>();
             txtMaQuocGia.Text = quocgia.TenVietTac;
             txtTenQuocGia.Text = quocgia.TenQuocGia;
+            txtTenQuocGiaE.Text = quocgia.TenQuocGiaE;
             cboChau.SelectedValue = quocgia.MaChau;
             txtGhiChuQuocGia.Text = quocgia.GhiChu;
             bCheckClickQuocGia = true;
