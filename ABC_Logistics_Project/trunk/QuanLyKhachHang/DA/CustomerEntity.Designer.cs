@@ -372,6 +372,204 @@ namespace QuanLyKhachHang.DA
 
         #endregion
 
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mAKHACHHANG">No Metadata Documentation available.</param>
+        public ObjectResult<KhachHangTa> GetKhachHang(global::System.String mAKHACHHANG)
+        {
+            ObjectParameter mAKHACHHANGParameter;
+            if (mAKHACHHANG != null)
+            {
+                mAKHACHHANGParameter = new ObjectParameter("MAKHACHHANG", mAKHACHHANG);
+            }
+            else
+            {
+                mAKHACHHANGParameter = new ObjectParameter("MAKHACHHANG", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<KhachHangTa>("GetKhachHang", mAKHACHHANGParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="mAKHACHHANG">No Metadata Documentation available.</param>
+        public ObjectResult<KhachHangTa> GetKhachHang(global::System.String mAKHACHHANG, MergeOption mergeOption)
+        {
+            ObjectParameter mAKHACHHANGParameter;
+            if (mAKHACHHANG != null)
+            {
+                mAKHACHHANGParameter = new ObjectParameter("MAKHACHHANG", mAKHACHHANG);
+            }
+            else
+            {
+                mAKHACHHANGParameter = new ObjectParameter("MAKHACHHANG", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<KhachHangTa>("GetKhachHang", mergeOption, mAKHACHHANGParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<TinhThanhTa> GetAllTinhThanh()
+        {
+            return base.ExecuteFunction<TinhThanhTa>("GetAllTinhThanh");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<TinhThanhTa> GetAllTinhThanh(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<TinhThanhTa>("GetAllTinhThanh", mergeOption);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<QuocGiaTa> GetAllQuocGia()
+        {
+            return base.ExecuteFunction<QuocGiaTa>("GetAllQuocGia");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<QuocGiaTa> GetAllQuocGia(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<QuocGiaTa>("GetAllQuocGia", mergeOption);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<ChauTa> GetAllChau()
+        {
+            return base.ExecuteFunction<ChauTa>("GetAllChau");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<ChauTa> GetAllChau(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<ChauTa>("GetAllChau", mergeOption);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<NgoaiTeTa> GetAllNgoaiTe()
+        {
+            return base.ExecuteFunction<NgoaiTeTa>("GetAllNgoaiTe");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<NgoaiTeTa> GetAllNgoaiTe(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<NgoaiTeTa>("GetAllNgoaiTe", mergeOption);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="lOAIKHACHHANG">No Metadata Documentation available.</param>
+        public ObjectResult<KhachHangTa> GetLoaiKhachHang(global::System.String lOAIKHACHHANG)
+        {
+            ObjectParameter lOAIKHACHHANGParameter;
+            if (lOAIKHACHHANG != null)
+            {
+                lOAIKHACHHANGParameter = new ObjectParameter("LOAIKHACHHANG", lOAIKHACHHANG);
+            }
+            else
+            {
+                lOAIKHACHHANGParameter = new ObjectParameter("LOAIKHACHHANG", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<KhachHangTa>("GetLoaiKhachHang", lOAIKHACHHANGParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="lOAIKHACHHANG">No Metadata Documentation available.</param>
+        public ObjectResult<KhachHangTa> GetLoaiKhachHang(global::System.String lOAIKHACHHANG, MergeOption mergeOption)
+        {
+            ObjectParameter lOAIKHACHHANGParameter;
+            if (lOAIKHACHHANG != null)
+            {
+                lOAIKHACHHANGParameter = new ObjectParameter("LOAIKHACHHANG", lOAIKHACHHANG);
+            }
+            else
+            {
+                lOAIKHACHHANGParameter = new ObjectParameter("LOAIKHACHHANG", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<KhachHangTa>("GetLoaiKhachHang", mergeOption, lOAIKHACHHANGParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<NhanVienTa> GetAllNhanVien()
+        {
+            return base.ExecuteFunction<NhanVienTa>("GetAllNhanVien");
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        public ObjectResult<NhanVienTa> GetAllNhanVien(MergeOption mergeOption)
+        {
+            return base.ExecuteFunction<NhanVienTa>("GetAllNhanVien", mergeOption);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="tENNHANVIEN">No Metadata Documentation available.</param>
+        public ObjectResult<NhanVienTa> GetNhanVien_TenNhanVien(global::System.String tENNHANVIEN)
+        {
+            ObjectParameter tENNHANVIENParameter;
+            if (tENNHANVIEN != null)
+            {
+                tENNHANVIENParameter = new ObjectParameter("TENNHANVIEN", tENNHANVIEN);
+            }
+            else
+            {
+                tENNHANVIENParameter = new ObjectParameter("TENNHANVIEN", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<NhanVienTa>("GetNhanVien_TenNhanVien", tENNHANVIENParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="tENNHANVIEN">No Metadata Documentation available.</param>
+        public ObjectResult<NhanVienTa> GetNhanVien_TenNhanVien(global::System.String tENNHANVIEN, MergeOption mergeOption)
+        {
+            ObjectParameter tENNHANVIENParameter;
+            if (tENNHANVIEN != null)
+            {
+                tENNHANVIENParameter = new ObjectParameter("TENNHANVIEN", tENNHANVIEN);
+            }
+            else
+            {
+                tENNHANVIENParameter = new ObjectParameter("TENNHANVIEN", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<NhanVienTa>("GetNhanVien_TenNhanVien", mergeOption, tENNHANVIENParameter);
+        }
+
+        #endregion
+
     }
 
     #endregion

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ABCLogisticModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="ABCLogisticModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ABCLogisticModelStoreContainer">
           <EntitySet Name="ChauTa" EntityType="ABCLogisticModel.Store.ChauTa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ContainerTa" EntityType="ABCLogisticModel.Store.ContainerTa" store:Type="Tables" Schema="dbo" />
@@ -288,6 +288,7 @@
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="SP_CHAU_SELECTALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -306,14 +307,26 @@
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_KHACHHANG_SELECT_LOAIKHACHHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOAIKHACHHANG" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_KHACHHANG_SELECT_MAKHACHHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MAKHACHHANG" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_NGOAITE_SELECTALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_NHANVIEN_SELECT_TENNHANVIEN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TENNHANVIEN" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_NHANVIEN_SELECTALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_QUOCGIA_SELECTALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_TINHTHANH_SELECTAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ABCLogisticModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -362,6 +375,20 @@
             <End Role="QuocGiaTa" EntitySet="QuocGiaTas" />
             <End Role="TinhThanhTa" EntitySet="TinhThanhTas" />
           </AssociationSet>
+          <FunctionImport Name="GetKhachHang" EntitySet="KhachHangTas" ReturnType="Collection(ABCLogisticModel.KhachHangTa)">
+          <Parameter Name="MAKHACHHANG" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllTinhThanh" EntitySet="TinhThanhTas" ReturnType="Collection(ABCLogisticModel.TinhThanhTa)" />
+          <FunctionImport Name="GetAllQuocGia" EntitySet="QuocGiaTas" ReturnType="Collection(ABCLogisticModel.QuocGiaTa)" />
+          <FunctionImport Name="GetAllChau" EntitySet="ChauTas" ReturnType="Collection(ABCLogisticModel.ChauTa)" />
+          <FunctionImport Name="GetAllNgoaiTe" EntitySet="NgoaiTeTas" ReturnType="Collection(ABCLogisticModel.NgoaiTeTa)" />
+          <FunctionImport Name="GetLoaiKhachHang" EntitySet="KhachHangTas" ReturnType="Collection(ABCLogisticModel.KhachHangTa)">
+          <Parameter Name="LOAIKHACHHANG" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllNhanVien" EntitySet="NhanVienTas" ReturnType="Collection(ABCLogisticModel.NhanVienTa)" />
+          <FunctionImport Name="GetNhanVien_TenNhanVien" EntitySet="NhanVienTas" ReturnType="Collection(ABCLogisticModel.NhanVienTa)">
+            <Parameter Name="TENNHANVIEN" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="ChauTa">
           <Key>
@@ -761,6 +788,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetKhachHang" FunctionName="ABCLogisticModel.Store.SP_KHACHHANG_SELECT_MAKHACHHANG" />
+          <FunctionImportMapping FunctionImportName="GetAllTinhThanh" FunctionName="ABCLogisticModel.Store.SP_TINHTHANH_SELECTAL" />
+          <FunctionImportMapping FunctionImportName="GetAllQuocGia" FunctionName="ABCLogisticModel.Store.SP_QUOCGIA_SELECTALL" />
+          <FunctionImportMapping FunctionImportName="GetAllChau" FunctionName="ABCLogisticModel.Store.SP_CHAU_SELECTALL" />
+          <FunctionImportMapping FunctionImportName="GetAllNgoaiTe" FunctionName="ABCLogisticModel.Store.SP_NGOAITE_SELECTALL" />
+          <FunctionImportMapping FunctionImportName="GetLoaiKhachHang" FunctionName="ABCLogisticModel.Store.SP_KHACHHANG_SELECT_LOAIKHACHHANG" />
+          <FunctionImportMapping FunctionImportName="GetAllNhanVien" FunctionName="ABCLogisticModel.Store.SP_NHANVIEN_SELECTALL" />
+          <FunctionImportMapping FunctionImportName="GetNhanVien_TenNhanVien" FunctionName="ABCLogisticModel.Store.SP_NHANVIEN_SELECT_TENNHANVIEN" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

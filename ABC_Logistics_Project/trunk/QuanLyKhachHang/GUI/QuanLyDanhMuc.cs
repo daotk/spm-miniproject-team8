@@ -61,14 +61,14 @@ namespace QuanLyKhachHang.GUI
             LoadDanhMuc();
 
             //load trong tab danh muc quoc gia
-            var chauluc = from p in context.ChauTas
+            var chauluc = from p in context.GetAllChau()
                           select p;
             cboChau.DataSource = chauluc.ToList<ChauTa>();
             cboChau.DisplayMember = "TenChauLuc";
             cboChau.ValueMember = "MaChau";
             Load_DanhMucQuocGia();
 
-            var quocgia = from cat in context.QuocGiaTas
+            var quocgia = from cat in context.GetAllQuocGia()
                           select cat;
             cboQuocGia.DataSource = quocgia.ToList<QuocGiaTa>();
             cboQuocGia.DisplayMember = "TenQuocGia";
@@ -84,7 +84,7 @@ namespace QuanLyKhachHang.GUI
         /// </summary>
         private void LoadDanhMuc()
         {
-            var ngoaite = from p in context.NgoaiTeTas
+            var ngoaite = from p in context.GetAllNgoaiTe()
                           select new { p.MaNgoaiTe, p.TenNgoaiTe, p.TiGiaQuyDoi, p.NgayTao, p.NgayCapNhat, p.GhiChu, };
             dataGridView1.DataSource = ngoaite.ToList();
         }
@@ -363,7 +363,7 @@ namespace QuanLyKhachHang.GUI
         /// </summary>
         private void Load_DanhMucQuocGia()
         {
-            var quocgia = from p in context.QuocGiaTas
+            var quocgia = from p in context.GetAllQuocGia()
                           select new { p.TenVietTac, p.TenQuocGia, p.ChauTa.TenChauLuc, p.GhiChu };
             dgQuocGia.DataSource = quocgia.ToList();
             //stt
@@ -522,7 +522,7 @@ namespace QuanLyKhachHang.GUI
 
         private void LoadTinhThanh()
         {
-            var tinhthanh = from p in context.TinhThanhTas
+            var tinhthanh = from p in context.GetAllTinhThanh()
                             select new {p.TenVietTac,p.TenTinhThanh,p.QuocGiaTa.TenQuocGia,p.GhiChu};
             dgTinhThanh.DataSource = tinhthanh.ToList();
             //stt
