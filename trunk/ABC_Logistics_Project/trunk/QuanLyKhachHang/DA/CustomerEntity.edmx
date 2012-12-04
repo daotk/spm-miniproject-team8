@@ -474,7 +474,7 @@
             <PropertyRef Name="MaQuocGia" />
           </Key>
           <Property Name="MaQuocGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenVietTac" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TenVietTac" Type="String" MaxLength="50" Unicode="false" FixedLength="false" ConcurrencyMode="None" />
           <Property Name="TenQuocGia" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="MaChau" Type="Int32" />
           <Property Name="GhiChu" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
