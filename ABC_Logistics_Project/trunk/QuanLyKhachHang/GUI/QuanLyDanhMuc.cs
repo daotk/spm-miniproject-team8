@@ -21,7 +21,7 @@ namespace QuanLyKhachHang.GUI
         bool bCheckClick = false,bCheckClickQuocGia;
         string StrUsername;
         string strCapNhat = "Cập nhật", strHuyBo = "Hủy bỏ", strChinhSua = "Chỉnh sửa ngoại tệ", strLuu = "Lưu", strThemMoi = "Thêm mới ngoại tệ", strChinhSuaTiGia = "Chỉnh sửa tỉ giá quy đổi",
-            strXoa = "Xóa ngoại tệ", strThemQuocGia = "Thêm", strChinhSuaQuocGia = "Chỉnh sửa", strXoaQuocGia = "Xóa", strLuuQuocGia = "Lưu";
+            strXoa = "Xóa ngoại tệ", strThemQuocGia = "Thêm", strChinhSuaQuocGia = "Chỉnh sửa", strXoaQuocGia = "Xóa", strLuuQuocGia = "Lưu",strThemCang="Thêm",strChinhSuaCang="Chỉnh sửa";
         public QuanLyDanhMuc(string strUsername)
         {
             StrUsername = strUsername;
@@ -57,6 +57,7 @@ namespace QuanLyKhachHang.GUI
         private void QuanLyDanhMuc_Load(object sender, EventArgs e)
         {
             lblTenNhanVien.Text = StrUsername;
+           
             //load tab danh muc ngoai te
             LoadDanhMuc();
 
@@ -64,17 +65,34 @@ namespace QuanLyKhachHang.GUI
             var chauluc = from p in context.GetAllChau()
                           select p;
             cboChau.DataSource = chauluc.ToList<ChauTa>();
-            cboChau.DisplayMember = "TenChauLuc";
+            cboChau.DisplayMember = "TenChauLuc";   
             cboChau.ValueMember = "MaChau";
+            
+            //Combobox loc danh sach theo chau
+            var locchauluc = from p in context.GetAllChau()
+                          select p;
+            cboLocChau.DataSource = locchauluc.ToList<ChauTa>();
+            cboLocChau.DisplayMember = "TenChauLuc";
+            cboLocChau.ValueMember = "MaChau";
+            
             Load_DanhMucQuocGia();
-
+            
+            //Combobox Quoc Gia
             var quocgia = from cat in context.GetAllQuocGia()
-                          select cat;
+                          select cat;   
             cboQuocGia.DataSource = quocgia.ToList<QuocGiaTa>();
             cboQuocGia.DisplayMember = "TenQuocGia";
             cboQuocGia.ValueMember = "MaQuocGia";
-            LoadTinhThanh();
+            
+            //combobox Loc Danh sach Quoc Gia
+            var locquocgia = from cat in context.GetAllQuocGia()
+                          select cat;
+            cboLocQuocGia.DataSource = locquocgia.ToList<QuocGiaTa>();
+            cboLocQuocGia.DisplayMember = "TenQuocGia";
+            cboLocQuocGia.ValueMember = "MaQuocGia";
 
+            LoadTinhThanh();
+            
         }
 
         #region Xu ly tab danh muc ngoai te
@@ -360,8 +378,7 @@ namespace QuanLyKhachHang.GUI
                     txtGhiChuQuocGia.Text = "";
                     btnThemQuocGia.Text = strLuuQuocGia;
                     btnChinhSuaQuocGia.Text = strHuyBo;
-                    btnXoaQuocGia.Hide();
-                }
+                  }
                 else
                 {
                     if (btnThemQuocGia.Text == strCapNhat)
@@ -425,7 +442,6 @@ namespace QuanLyKhachHang.GUI
                     txtGhiChuQuocGia.Text = quocgia.GhiChu;
                     btnChinhSuaQuocGia.Text = strHuyBo;
                     btnThemQuocGia.Text = strCapNhat;
-                    btnXoaQuocGia.Hide();
                 }
                 else
                 {
@@ -450,8 +466,7 @@ namespace QuanLyKhachHang.GUI
 
             btnThemQuocGia.Text = strThemQuocGia;
             btnChinhSuaQuocGia.Text = strChinhSuaQuocGia;
-            btnXoaQuocGia.Show();
-            btnXoaQuocGia.Text = strXoaQuocGia;
+
         }
         /// <summary>
         /// 
@@ -525,6 +540,27 @@ namespace QuanLyKhachHang.GUI
                 }
             }
         }
+        /// <summary>
+        /// loc danh sach quoc gia theo chau luc
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cboLocChau_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboLocChau.SelectedIndex >= 0)
+            {
+                int catID;
+                Int32.TryParse(cboLocChau.SelectedValue.ToString(), out catID);
+                var chau = from p in context.QuocGiaTas
+                           where p.MaChau == catID
+                           select new { p.TenVietTac, p.TenQuocGia, p.TenQuocGiaE, p.ChauTa.TenChauLuc, p.GhiChu };
+                dgQuocGia.DataSource = chau.ToList();
+            }    
+
+        }
+
+
+
 
         /// <summary>
         /// Enable tinh thanh
@@ -550,8 +586,7 @@ namespace QuanLyKhachHang.GUI
             txtGhiChuTinhThanh.Enabled = false;
             btnThemTinhThanh.Text = strThemQuocGia;
             btnChinhSuaTinhThanh.Text = strChinhSuaQuocGia;
-            btnXoaTinhThanh.Text = strXoaQuocGia;
-            btnXoaTinhThanh.Show();
+           
         }
 
         private void LoadTinhThanh()
@@ -581,7 +616,7 @@ namespace QuanLyKhachHang.GUI
                 EnableDanhMucTinhThanh();
                 btnThemTinhThanh.Text = strLuu;
                 btnChinhSuaTinhThanh.Text = strHuyBo;
-                btnXoaTinhThanh.Hide();
+              
             }
             else
             {
@@ -643,7 +678,6 @@ namespace QuanLyKhachHang.GUI
             {
                 btnThemTinhThanh.Text = strCapNhat;
                 btnChinhSuaTinhThanh.Text = strHuyBo;
-                btnXoaTinhThanh.Hide();
                 EnableDanhMucTinhThanh();
                 string strMaTinhThanh = dgTinhThanh.CurrentRow.Cells[1].Value.ToString();
                 tinhthanh = (from p in context.TinhThanhTas
@@ -708,8 +742,100 @@ namespace QuanLyKhachHang.GUI
                 }
             }
         }
+        /// <summary>
+        /// loc danh sach tinh thanh theo quoc gia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cboLocQuocGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboLocQuocGia.SelectedIndex >= 0)
+            {
+                int catID;
+                Int32.TryParse(cboLocQuocGia.SelectedValue.ToString(), out catID);
+                var tinhthanh = from p in context.TinhThanhTas
+                           where p.MaQuocGia == catID
+                           select new {p.TenVietTac,p.TenTinhThanh,p.QuocGiaTa.TenQuocGia,p.GhiChu };
+                dgTinhThanh.DataSource = tinhthanh.ToList();
+            }   
+        }
 
        #endregion
+
+        #region Danh Muc Cang Van Chuyen
+
+        /// <summary>
+        /// enable
+        /// </summary>
+        private void EnableAllCang()
+        {
+            txtMaCang.Enabled = true;
+            txtTenCang.Enabled = true;
+            cboQuocGiaCang.Enabled = true;
+            cboTinhThanhCang.Enabled = true;
+            txtGhiChuCang.Enabled = true;
+        }
+
+        /// <summary>
+        /// trang thai ban dau tab Danh muc Cang
+        /// </summary>
+        private void TranThaiBanDauCang()
+        {
+            txtMaCang.Enabled = false;
+            txtTenCang.Enabled = false;
+            cboQuocGiaCang.Enabled = false;
+            cboTinhThanhCang.Enabled = false;
+            txtGhiChuCang.Enabled = false;
+            btnThemCang.Text = strThemCang;
+            btnChinhSuaCang.Text = strChinhSuaCang;
+        }
+        
+        /// <summary>
+        /// Xu ly nut them cang
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnThemCang_Click(object sender, EventArgs e)
+        {
+            if (btnThemCang.Text == strThemCang)
+            {
+                EnableAllCang();
+                btnThemCang.Text = strLuu;
+                btnChinhSuaCang.Text = strHuyBo;
+            }
+                //Lưu
+            else
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// xu ly chinh sua cang
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChinhSuaCang_Click(object sender, EventArgs e)
+        {
+            if (btnChinhSuaCang.Text == strChinhSuaCang)
+            {
+                EnableAllCang();
+                btnThemCang.Text = strCapNhat;
+                btnChinhSuaCang.Text = strHuyBo;
+            }
+                //huy bo
+            else
+            {
+                TranThaiBanDauCang();
+            }
+        }
+
+
+
+
+
+        #endregion
+
 
 
     }
