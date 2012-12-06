@@ -16,8 +16,8 @@ namespace QuanLyKhachHang.GUI
         ABCLogisticEntities context=new ABCLogisticEntities();
         KhachHangTa p = new KhachHangTa();
         NguoiLienHeTa nlh = new NguoiLienHeTa();
-        bool CheckMAKH = false;
-        string strCheck;
+        bool CheckMAKH = false,bCheckAdd=false;
+        string strCheck,strMaCongTy;
         bool bcheck = false;
         string strUsername;
         public AddNewCustomer(string strusername)
@@ -72,32 +72,18 @@ namespace QuanLyKhachHang.GUI
         {
             if (CheckMAKH == true)
             {
-                p.MaCongTy = txtMaCongTy.Text;
-                p.TenCTyV = txtTenGiaoDichV.Text;
-                p.TenCTyE = txtTenGiaoDichE.Text;
-                p.TenCTyVT = txtTenVietTat.Text;
-                p.MaLVKD = (int)cboxLinhVucKinhDoanh.SelectedValue;
-                p.CongTyChuQuan = cboxCongTyChuQuan.Text;
-                p.LoaiKhachHang = strCheck;
-                p.MaQuocGia = (int)cboxQuocGia.SelectedValue;
-                p.MaTinhThanh = (int)cboxTinhThanh.SelectedValue;
-                p.DiaChi = txtDiaChiLienLac.Text;
-                p.Sdt = txtSdt.Text;
-                p.Fax = txtSoFax.Text;
-                p.Email = txtEmail.Text;
-                p.Web = txtWebsite.Text;
-                p.MaNhanVienQuanLy = (int)cboNhanVienQuanLy.SelectedValue;
-                p.NgayTao = dtNgayTao.Value;
-
                 //kiem tra tính hợp lệ khi nhập từ bàn phím
-                if (p.MaCongTy != "" && p.TenCTyV != "" && bcheck==true && p.MaTinhThanh != null && p.MaQuocGia != null && p.DiaChi != "" && p.Sdt != "")
+                if (txtMaCongTy.Text != "" && txtTenGiaoDichV.Text != "" && bcheck == true && (int)cboxTinhThanh.SelectedValue != null && (int)cboxQuocGia.SelectedValue != null && txtDiaChiLienLac.Text != "" && txtSdt.Text != "")
                 {
-                    context.KhachHangTas.AddObject(p);
-                    int count = context.SaveChanges();
-                    if (count > 0)
+                    int? returnvalue = context.sp_KhachHangTa_Insert(txtMaCongTy.Text, txtTenGiaoDichV.Text, txtTenGiaoDichE.Text, txtTenVietTat.Text,
+                         (int)cboxLinhVucKinhDoanh.SelectedValue, (int)cboxQuocGia.SelectedValue, (int)cboxTinhThanh.SelectedValue, txtDiaChiLienLac.Text,
+                         txtSdt.Text, txtSoFax.Text, txtEmail.Text, txtWebsite.Text, (int)cboNhanVienQuanLy.SelectedValue, cboxCongTyChuQuan.Text, strCheck, dtNgayTao.Value).SingleOrDefault();
+                    if (returnvalue == 1)
                     {
-                        MessageBox.Show("Đã thêm thành công!", "Thông báo");
+                        MessageBox.Show("Đã thêm thành công", "Thông báo");
                         TrangThaiBanDau();
+                        strMaCongTy = txtMaCongTy.Text;
+                        bCheckAdd = true;
                     }
                     else
                     {
@@ -239,28 +225,35 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            nlh.HoVaChuLotNLH = txtHoTenNLH.Text;
-            nlh.TenNLH = txtTenNLH.Text;
-            nlh.PhongBan = txtPhongBanNLH.Text;
-            nlh.ChucDanh = txtChucDanhNLH.Text;
-            nlh.SDT = txtSdtNLH.Text;
-            nlh.SoDD = txtSdtDDNLH.Text;
-            nlh.Email = txtEmailNLH.Text;
-            nlh.MaKhachhang = p.MaCongTy;
-            context.NguoiLienHeTas.AddObject(nlh);
-            int count = context.SaveChanges();
-            if (count > 0)
+            if (bCheckAdd == true)
             {
-                MessageBox.Show("Thêm Thành công","Thông báo");
-                //load danh sach nguoi lien hệ
-                var nguoilienhe = from cat in context.NguoiLienHeTas
-                                  where cat.MaKhachhang == p.MaCongTy
-                                  select new { cat.MaNguoiLienHe, cat.HoVaChuLotNLH, cat.TenNLH, cat.PhongBan, cat.ChucDanh, cat.SDT, cat.SoDD, cat.Email };
-                dataGridView1.DataSource = nguoilienhe.ToList();
+                nlh.HoVaChuLotNLH = txtHoTenNLH.Text;
+                nlh.TenNLH = txtTenNLH.Text;
+                nlh.PhongBan = txtPhongBanNLH.Text;
+                nlh.ChucDanh = txtChucDanhNLH.Text;
+                nlh.SDT = txtSdtNLH.Text;
+                nlh.SoDD = txtSdtDDNLH.Text;
+                nlh.Email = txtEmailNLH.Text;
+                nlh.MaKhachhang = strMaCongTy;
+                context.NguoiLienHeTas.AddObject(nlh);
+                int count = context.SaveChanges();
+                if (count > 0)
+                {
+                    MessageBox.Show("Thêm Thành công", "Thông báo");
+                    //load danh sach nguoi lien hệ
+                    var nguoilienhe = from cat in context.NguoiLienHeTas
+                                      where cat.MaKhachhang ==strMaCongTy
+                                      select new { cat.MaNguoiLienHe, cat.HoVaChuLotNLH, cat.TenNLH, cat.PhongBan, cat.ChucDanh, cat.SDT, cat.SoDD, cat.Email };
+                    dataGridView1.DataSource = nguoilienhe.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại", "Thông báo");
+                }
             }
             else
             {
-                MessageBox.Show("Thêm thất bại","Thông báo");
+                MessageBox.Show("Bạn chưa thêm khách hàng", "Thông báo");
             }
 
 

@@ -169,6 +169,7 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+      
             //khach hang
             if (strStatusCheck == rdKhachHang.Text)
             {

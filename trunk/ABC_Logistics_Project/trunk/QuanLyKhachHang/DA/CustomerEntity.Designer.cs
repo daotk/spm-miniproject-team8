@@ -27,6 +27,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ABCLogisticModel", "FK_NguoiLienHeTa_KhachHangTa", "KhachHangTa", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyKhachHang.DA.KhachHangTa), "NguoiLienHeTa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyKhachHang.DA.NguoiLienHeTa), true)]
 [assembly: EdmRelationshipAttribute("ABCLogisticModel", "FK_NhanVien_PhongBan", "PhongBanTa", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyKhachHang.DA.PhongBanTa), "NhanVienTa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyKhachHang.DA.NhanVienTa), true)]
 [assembly: EdmRelationshipAttribute("ABCLogisticModel", "FK_TinhThanh_QuocGia1", "QuocGiaTa", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyKhachHang.DA.QuocGiaTa), "TinhThanhTa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyKhachHang.DA.TinhThanhTa), true)]
+[assembly: EdmRelationshipAttribute("ABCLogisticModel", "FK_CangVanChuyenTa_QuocGiaTa", "QuocGiaTa", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyKhachHang.DA.QuocGiaTa), "CangVanChuyenTa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyKhachHang.DA.CangVanChuyenTa), true)]
+[assembly: EdmRelationshipAttribute("ABCLogisticModel", "FK_CangVanChuyenTa_TinhThanhTa", "TinhThanhTa", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(QuanLyKhachHang.DA.TinhThanhTa), "CangVanChuyenTa", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(QuanLyKhachHang.DA.CangVanChuyenTa), true)]
 
 #endregion
 
@@ -241,22 +243,6 @@ namespace QuanLyKhachHang.DA
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TaCangVanChuyenTa> TaCangVanChuyenTas
-        {
-            get
-            {
-                if ((_TaCangVanChuyenTas == null))
-                {
-                    _TaCangVanChuyenTas = base.CreateObjectSet<TaCangVanChuyenTa>("TaCangVanChuyenTas");
-                }
-                return _TaCangVanChuyenTas;
-            }
-        }
-        private ObjectSet<TaCangVanChuyenTa> _TaCangVanChuyenTas;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<TinhThanhTa> TinhThanhTas
         {
             get
@@ -269,6 +255,22 @@ namespace QuanLyKhachHang.DA
             }
         }
         private ObjectSet<TinhThanhTa> _TinhThanhTas;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CangVanChuyenTa> CangVanChuyenTas
+        {
+            get
+            {
+                if ((_CangVanChuyenTas == null))
+                {
+                    _CangVanChuyenTas = base.CreateObjectSet<CangVanChuyenTa>("CangVanChuyenTas");
+                }
+                return _CangVanChuyenTas;
+            }
+        }
+        private ObjectSet<CangVanChuyenTa> _CangVanChuyenTas;
 
         #endregion
 
@@ -355,19 +357,19 @@ namespace QuanLyKhachHang.DA
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TaCangVanChuyenTas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTaCangVanChuyenTas(TaCangVanChuyenTa taCangVanChuyenTa)
-        {
-            base.AddObject("TaCangVanChuyenTas", taCangVanChuyenTa);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the TinhThanhTas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToTinhThanhTas(TinhThanhTa tinhThanhTa)
         {
             base.AddObject("TinhThanhTas", tinhThanhTa);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CangVanChuyenTas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCangVanChuyenTas(CangVanChuyenTa cangVanChuyenTa)
+        {
+            base.AddObject("CangVanChuyenTas", cangVanChuyenTa);
         }
 
         #endregion
@@ -567,6 +569,190 @@ namespace QuanLyKhachHang.DA
     
             return base.ExecuteFunction<NhanVienTa>("GetNhanVien_TenNhanVien", mergeOption, tENNHANVIENParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="maCongTy">No Metadata Documentation available.</param>
+        /// <param name="tenCTyV">No Metadata Documentation available.</param>
+        /// <param name="tenCTyE">No Metadata Documentation available.</param>
+        /// <param name="tenCTyVT">No Metadata Documentation available.</param>
+        /// <param name="maLVKD">No Metadata Documentation available.</param>
+        /// <param name="maQuocGia">No Metadata Documentation available.</param>
+        /// <param name="maTinhThanh">No Metadata Documentation available.</param>
+        /// <param name="diaChi">No Metadata Documentation available.</param>
+        /// <param name="sdt">No Metadata Documentation available.</param>
+        /// <param name="fax">No Metadata Documentation available.</param>
+        /// <param name="email">No Metadata Documentation available.</param>
+        /// <param name="web">No Metadata Documentation available.</param>
+        /// <param name="maNhanVienQuanLy">No Metadata Documentation available.</param>
+        /// <param name="congTyChuQuan">No Metadata Documentation available.</param>
+        /// <param name="loaiKhachHang">No Metadata Documentation available.</param>
+        /// <param name="ngayTao">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Int32>> sp_KhachHangTa_Insert(global::System.String maCongTy, global::System.String tenCTyV, global::System.String tenCTyE, global::System.String tenCTyVT, Nullable<global::System.Int32> maLVKD, Nullable<global::System.Int32> maQuocGia, Nullable<global::System.Int32> maTinhThanh, global::System.String diaChi, global::System.String sdt, global::System.String fax, global::System.String email, global::System.String web, Nullable<global::System.Int32> maNhanVienQuanLy, global::System.String congTyChuQuan, global::System.String loaiKhachHang, Nullable<global::System.DateTime> ngayTao)
+        {
+            ObjectParameter maCongTyParameter;
+            if (maCongTy != null)
+            {
+                maCongTyParameter = new ObjectParameter("MaCongTy", maCongTy);
+            }
+            else
+            {
+                maCongTyParameter = new ObjectParameter("MaCongTy", typeof(global::System.String));
+            }
+    
+            ObjectParameter tenCTyVParameter;
+            if (tenCTyV != null)
+            {
+                tenCTyVParameter = new ObjectParameter("TenCTyV", tenCTyV);
+            }
+            else
+            {
+                tenCTyVParameter = new ObjectParameter("TenCTyV", typeof(global::System.String));
+            }
+    
+            ObjectParameter tenCTyEParameter;
+            if (tenCTyE != null)
+            {
+                tenCTyEParameter = new ObjectParameter("TenCTyE", tenCTyE);
+            }
+            else
+            {
+                tenCTyEParameter = new ObjectParameter("TenCTyE", typeof(global::System.String));
+            }
+    
+            ObjectParameter tenCTyVTParameter;
+            if (tenCTyVT != null)
+            {
+                tenCTyVTParameter = new ObjectParameter("TenCTyVT", tenCTyVT);
+            }
+            else
+            {
+                tenCTyVTParameter = new ObjectParameter("TenCTyVT", typeof(global::System.String));
+            }
+    
+            ObjectParameter maLVKDParameter;
+            if (maLVKD.HasValue)
+            {
+                maLVKDParameter = new ObjectParameter("MaLVKD", maLVKD);
+            }
+            else
+            {
+                maLVKDParameter = new ObjectParameter("MaLVKD", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter maQuocGiaParameter;
+            if (maQuocGia.HasValue)
+            {
+                maQuocGiaParameter = new ObjectParameter("MaQuocGia", maQuocGia);
+            }
+            else
+            {
+                maQuocGiaParameter = new ObjectParameter("MaQuocGia", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter maTinhThanhParameter;
+            if (maTinhThanh.HasValue)
+            {
+                maTinhThanhParameter = new ObjectParameter("MaTinhThanh", maTinhThanh);
+            }
+            else
+            {
+                maTinhThanhParameter = new ObjectParameter("MaTinhThanh", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter diaChiParameter;
+            if (diaChi != null)
+            {
+                diaChiParameter = new ObjectParameter("DiaChi", diaChi);
+            }
+            else
+            {
+                diaChiParameter = new ObjectParameter("DiaChi", typeof(global::System.String));
+            }
+    
+            ObjectParameter sdtParameter;
+            if (sdt != null)
+            {
+                sdtParameter = new ObjectParameter("Sdt", sdt);
+            }
+            else
+            {
+                sdtParameter = new ObjectParameter("Sdt", typeof(global::System.String));
+            }
+    
+            ObjectParameter faxParameter;
+            if (fax != null)
+            {
+                faxParameter = new ObjectParameter("Fax", fax);
+            }
+            else
+            {
+                faxParameter = new ObjectParameter("Fax", typeof(global::System.String));
+            }
+    
+            ObjectParameter emailParameter;
+            if (email != null)
+            {
+                emailParameter = new ObjectParameter("Email", email);
+            }
+            else
+            {
+                emailParameter = new ObjectParameter("Email", typeof(global::System.String));
+            }
+    
+            ObjectParameter webParameter;
+            if (web != null)
+            {
+                webParameter = new ObjectParameter("Web", web);
+            }
+            else
+            {
+                webParameter = new ObjectParameter("Web", typeof(global::System.String));
+            }
+    
+            ObjectParameter maNhanVienQuanLyParameter;
+            if (maNhanVienQuanLy.HasValue)
+            {
+                maNhanVienQuanLyParameter = new ObjectParameter("MaNhanVienQuanLy", maNhanVienQuanLy);
+            }
+            else
+            {
+                maNhanVienQuanLyParameter = new ObjectParameter("MaNhanVienQuanLy", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter congTyChuQuanParameter;
+            if (congTyChuQuan != null)
+            {
+                congTyChuQuanParameter = new ObjectParameter("CongTyChuQuan", congTyChuQuan);
+            }
+            else
+            {
+                congTyChuQuanParameter = new ObjectParameter("CongTyChuQuan", typeof(global::System.String));
+            }
+    
+            ObjectParameter loaiKhachHangParameter;
+            if (loaiKhachHang != null)
+            {
+                loaiKhachHangParameter = new ObjectParameter("LoaiKhachHang", loaiKhachHang);
+            }
+            else
+            {
+                loaiKhachHangParameter = new ObjectParameter("LoaiKhachHang", typeof(global::System.String));
+            }
+    
+            ObjectParameter ngayTaoParameter;
+            if (ngayTao.HasValue)
+            {
+                ngayTaoParameter = new ObjectParameter("NgayTao", ngayTao);
+            }
+            else
+            {
+                ngayTaoParameter = new ObjectParameter("NgayTao", typeof(global::System.DateTime));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Int32>>("sp_KhachHangTa_Insert", maCongTyParameter, tenCTyVParameter, tenCTyEParameter, tenCTyVTParameter, maLVKDParameter, maQuocGiaParameter, maTinhThanhParameter, diaChiParameter, sdtParameter, faxParameter, emailParameter, webParameter, maNhanVienQuanLyParameter, congTyChuQuanParameter, loaiKhachHangParameter, ngayTaoParameter);
+        }
 
         #endregion
 
@@ -575,6 +761,239 @@ namespace QuanLyKhachHang.DA
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ABCLogisticModel", Name="CangVanChuyenTa")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CangVanChuyenTa : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CangVanChuyenTa object.
+        /// </summary>
+        /// <param name="maCang">Initial value of the MaCang property.</param>
+        public static CangVanChuyenTa CreateCangVanChuyenTa(global::System.String maCang)
+        {
+            CangVanChuyenTa cangVanChuyenTa = new CangVanChuyenTa();
+            cangVanChuyenTa.MaCang = maCang;
+            return cangVanChuyenTa;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String MaCang
+        {
+            get
+            {
+                return _MaCang;
+            }
+            set
+            {
+                if (_MaCang != value)
+                {
+                    OnMaCangChanging(value);
+                    ReportPropertyChanging("MaCang");
+                    _MaCang = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("MaCang");
+                    OnMaCangChanged();
+                }
+            }
+        }
+        private global::System.String _MaCang;
+        partial void OnMaCangChanging(global::System.String value);
+        partial void OnMaCangChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Tencang
+        {
+            get
+            {
+                return _Tencang;
+            }
+            set
+            {
+                OnTencangChanging(value);
+                ReportPropertyChanging("Tencang");
+                _Tencang = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Tencang");
+                OnTencangChanged();
+            }
+        }
+        private global::System.String _Tencang;
+        partial void OnTencangChanging(global::System.String value);
+        partial void OnTencangChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> MaTinh
+        {
+            get
+            {
+                return _MaTinh;
+            }
+            set
+            {
+                OnMaTinhChanging(value);
+                ReportPropertyChanging("MaTinh");
+                _MaTinh = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MaTinh");
+                OnMaTinhChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _MaTinh;
+        partial void OnMaTinhChanging(Nullable<global::System.Int32> value);
+        partial void OnMaTinhChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> MaQuocGia
+        {
+            get
+            {
+                return _MaQuocGia;
+            }
+            set
+            {
+                OnMaQuocGiaChanging(value);
+                ReportPropertyChanging("MaQuocGia");
+                _MaQuocGia = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MaQuocGia");
+                OnMaQuocGiaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _MaQuocGia;
+        partial void OnMaQuocGiaChanging(Nullable<global::System.Int32> value);
+        partial void OnMaQuocGiaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GhiChu
+        {
+            get
+            {
+                return _GhiChu;
+            }
+            set
+            {
+                OnGhiChuChanging(value);
+                ReportPropertyChanging("GhiChu");
+                _GhiChu = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GhiChu");
+                OnGhiChuChanged();
+            }
+        }
+        private global::System.String _GhiChu;
+        partial void OnGhiChuChanging(global::System.String value);
+        partial void OnGhiChuChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ABCLogisticModel", "FK_CangVanChuyenTa_QuocGiaTa", "QuocGiaTa")]
+        public QuocGiaTa QuocGiaTa
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QuocGiaTa>("ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa", "QuocGiaTa").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QuocGiaTa>("ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa", "QuocGiaTa").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<QuocGiaTa> QuocGiaTaReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<QuocGiaTa>("ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa", "QuocGiaTa");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<QuocGiaTa>("ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa", "QuocGiaTa", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ABCLogisticModel", "FK_CangVanChuyenTa_TinhThanhTa", "TinhThanhTa")]
+        public TinhThanhTa TinhThanhTa
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TinhThanhTa>("ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa", "TinhThanhTa").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TinhThanhTa>("ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa", "TinhThanhTa").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TinhThanhTa> TinhThanhTaReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TinhThanhTa>("ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa", "TinhThanhTa");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TinhThanhTa>("ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa", "TinhThanhTa", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -2671,6 +3090,30 @@ namespace QuanLyKhachHang.DA
         private global::System.String _GhiChu;
         partial void OnGhiChuChanging(global::System.String value);
         partial void OnGhiChuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TenQuocGiaE
+        {
+            get
+            {
+                return _TenQuocGiaE;
+            }
+            set
+            {
+                OnTenQuocGiaEChanging(value);
+                ReportPropertyChanging("TenQuocGiaE");
+                _TenQuocGiaE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TenQuocGiaE");
+                OnTenQuocGiaEChanged();
+            }
+        }
+        private global::System.String _TenQuocGiaE;
+        partial void OnTenQuocGiaEChanging(global::System.String value);
+        partial void OnTenQuocGiaEChanged();
 
         #endregion
 
@@ -2755,6 +3198,28 @@ namespace QuanLyKhachHang.DA
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TinhThanhTa>("ABCLogisticModel.FK_TinhThanh_QuocGia1", "TinhThanhTa", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ABCLogisticModel", "FK_CangVanChuyenTa_QuocGiaTa", "CangVanChuyenTa")]
+        public EntityCollection<CangVanChuyenTa> CangVanChuyenTas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CangVanChuyenTa>("ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa", "CangVanChuyenTa");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CangVanChuyenTa>("ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa", "CangVanChuyenTa", value);
                 }
             }
         }
@@ -2914,135 +3379,6 @@ namespace QuanLyKhachHang.DA
         private global::System.Byte[] _definition;
         partial void OndefinitionChanging(global::System.Byte[] value);
         partial void OndefinitionChanged();
-
-        #endregion
-
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ABCLogisticModel", Name="TaCangVanChuyenTa")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class TaCangVanChuyenTa : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new TaCangVanChuyenTa object.
-        /// </summary>
-        /// <param name="maCang">Initial value of the MaCang property.</param>
-        public static TaCangVanChuyenTa CreateTaCangVanChuyenTa(global::System.Int32 maCang)
-        {
-            TaCangVanChuyenTa taCangVanChuyenTa = new TaCangVanChuyenTa();
-            taCangVanChuyenTa.MaCang = maCang;
-            return taCangVanChuyenTa;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 MaCang
-        {
-            get
-            {
-                return _MaCang;
-            }
-            set
-            {
-                if (_MaCang != value)
-                {
-                    OnMaCangChanging(value);
-                    ReportPropertyChanging("MaCang");
-                    _MaCang = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("MaCang");
-                    OnMaCangChanged();
-                }
-            }
-        }
-        private global::System.Int32 _MaCang;
-        partial void OnMaCangChanging(global::System.Int32 value);
-        partial void OnMaCangChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Tencang
-        {
-            get
-            {
-                return _Tencang;
-            }
-            set
-            {
-                OnTencangChanging(value);
-                ReportPropertyChanging("Tencang");
-                _Tencang = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Tencang");
-                OnTencangChanged();
-            }
-        }
-        private global::System.String _Tencang;
-        partial void OnTencangChanging(global::System.String value);
-        partial void OnTencangChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String DiaChi
-        {
-            get
-            {
-                return _DiaChi;
-            }
-            set
-            {
-                OnDiaChiChanging(value);
-                ReportPropertyChanging("DiaChi");
-                _DiaChi = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("DiaChi");
-                OnDiaChiChanged();
-            }
-        }
-        private global::System.String _DiaChi;
-        partial void OnDiaChiChanging(global::System.String value);
-        partial void OnDiaChiChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Sdt
-        {
-            get
-            {
-                return _Sdt;
-            }
-            set
-            {
-                OnSdtChanging(value);
-                ReportPropertyChanging("Sdt");
-                _Sdt = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Sdt");
-                OnSdtChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Sdt;
-        partial void OnSdtChanging(Nullable<global::System.Int32> value);
-        partial void OnSdtChanged();
 
         #endregion
 
@@ -3258,6 +3594,28 @@ namespace QuanLyKhachHang.DA
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<QuocGiaTa>("ABCLogisticModel.FK_TinhThanh_QuocGia1", "QuocGiaTa", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ABCLogisticModel", "FK_CangVanChuyenTa_TinhThanhTa", "CangVanChuyenTa")]
+        public EntityCollection<CangVanChuyenTa> CangVanChuyenTas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CangVanChuyenTa>("ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa", "CangVanChuyenTa");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CangVanChuyenTa>("ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa", "CangVanChuyenTa", value);
                 }
             }
         }

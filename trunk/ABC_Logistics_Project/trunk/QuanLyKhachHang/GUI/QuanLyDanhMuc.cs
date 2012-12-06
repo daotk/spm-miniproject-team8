@@ -91,6 +91,14 @@ namespace QuanLyKhachHang.GUI
             cboLocQuocGia.DisplayMember = "TenQuocGia";
             cboLocQuocGia.ValueMember = "MaQuocGia";
 
+            //load quoc gia cho cang
+            cboQuocGiaCang.DataSource = context.GetAllQuocGia().ToList();
+            cboQuocGiaCang.DisplayMember = "TenQuocGia";
+            cboQuocGiaCang.ValueMember = "MaQuocGia";
+
+            cboLocQuocGia.SelectedValue = 2;
+            cboLocChau.SelectedValue = 6;
+
             LoadTinhThanh();
             
         }
@@ -497,49 +505,7 @@ namespace QuanLyKhachHang.GUI
             txtGhiChuQuocGia.Text = quocgia.GhiChu;
             bCheckClickQuocGia = true;
         }
-        /// <summary>
-        /// Xoa Quoc Gia
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnXoaQuocGia_Click(object sender, EventArgs e)
-        {
-            if (bCheckClickQuocGia == false)
-            {
-                MessageBox.Show("Bạn chưa chọn quốc gia cần xóa!", "Thông báo");
-            }
-            else
-            {
-                string strMaQuocGia = dgQuocGia.SelectedRows[0].Cells[1].Value.ToString();
-                DialogResult result = MessageBox.Show("Bạn có muốn xóa quoc gia có mã là " + strMaQuocGia + " Không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    using (ABCLogisticEntities newcontext = new ABCLogisticEntities())
-                    {
-                        QuocGiaTa p = new QuocGiaTa() { TenVietTac = strMaQuocGia};
-                        newcontext.QuocGiaTas.Attach(p);
-                        //newcontext.ObjectStateManager.ChangeObjectState(p, EntityState.Deleted);
-                        newcontext.QuocGiaTas.DeleteObject(p);
-                        int count = newcontext.SaveChanges();
-                       
-         
-                        if (count > 0)
-                        {
-                            MessageBox.Show("Đã xóa thành công", "Thông báo");
-                            Load_DanhMucQuocGia();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Xóa thất bại", "Thông báo");
-                        }
-                    }
-                }
-                else
-                {
-                    Load_DanhMucQuocGia();
-                }
-            }
-        }
+      
         /// <summary>
         /// loc danh sach quoc gia theo chau luc
         /// </summary>
@@ -555,6 +521,11 @@ namespace QuanLyKhachHang.GUI
                            where p.MaChau == catID
                            select new { p.TenVietTac, p.TenQuocGia, p.TenQuocGiaE, p.ChauTa.TenChauLuc, p.GhiChu };
                 dgQuocGia.DataSource = chau.ToList();
+                //stt
+                for (int i = 0; i < dgQuocGia.Rows.Count; i++)
+                {
+                    dgQuocGia.Rows[i].Cells[0].Value = i + 1;
+                }  
             }    
 
         }
@@ -712,36 +683,7 @@ namespace QuanLyKhachHang.GUI
             cboQuocGia.SelectedValue = tinhthanh.MaQuocGia;
             txtGhiChuTinhThanh.Text = tinhthanh.GhiChu;
         }
-        /// <summary>
-        /// xoa tinh thanh
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnXoaTinhThanh_Click(object sender, EventArgs e)
-        {
-            string strMaTinhThanh = dgTinhThanh.SelectedRows[0].Cells[1].Value.ToString();
-            DialogResult result = MessageBox.Show("Bạn có muốn xóa tỉnh thành có mã là " + strMaTinhThanh + " Không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
-            {
-                using (ABCLogisticEntities newcontext = new ABCLogisticEntities())
-                {
-                    QuocGiaTa p = new QuocGiaTa() { TenVietTac = strMaTinhThanh };
-                    newcontext.QuocGiaTas.Attach(p);
-                    newcontext.ObjectStateManager.ChangeObjectState(p, EntityState.Deleted);
-                    int count = newcontext.SaveChanges();
-
-                    if (count > 0)
-                    {
-                        MessageBox.Show("Đã xóa thành công", "Thông báo");
-                        LoadTinhThanh();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thất bại", "Thông báo");
-                    }
-                }
-            }
-        }
+      
         /// <summary>
         /// loc danh sach tinh thanh theo quoc gia
         /// </summary>
@@ -757,6 +699,11 @@ namespace QuanLyKhachHang.GUI
                            where p.MaQuocGia == catID
                            select new {p.TenVietTac,p.TenTinhThanh,p.QuocGiaTa.TenQuocGia,p.GhiChu };
                 dgTinhThanh.DataSource = tinhthanh.ToList();
+                //stt
+                for (int i = 0; i < dgTinhThanh.Rows.Count; i++)
+                {
+                    dgTinhThanh.Rows[i].Cells[0].Value = i + 1;
+                }  
             }   
         }
 
@@ -830,11 +777,26 @@ namespace QuanLyKhachHang.GUI
             }
         }
 
-
+        private void cboQuocGiaCang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboQuocGiaCang.SelectedIndex >= 0)
+            {
+                int QuocGiaID;
+                Int32.TryParse(cboQuocGiaCang.SelectedValue.ToString(), out QuocGiaID);
+                var tinhthanh = from p in context.TinhThanhTas
+                                where p.MaQuocGia == QuocGiaID
+                                select p;
+                cboTinhThanhCang.DataSource = tinhthanh.ToList<TinhThanhTa>();
+                cboTinhThanhCang.DisplayMember = "TenTinhThanh";
+                cboTinhThanhCang.ValueMember = "MaTinhThanh";
+            }
+        }
 
 
 
         #endregion
+
+      
 
 
 
