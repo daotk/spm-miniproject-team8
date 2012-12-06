@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="ABCLogisticModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ABCLogisticModelStoreContainer">
+          <EntitySet Name="CangVanChuyenTa" EntityType="ABCLogisticModel.Store.CangVanChuyenTa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ChauTa" EntityType="ABCLogisticModel.Store.ChauTa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ContainerTa" EntityType="ABCLogisticModel.Store.ContainerTa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="KhachHangTa" EntityType="ABCLogisticModel.Store.KhachHangTa" store:Type="Tables" Schema="dbo" />
@@ -16,8 +17,15 @@
           <EntitySet Name="PhongBanTa" EntityType="ABCLogisticModel.Store.PhongBanTa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="QuocGiaTa" EntityType="ABCLogisticModel.Store.QuocGiaTa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="ABCLogisticModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TaCangVanChuyenTa" EntityType="ABCLogisticModel.Store.TaCangVanChuyenTa" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TinhThanhTa" EntityType="ABCLogisticModel.Store.TinhThanhTa" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CangVanChuyenTa_QuocGiaTa" Association="ABCLogisticModel.Store.FK_CangVanChuyenTa_QuocGiaTa">
+            <End Role="QuocGiaTa" EntitySet="QuocGiaTa" />
+            <End Role="CangVanChuyenTa" EntitySet="CangVanChuyenTa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CangVanChuyenTa_TinhThanhTa" Association="ABCLogisticModel.Store.FK_CangVanChuyenTa_TinhThanhTa">
+            <End Role="TinhThanhTa" EntitySet="TinhThanhTa" />
+            <End Role="CangVanChuyenTa" EntitySet="CangVanChuyenTa" />
+          </AssociationSet>
           <AssociationSet Name="FK_KhachHang_LinhVucKinhDoanh" Association="ABCLogisticModel.Store.FK_KhachHang_LinhVucKinhDoanh">
             <End Role="LinhVucKinhDoanhTa" EntitySet="LinhVucKinhDoanhTa" />
             <End Role="KhachHangTa" EntitySet="KhachHangTa" />
@@ -51,6 +59,16 @@
             <End Role="TinhThanhTa" EntitySet="TinhThanhTa" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CangVanChuyenTa">
+          <Key>
+            <PropertyRef Name="MaCang" />
+          </Key>
+          <Property Name="MaCang" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Tencang" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaTinh" Type="int" />
+          <Property Name="MaQuocGia" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="ChauTa">
           <Key>
             <PropertyRef Name="MaChau" />
@@ -153,6 +171,7 @@
           <Property Name="MaQuocGia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TenVietTac" Type="varchar" MaxLength="50" />
           <Property Name="TenQuocGia" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenQuocGiaE" Type="nvarchar" MaxLength="50" />
           <Property Name="MaChau" Type="int" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="20" />
         </EntityType>
@@ -166,15 +185,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="TaCangVanChuyenTa">
-          <Key>
-            <PropertyRef Name="MaCang" />
-          </Key>
-          <Property Name="MaCang" Type="int" Nullable="false" />
-          <Property Name="Tencang" Type="nvarchar" MaxLength="50" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
-          <Property Name="Sdt" Type="int" />
-        </EntityType>
         <EntityType Name="TinhThanhTa">
           <Key>
             <PropertyRef Name="MaTinhThanh" />
@@ -185,6 +195,30 @@
           <Property Name="MaQuocGia" Type="int" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_CangVanChuyenTa_QuocGiaTa">
+          <End Role="QuocGiaTa" Type="ABCLogisticModel.Store.QuocGiaTa" Multiplicity="0..1" />
+          <End Role="CangVanChuyenTa" Type="ABCLogisticModel.Store.CangVanChuyenTa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuocGiaTa">
+              <PropertyRef Name="MaQuocGia" />
+            </Principal>
+            <Dependent Role="CangVanChuyenTa">
+              <PropertyRef Name="MaQuocGia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CangVanChuyenTa_TinhThanhTa">
+          <End Role="TinhThanhTa" Type="ABCLogisticModel.Store.TinhThanhTa" Multiplicity="0..1" />
+          <End Role="CangVanChuyenTa" Type="ABCLogisticModel.Store.CangVanChuyenTa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TinhThanhTa">
+              <PropertyRef Name="MaTinhThanh" />
+            </Principal>
+            <Dependent Role="CangVanChuyenTa">
+              <PropertyRef Name="MaTinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_KhachHang_LinhVucKinhDoanh">
           <End Role="LinhVucKinhDoanhTa" Type="ABCLogisticModel.Store.LinhVucKinhDoanhTa" Multiplicity="0..1" />
           <End Role="KhachHangTa" Type="ABCLogisticModel.Store.KhachHangTa" Multiplicity="*" />
@@ -313,6 +347,24 @@
         <Function Name="SP_KHACHHANG_SELECT_MAKHACHHANG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MAKHACHHANG" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_KhachHangTa_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaCongTy" Type="varchar" Mode="In" />
+          <Parameter Name="TenCTyV" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenCTyE" Type="nvarchar" Mode="In" />
+          <Parameter Name="TenCTyVT" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaLVKD" Type="int" Mode="In" />
+          <Parameter Name="MaQuocGia" Type="int" Mode="In" />
+          <Parameter Name="MaTinhThanh" Type="int" Mode="In" />
+          <Parameter Name="DiaChi" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sdt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Fax" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Web" Type="nvarchar" Mode="In" />
+          <Parameter Name="MaNhanVienQuanLy" Type="int" Mode="In" />
+          <Parameter Name="CongTyChuQuan" Type="nvarchar" Mode="In" />
+          <Parameter Name="LoaiKhachHang" Type="nvarchar" Mode="In" />
+          <Parameter Name="NgayTao" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="SP_NGOAITE_SELECTALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_NHANVIEN_SELECT_TENNHANVIEN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TENNHANVIEN" Type="nvarchar" Mode="In" />
@@ -341,7 +393,6 @@
           <EntitySet Name="PhongBanTas" EntityType="ABCLogisticModel.PhongBanTa" />
           <EntitySet Name="QuocGiaTas" EntityType="ABCLogisticModel.QuocGiaTa" />
           <EntitySet Name="sysdiagrams" EntityType="ABCLogisticModel.sysdiagram" />
-          <EntitySet Name="TaCangVanChuyenTas" EntityType="ABCLogisticModel.TaCangVanChuyenTa" />
           <EntitySet Name="TinhThanhTas" EntityType="ABCLogisticModel.TinhThanhTa" />
           <AssociationSet Name="FK_QuocGiaTa_ChauTa" Association="ABCLogisticModel.FK_QuocGiaTa_ChauTa">
             <End Role="ChauTa" EntitySet="ChauTas" />
@@ -387,7 +438,34 @@
           </FunctionImport>
           <FunctionImport Name="GetAllNhanVien" EntitySet="NhanVienTas" ReturnType="Collection(ABCLogisticModel.NhanVienTa)" />
           <FunctionImport Name="GetNhanVien_TenNhanVien" EntitySet="NhanVienTas" ReturnType="Collection(ABCLogisticModel.NhanVienTa)">
-            <Parameter Name="TENNHANVIEN" Mode="In" Type="String" />
+          <Parameter Name="TENNHANVIEN" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="CangVanChuyenTas" EntityType="ABCLogisticModel.CangVanChuyenTa" />
+          <AssociationSet Name="FK_CangVanChuyenTa_QuocGiaTa" Association="ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa">
+            <End Role="QuocGiaTa" EntitySet="QuocGiaTas" />
+            <End Role="CangVanChuyenTa" EntitySet="CangVanChuyenTas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CangVanChuyenTa_TinhThanhTa" Association="ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa">
+            <End Role="TinhThanhTa" EntitySet="TinhThanhTas" />
+            <End Role="CangVanChuyenTa" EntitySet="CangVanChuyenTas" />
+          </AssociationSet>
+          <FunctionImport Name="sp_KhachHangTa_Insert" ReturnType="Collection(Int32)">
+            <Parameter Name="MaCongTy" Mode="In" Type="String" />
+            <Parameter Name="TenCTyV" Mode="In" Type="String" />
+            <Parameter Name="TenCTyE" Mode="In" Type="String" />
+            <Parameter Name="TenCTyVT" Mode="In" Type="String" />
+            <Parameter Name="MaLVKD" Mode="In" Type="Int32" />
+            <Parameter Name="MaQuocGia" Mode="In" Type="Int32" />
+            <Parameter Name="MaTinhThanh" Mode="In" Type="Int32" />
+            <Parameter Name="DiaChi" Mode="In" Type="String" />
+            <Parameter Name="Sdt" Mode="In" Type="String" />
+            <Parameter Name="Fax" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Web" Mode="In" Type="String" />
+            <Parameter Name="MaNhanVienQuanLy" Mode="In" Type="Int32" />
+            <Parameter Name="CongTyChuQuan" Mode="In" Type="String" />
+            <Parameter Name="LoaiKhachHang" Mode="In" Type="String" />
+            <Parameter Name="NgayTao" Mode="In" Type="DateTime" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="ChauTa">
@@ -508,6 +586,8 @@
           <NavigationProperty Name="ChauTa" Relationship="ABCLogisticModel.FK_QuocGiaTa_ChauTa" FromRole="QuocGiaTa" ToRole="ChauTa" />
           <NavigationProperty Name="KhachHangTas" Relationship="ABCLogisticModel.FK_KhachHang_QuocGia" FromRole="QuocGiaTa" ToRole="KhachHangTa" />
           <NavigationProperty Name="TinhThanhTas" Relationship="ABCLogisticModel.FK_TinhThanh_QuocGia1" FromRole="QuocGiaTa" ToRole="TinhThanhTa" />
+          <Property Type="String" Name="TenQuocGiaE" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CangVanChuyenTas" Relationship="ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa" FromRole="QuocGiaTa" ToRole="CangVanChuyenTa" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -518,15 +598,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="TaCangVanChuyenTa">
-          <Key>
-            <PropertyRef Name="MaCang" />
-          </Key>
-          <Property Name="MaCang" Type="Int32" Nullable="false" />
-          <Property Name="Tencang" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="DiaChi" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="Sdt" Type="Int32" />
         </EntityType>
         <EntityType Name="TinhThanhTa">
           <Key>
@@ -539,6 +610,7 @@
           <Property Name="GhiChu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="KhachHangTas" Relationship="ABCLogisticModel.FK_KhachHang_TinhThanh" FromRole="TinhThanhTa" ToRole="KhachHangTa" />
           <NavigationProperty Name="QuocGiaTa" Relationship="ABCLogisticModel.FK_TinhThanh_QuocGia1" FromRole="TinhThanhTa" ToRole="QuocGiaTa" />
+          <NavigationProperty Name="CangVanChuyenTas" Relationship="ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa" FromRole="TinhThanhTa" ToRole="CangVanChuyenTa" />
         </EntityType>
         <Association Name="FK_QuocGiaTa_ChauTa">
           <End Role="ChauTa" Type="ABCLogisticModel.ChauTa" Multiplicity="0..1" />
@@ -633,6 +705,42 @@
             </Principal>
             <Dependent Role="TinhThanhTa">
               <PropertyRef Name="MaQuocGia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CangVanChuyenTa">
+          <Key>
+            <PropertyRef Name="MaCang" />
+          </Key>
+          <Property Type="String" Name="MaCang" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Tencang" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="MaTinh" />
+          <Property Type="Int32" Name="MaQuocGia" />
+          <Property Type="String" Name="GhiChu" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="QuocGiaTa" Relationship="ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa" FromRole="CangVanChuyenTa" ToRole="QuocGiaTa" />
+          <NavigationProperty Name="TinhThanhTa" Relationship="ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa" FromRole="CangVanChuyenTa" ToRole="TinhThanhTa" />
+        </EntityType>
+        <Association Name="FK_CangVanChuyenTa_QuocGiaTa">
+          <End Type="ABCLogisticModel.QuocGiaTa" Role="QuocGiaTa" Multiplicity="0..1" />
+          <End Type="ABCLogisticModel.CangVanChuyenTa" Role="CangVanChuyenTa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuocGiaTa">
+              <PropertyRef Name="MaQuocGia" />
+            </Principal>
+            <Dependent Role="CangVanChuyenTa">
+              <PropertyRef Name="MaQuocGia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CangVanChuyenTa_TinhThanhTa">
+          <End Type="ABCLogisticModel.TinhThanhTa" Role="TinhThanhTa" Multiplicity="0..1" />
+          <End Type="ABCLogisticModel.CangVanChuyenTa" Role="CangVanChuyenTa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TinhThanhTa">
+              <PropertyRef Name="MaTinhThanh" />
+            </Principal>
+            <Dependent Role="CangVanChuyenTa">
+              <PropertyRef Name="MaTinh" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -748,6 +856,7 @@
           <EntitySetMapping Name="QuocGiaTas">
             <EntityTypeMapping TypeName="ABCLogisticModel.QuocGiaTa">
               <MappingFragment StoreEntitySet="QuocGiaTa">
+                <ScalarProperty Name="TenQuocGiaE" ColumnName="TenQuocGiaE" />
                 <ScalarProperty Name="MaQuocGia" ColumnName="MaQuocGia" />
                 <ScalarProperty Name="TenVietTac" ColumnName="TenVietTac" />
                 <ScalarProperty Name="TenQuocGia" ColumnName="TenQuocGia" />
@@ -764,16 +873,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TaCangVanChuyenTas">
-            <EntityTypeMapping TypeName="ABCLogisticModel.TaCangVanChuyenTa">
-              <MappingFragment StoreEntitySet="TaCangVanChuyenTa">
-                <ScalarProperty Name="MaCang" ColumnName="MaCang" />
-                <ScalarProperty Name="Tencang" ColumnName="Tencang" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="Sdt" ColumnName="Sdt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -796,6 +895,18 @@
           <FunctionImportMapping FunctionImportName="GetLoaiKhachHang" FunctionName="ABCLogisticModel.Store.SP_KHACHHANG_SELECT_LOAIKHACHHANG" />
           <FunctionImportMapping FunctionImportName="GetAllNhanVien" FunctionName="ABCLogisticModel.Store.SP_NHANVIEN_SELECTALL" />
           <FunctionImportMapping FunctionImportName="GetNhanVien_TenNhanVien" FunctionName="ABCLogisticModel.Store.SP_NHANVIEN_SELECT_TENNHANVIEN" />
+          <EntitySetMapping Name="CangVanChuyenTas">
+            <EntityTypeMapping TypeName="ABCLogisticModel.CangVanChuyenTa">
+              <MappingFragment StoreEntitySet="CangVanChuyenTa">
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="MaQuocGia" ColumnName="MaQuocGia" />
+                <ScalarProperty Name="MaTinh" ColumnName="MaTinh" />
+                <ScalarProperty Name="Tencang" ColumnName="Tencang" />
+                <ScalarProperty Name="MaCang" ColumnName="MaCang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_KhachHangTa_Insert" FunctionName="ABCLogisticModel.Store.sp_KhachHangTa_Insert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -818,41 +929,43 @@
     <Diagrams>
       <Diagram Name="CustomerEntity">
         <EntityTypeShape EntityType="ABCLogisticModel.ChauTa" Width="1.5" PointX="0.75" PointY="10.125" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="ABCLogisticModel.ContainerTa" Width="1.5" PointX="5.75" PointY="7.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCLogisticModel.ContainerTa" Width="1.5" PointX="5.875" PointY="6.875" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.KhachHangTa" Width="1.5" PointX="5.25" PointY="1.125" Height="5.057109375" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.LinhVucKinhDoanhTa" Width="1.5" PointX="3" PointY="7.125" Height="1.7879850260416665" IsExpanded="true" />
-        <EntityTypeShape EntityType="ABCLogisticModel.NgoaiTeTa" Width="1.5" PointX="7.75" PointY="6.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCLogisticModel.NgoaiTeTa" Width="1.5" PointX="7.75" PointY="6.875" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.NguoiLienHeTa" Width="1.5" PointX="7.5" PointY="2.125" Height="2.941793619791667" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.NhanVienTa" Width="1.5" PointX="3" PointY="1.75" Height="3.7109993489583317" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.PhongBanTa" Width="1.5" PointX="0.75" PointY="2.75" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.QuocGiaTa" Width="1.5" PointX="3" PointY="9.625" Height="2.5571907552083317" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="ABCLogisticModel.TaCangVanChuyenTa" Width="1.5" PointX="9.75" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="ABCLogisticModel.TinhThanhTa" Width="1.5" PointX="3" PointY="13" Height="2.3648893229166674" IsExpanded="true" />
         <AssociationConnector Association="ABCLogisticModel.FK_QuocGiaTa_ChauTa" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="11.018992513020834" />
           <ConnectorPoint PointX="3" PointY="11.018992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="ABCLogisticModel.FK_KhachHang_LinhVucKinhDoanh" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="7.40625" />
-          <ConnectorPoint PointX="5.2447891666666671" PointY="7.4062499999999991" />
-          <ConnectorPoint PointX="5.4114558333333331" PointY="7.40625" />
-          <ConnectorPoint PointX="5.46875" PointY="7.40625" />
-          <ConnectorPoint PointX="5.46875" PointY="6.182109375" />
+          <ConnectorPoint PointX="4.5" PointY="8.7230843098958335" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="8.7230843098958335" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="8.7230843098958335" />
+          <ConnectorPoint PointX="5.2760391666666671" PointY="8.7230843098958335" />
+          <ConnectorPoint PointX="5.4427058333333331" PointY="8.7230843098958335" />
+          <ConnectorPoint PointX="5.53125" PointY="8.7230843098958335" />
+          <ConnectorPoint PointX="5.53125" PointY="6.182109375" />
         </AssociationConnector>
         <AssociationConnector Association="ABCLogisticModel.FK_KhachHang_NhanVien" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="3.6054996744791659" />
           <ConnectorPoint PointX="5.25" PointY="3.6054996744791659" />
         </AssociationConnector>
         <AssociationConnector Association="ABCLogisticModel.FK_KhachHang_QuocGia" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="10.903595377604166" />
-          <ConnectorPoint PointX="5.3281225" PointY="10.903595377604166" />
-          <ConnectorPoint PointX="5.3281225" PointY="6.182109375" />
+          <ConnectorPoint PointX="4.5" PointY="9.6261528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="9.2511528461538468" />
+          <ConnectorPoint PointX="4.875" PointY="3.6535546875" />
+          <ConnectorPoint PointX="5.25" PointY="3.6535546875" />
         </AssociationConnector>
         <AssociationConnector Association="ABCLogisticModel.FK_KhachHang_TinhThanh" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="14.182444661458334" />
-          <ConnectorPoint PointX="5.6093775" PointY="14.182444661458334" />
-          <ConnectorPoint PointX="5.6093775" PointY="6.182109375" />
+          <ConnectorPoint PointX="4.5" PointY="14.526070208333334" />
+          <ConnectorPoint PointX="5.3593725" PointY="14.526070208333334" />
+          <ConnectorPoint PointX="5.3593725" PointY="6.182109375" />
         </AssociationConnector>
         <AssociationConnector Association="ABCLogisticModel.FK_NguoiLienHeTa_KhachHangTa" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="3.5958968098958337" />
@@ -863,8 +976,21 @@
           <ConnectorPoint PointX="3" PointY="3.6439925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="ABCLogisticModel.FK_TinhThanh_QuocGia1" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="12.182190755208332" />
+          <ConnectorPoint PointX="3.75" PointY="12.566793619791666" />
           <ConnectorPoint PointX="3.75" PointY="13" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ABCLogisticModel.CangVanChuyenTa" Width="1.5" PointX="7.5" PointY="11.5" Height="2.3648893229166674" />
+        <AssociationConnector Association="ABCLogisticModel.FK_CangVanChuyenTa_QuocGiaTa" >
+          <ConnectorPoint PointX="4.5" PointY="12.033396809895834" />
+          <ConnectorPoint PointX="5.2760391666666671" PointY="12.033396809895834" />
+          <ConnectorPoint PointX="5.4427058333333331" PointY="12.033396809895834" />
+          <ConnectorPoint PointX="7.5" PointY="12.033396809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="ABCLogisticModel.FK_CangVanChuyenTa_TinhThanhTa" >
+          <ConnectorPoint PointX="4.5" PointY="13.432444661458334" />
+          <ConnectorPoint PointX="5.2760391666666671" PointY="13.432444661458334" />
+          <ConnectorPoint PointX="5.4427058333333331" PointY="13.432444661458334" />
+          <ConnectorPoint PointX="7.5" PointY="13.432444661458334" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

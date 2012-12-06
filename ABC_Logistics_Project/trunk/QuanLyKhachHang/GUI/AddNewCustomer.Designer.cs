@@ -659,7 +659,7 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.Black;
-            this.label35.Location = new System.Drawing.Point(390, 509);
+            this.label35.Location = new System.Drawing.Point(390, 544);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(130, 16);
             this.label35.TabIndex = 8;
@@ -689,6 +689,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -703,7 +704,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 157);
+            this.dataGridView1.Size = new System.Drawing.Size(855, 190);
             this.dataGridView1.TabIndex = 4;
             // 
             // ID
@@ -809,6 +810,7 @@
             this.txtSdtDDNLH.Name = "txtSdtDDNLH";
             this.txtSdtDDNLH.Size = new System.Drawing.Size(319, 26);
             this.txtSdtDDNLH.TabIndex = 5;
+            this.txtSdtDDNLH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtSdtNLH
             // 
@@ -817,6 +819,7 @@
             this.txtSdtNLH.Name = "txtSdtNLH";
             this.txtSdtNLH.Size = new System.Drawing.Size(319, 26);
             this.txtSdtNLH.TabIndex = 4;
+            this.txtSdtNLH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // txtChucDanhNLH
             // 

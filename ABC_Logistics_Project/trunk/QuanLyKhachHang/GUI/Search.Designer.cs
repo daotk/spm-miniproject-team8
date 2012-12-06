@@ -86,8 +86,8 @@
             this.cboTimKiemTheo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTimKiemTheo.FormattingEnabled = true;
             this.cboTimKiemTheo.Items.AddRange(new object[] {
-            "Mã công ty",
-            "Tên công ty"});
+            "Mã Khách hàng",
+            "Tên khách hàng"});
             this.cboTimKiemTheo.Location = new System.Drawing.Point(766, 36);
             this.cboTimKiemTheo.Name = "cboTimKiemTheo";
             this.cboTimKiemTheo.Size = new System.Drawing.Size(184, 24);
@@ -166,7 +166,7 @@
             // 
             this.column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.column1.DataPropertyName = "MaCongTy";
-            this.column1.HeaderText = "Mã công ty";
+            this.column1.HeaderText = "Mã khách hàng";
             this.column1.Name = "column1";
             this.column1.ReadOnly = true;
             // 

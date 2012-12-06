@@ -153,11 +153,11 @@ namespace QuanLyKhachHang.GUI
                 int count = context.SaveChanges();
                 if (count > 0)
                 {
-                    MessageBox.Show("Cập nhật thành công");
+                    MessageBox.Show("Cập nhật thành công","Thông báo");
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại");
+                    MessageBox.Show("Cập nhật thất bại","Thông báo");
                 }
             }
 
@@ -265,14 +265,14 @@ namespace QuanLyKhachHang.GUI
                 int count = context.SaveChanges();
                 if (count > 0)
                 {
-                    MessageBox.Show("Cập nhật thành công");
+                    MessageBox.Show("Cập nhật thành công","Thông báo");
                     Load_DataNLH();
                     btnDongYNLH.Text = "Chỉnh sữa";
                     Disalble_Textbox();
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại");
+                    MessageBox.Show("Cập nhật thất bại","Thông báo");
                 }
 
 
@@ -315,13 +315,13 @@ namespace QuanLyKhachHang.GUI
                 int count = context.SaveChanges();
                 if (count > 0)
                 {
-                    MessageBox.Show("Thêm Thành công");
+                    MessageBox.Show("Thêm Thành công","Thông báo");
                     Load_DataNLH();
                     btnThem.Text = "Thêm";
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Thêm thất bại","Thông báo");
                 }
 
             }
@@ -359,15 +359,21 @@ namespace QuanLyKhachHang.GUI
                     int count = newcontext.SaveChanges();
                     if (count > 0)
                     {
-                        MessageBox.Show("Xóa thành công");
+                        MessageBox.Show("Xóa thành công","Thông báo");
                         Load_DataNLH();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại");
+                        MessageBox.Show("Xóa thất bại","Thông báo");
                     }
                 }
             }
+        }
+
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
 
 

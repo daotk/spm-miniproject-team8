@@ -30,7 +30,7 @@ namespace QuanLyKhachHang.GUI
             //khach hang
             if (strStatusCheck == rdKhachHang.Text)
             {
-                if (cboTimKiemTheo.Text == "Mã công ty")
+                if (cboTimKiemTheo.Text == "Mã Khách hàng")
                 {
                     string txttext = txtTimKiem.Text;
                     var customer = from p in context.KhachHangTas
@@ -51,7 +51,7 @@ namespace QuanLyKhachHang.GUI
             //Agent
             if (strStatusCheck == rdAgent.Text)
             {
-                if (cboTimKiemTheo.Text == "Tên công ty")
+                if (cboTimKiemTheo.Text == "Tên khách hàng")
                 {
                     string txttext = txtTimKiem.Text;
                     var customer = from p in context.KhachHangTas
@@ -72,7 +72,7 @@ namespace QuanLyKhachHang.GUI
             //Doi tac
             if (strStatusCheck == rdDoiTacKhachHang.Text)
             {
-                if (cboTimKiemTheo.Text == "Tên công ty")
+                if (cboTimKiemTheo.Text == "Tên khách hàng")
                 {
                     string txttext = txtTimKiem.Text;
                     var customer = from p in context.KhachHangTas
