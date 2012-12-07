@@ -39,6 +39,7 @@
             this.rdKhachHang = new System.Windows.Forms.RadioButton();
             this.cboTimKiemTheo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.lblDongHo = new System.Windows.Forms.Label();
             this.lblTenNhanVien = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -92,7 +92,7 @@
             this.rdAgent.Location = new System.Drawing.Point(539, 161);
             this.rdAgent.Name = "rdAgent";
             this.rdAgent.Size = new System.Drawing.Size(61, 20);
-            this.rdAgent.TabIndex = 8;
+            this.rdAgent.TabIndex = 9;
             this.rdAgent.TabStop = true;
             this.rdAgent.Text = "Agent";
             this.rdAgent.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             this.rdDoiTacKhachHang.Location = new System.Drawing.Point(737, 161);
             this.rdDoiTacKhachHang.Name = "rdDoiTacKhachHang";
             this.rdDoiTacKhachHang.Size = new System.Drawing.Size(139, 20);
-            this.rdDoiTacKhachHang.TabIndex = 9;
+            this.rdDoiTacKhachHang.TabIndex = 10;
             this.rdDoiTacKhachHang.TabStop = true;
             this.rdDoiTacKhachHang.Text = "Đối tác khách hàng";
             this.rdDoiTacKhachHang.UseVisualStyleBackColor = true;
@@ -118,7 +118,7 @@
             this.rdKhachHang.Location = new System.Drawing.Point(350, 161);
             this.rdKhachHang.Name = "rdKhachHang";
             this.rdKhachHang.Size = new System.Drawing.Size(96, 20);
-            this.rdKhachHang.TabIndex = 7;
+            this.rdKhachHang.TabIndex = 8;
             this.rdKhachHang.TabStop = true;
             this.rdKhachHang.Text = "Khách hàng";
             this.rdKhachHang.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@
             this.cboTimKiemTheo.Location = new System.Drawing.Point(849, 100);
             this.cboTimKiemTheo.Name = "cboTimKiemTheo";
             this.cboTimKiemTheo.Size = new System.Drawing.Size(205, 24);
-            this.cboTimKiemTheo.TabIndex = 6;
+            this.cboTimKiemTheo.TabIndex = 7;
             // 
             // groupBox1
             // 
@@ -157,6 +157,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem.Location = new System.Drawing.Point(350, 100);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(250, 22);
+            this.txtTimKiem.TabIndex = 5;
+            this.txtTimKiem.Text = "Điều kiện tìm kiếm";
+            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // button4
             // 
             this.button4.Image = global::QuanLyKhachHang.Properties.Resources.Actions_application_exit_icon;
@@ -164,7 +175,7 @@
             this.button4.Location = new System.Drawing.Point(558, 19);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 40);
-            this.button4.TabIndex = 4;
+            this.button4.TabIndex = 3;
             this.button4.Text = "Thoát";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,7 +189,7 @@
             this.button3.Location = new System.Drawing.Point(377, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 40);
-            this.button3.TabIndex = 3;
+            this.button3.TabIndex = 2;
             this.button3.Text = "Chỉnh sữa thông tin khách hàng";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
@@ -191,7 +202,7 @@
             this.button2.Location = new System.Drawing.Point(196, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 40);
-            this.button2.TabIndex = 2;
+            this.button2.TabIndex = 1;
             this.button2.Text = "Thêm mới khách hàng";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = true;
@@ -204,7 +215,7 @@
             this.button1.Location = new System.Drawing.Point(15, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 40);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 0;
             this.button1.Text = "Trang chính";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
@@ -239,7 +250,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1250, 410);
-            this.dataGridView1.TabIndex = 23;
+            this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // SttKhachHang
@@ -374,17 +385,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiem.Location = new System.Drawing.Point(350, 100);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(250, 22);
-            this.txtTimKiem.TabIndex = 10;
-            this.txtTimKiem.Text = "Điều kiện tìm kiếm";
-            this.txtTimKiem.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
-            this.txtTimKiem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // CustomerManagement
             // 
