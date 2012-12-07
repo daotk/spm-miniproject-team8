@@ -134,7 +134,7 @@
             this.btnHuyBo.Location = new System.Drawing.Point(312, 544);
             this.btnHuyBo.Name = "btnHuyBo";
             this.btnHuyBo.Size = new System.Drawing.Size(79, 35);
-            this.btnHuyBo.TabIndex = 4;
+            this.btnHuyBo.TabIndex = 20;
             this.btnHuyBo.Text = "Hủy bỏ";
             this.btnHuyBo.UseVisualStyleBackColor = true;
             this.btnHuyBo.Click += new System.EventHandler(this.button6_Click);
@@ -145,7 +145,7 @@
             this.btnCapNhat.Location = new System.Drawing.Point(196, 544);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(79, 35);
-            this.btnCapNhat.TabIndex = 4;
+            this.btnCapNhat.TabIndex = 19;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.button5_Click);
@@ -158,7 +158,7 @@
             this.cboNhanVienQuanLy.Location = new System.Drawing.Point(196, 473);
             this.cboNhanVienQuanLy.Name = "cboNhanVienQuanLy";
             this.cboNhanVienQuanLy.Size = new System.Drawing.Size(342, 24);
-            this.cboNhanVienQuanLy.TabIndex = 2;
+            this.cboNhanVienQuanLy.TabIndex = 17;
             // 
             // cboTinhThanh
             // 
@@ -168,7 +168,7 @@
             this.cboTinhThanh.Location = new System.Drawing.Point(196, 272);
             this.cboTinhThanh.Name = "cboTinhThanh";
             this.cboTinhThanh.Size = new System.Drawing.Size(342, 24);
-            this.cboTinhThanh.TabIndex = 2;
+            this.cboTinhThanh.TabIndex = 11;
             // 
             // cboQuocGia
             // 
@@ -178,7 +178,7 @@
             this.cboQuocGia.Location = new System.Drawing.Point(196, 238);
             this.cboQuocGia.Name = "cboQuocGia";
             this.cboQuocGia.Size = new System.Drawing.Size(342, 24);
-            this.cboQuocGia.TabIndex = 2;
+            this.cboQuocGia.TabIndex = 10;
             this.cboQuocGia.SelectedIndexChanged += new System.EventHandler(this.cbox_SelectedIndexChanged);
             // 
             // txtSdtNLH
@@ -221,7 +221,7 @@
             this.cboLinhVucKinhDoanh.Location = new System.Drawing.Point(199, 144);
             this.cboLinhVucKinhDoanh.Name = "cboLinhVucKinhDoanh";
             this.cboLinhVucKinhDoanh.Size = new System.Drawing.Size(342, 24);
-            this.cboLinhVucKinhDoanh.TabIndex = 2;
+            this.cboLinhVucKinhDoanh.TabIndex = 5;
             // 
             // txtWed
             // 
@@ -229,7 +229,7 @@
             this.txtWed.Location = new System.Drawing.Point(196, 440);
             this.txtWed.Name = "txtWed";
             this.txtWed.Size = new System.Drawing.Size(342, 22);
-            this.txtWed.TabIndex = 1;
+            this.txtWed.TabIndex = 16;
             // 
             // txtEmail
             // 
@@ -237,7 +237,7 @@
             this.txtEmail.Location = new System.Drawing.Point(196, 411);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(342, 22);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 15;
             // 
             // txtEmailNLH
             // 
@@ -263,7 +263,7 @@
             this.txtSoFax.Location = new System.Drawing.Point(196, 375);
             this.txtSoFax.Name = "txtSoFax";
             this.txtSoFax.Size = new System.Drawing.Size(342, 22);
-            this.txtSoFax.TabIndex = 1;
+            this.txtSoFax.TabIndex = 14;
             // 
             // label5
             // 
@@ -281,7 +281,7 @@
             this.txtSDT.Location = new System.Drawing.Point(196, 341);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(342, 22);
-            this.txtSDT.TabIndex = 1;
+            this.txtSDT.TabIndex = 13;
             // 
             // txtDiaChi
             // 
@@ -289,7 +289,7 @@
             this.txtDiaChi.Location = new System.Drawing.Point(196, 308);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(342, 22);
-            this.txtDiaChi.TabIndex = 1;
+            this.txtDiaChi.TabIndex = 12;
             // 
             // txtTenGiaoDichS
             // 
@@ -297,7 +297,7 @@
             this.txtTenGiaoDichS.Location = new System.Drawing.Point(199, 112);
             this.txtTenGiaoDichS.Name = "txtTenGiaoDichS";
             this.txtTenGiaoDichS.Size = new System.Drawing.Size(342, 22);
-            this.txtTenGiaoDichS.TabIndex = 1;
+            this.txtTenGiaoDichS.TabIndex = 4;
             // 
             // txtTenGiaoDichE
             // 
@@ -305,7 +305,7 @@
             this.txtTenGiaoDichE.Location = new System.Drawing.Point(199, 83);
             this.txtTenGiaoDichE.Name = "txtTenGiaoDichE";
             this.txtTenGiaoDichE.Size = new System.Drawing.Size(342, 22);
-            this.txtTenGiaoDichE.TabIndex = 1;
+            this.txtTenGiaoDichE.TabIndex = 3;
             // 
             // txtTenGiaoDichV
             // 
@@ -313,7 +313,7 @@
             this.txtTenGiaoDichV.Location = new System.Drawing.Point(199, 55);
             this.txtTenGiaoDichV.Name = "txtTenGiaoDichV";
             this.txtTenGiaoDichV.Size = new System.Drawing.Size(342, 22);
-            this.txtTenGiaoDichV.TabIndex = 1;
+            this.txtTenGiaoDichV.TabIndex = 2;
             // 
             // txtMaCongTy
             // 
@@ -322,7 +322,7 @@
             this.txtMaCongTy.Location = new System.Drawing.Point(199, 23);
             this.txtMaCongTy.Name = "txtMaCongTy";
             this.txtMaCongTy.Size = new System.Drawing.Size(258, 22);
-            this.txtMaCongTy.TabIndex = 1;
+            this.txtMaCongTy.TabIndex = 0;
             // 
             // button1
             // 
@@ -576,7 +576,7 @@
             this.dtNgayTao.Location = new System.Drawing.Point(196, 508);
             this.dtNgayTao.Name = "dtNgayTao";
             this.dtNgayTao.Size = new System.Drawing.Size(118, 22);
-            this.dtNgayTao.TabIndex = 25;
+            this.dtNgayTao.TabIndex = 18;
             // 
             // label34
             // 
@@ -594,7 +594,7 @@
             this.txtCongTyChuQuan.Location = new System.Drawing.Point(199, 173);
             this.txtCongTyChuQuan.Name = "txtCongTyChuQuan";
             this.txtCongTyChuQuan.Size = new System.Drawing.Size(342, 22);
-            this.txtCongTyChuQuan.TabIndex = 23;
+            this.txtCongTyChuQuan.TabIndex = 6;
             // 
             // button7
             // 
@@ -603,7 +603,7 @@
             this.button7.Location = new System.Drawing.Point(474, 6);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(67, 40);
-            this.button7.TabIndex = 22;
+            this.button7.TabIndex = 1;
             this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -624,7 +624,7 @@
             this.rdAgent.Location = new System.Drawing.Point(479, 208);
             this.rdAgent.Name = "rdAgent";
             this.rdAgent.Size = new System.Drawing.Size(61, 20);
-            this.rdAgent.TabIndex = 20;
+            this.rdAgent.TabIndex = 9;
             this.rdAgent.TabStop = true;
             this.rdAgent.Text = "Agent";
             this.rdAgent.UseVisualStyleBackColor = true;
@@ -636,7 +636,7 @@
             this.rdDoiTacKhachHang.Location = new System.Drawing.Point(312, 208);
             this.rdDoiTacKhachHang.Name = "rdDoiTacKhachHang";
             this.rdDoiTacKhachHang.Size = new System.Drawing.Size(164, 20);
-            this.rdDoiTacKhachHang.TabIndex = 19;
+            this.rdDoiTacKhachHang.TabIndex = 8;
             this.rdDoiTacKhachHang.TabStop = true;
             this.rdDoiTacKhachHang.Text = "Đối tác của khách hàng";
             this.rdDoiTacKhachHang.UseVisualStyleBackColor = true;
@@ -648,7 +648,7 @@
             this.rdKhachHang.Location = new System.Drawing.Point(199, 207);
             this.rdKhachHang.Name = "rdKhachHang";
             this.rdKhachHang.Size = new System.Drawing.Size(96, 20);
-            this.rdKhachHang.TabIndex = 18;
+            this.rdKhachHang.TabIndex = 7;
             this.rdKhachHang.TabStop = true;
             this.rdKhachHang.Text = "Khách hàng";
             this.rdKhachHang.UseVisualStyleBackColor = true;
