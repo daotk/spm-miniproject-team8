@@ -62,32 +62,23 @@ namespace QuanLyKhachHang.GUI
             LoadDanhMuc();
 
             //load trong tab danh muc quoc gia
-            var chauluc = from p in context.GetAllChau()
-                          select p;
-            cboChau.DataSource = chauluc.ToList<ChauTa>();
+            cboChau.DataSource = context.GetAllChau().ToList();
             cboChau.DisplayMember = "TenChauLuc";   
             cboChau.ValueMember = "MaChau";
             
             //Combobox loc danh sach theo chau
-            var locchauluc = from p in context.GetAllChau()
-                          select p;
-            cboLocChau.DataSource = locchauluc.ToList<ChauTa>();
+
+            cboLocChau.DataSource = context.GetAllChau().ToList();
             cboLocChau.DisplayMember = "TenChauLuc";
             cboLocChau.ValueMember = "MaChau";
-            
-            Load_DanhMucQuocGia();
-            
+                        
             //Combobox Quoc Gia
-            var quocgia = from cat in context.GetAllQuocGia()
-                          select cat;   
-            cboQuocGia.DataSource = quocgia.ToList<QuocGiaTa>();
+            cboQuocGia.DataSource = context.GetAllQuocGia().ToList();
             cboQuocGia.DisplayMember = "TenQuocGia";
             cboQuocGia.ValueMember = "MaQuocGia";
             
-            //combobox Loc Danh sach Quoc Gia
-            var locquocgia = from cat in context.GetAllQuocGia()
-                          select cat;
-            cboLocQuocGia.DataSource = locquocgia.ToList<QuocGiaTa>();
+            //combobox Loc Danh sach Quoc Gia 
+            cboLocQuocGia.DataSource = context.GetAllQuocGia().ToList() ;
             cboLocQuocGia.DisplayMember = "TenQuocGia";
             cboLocQuocGia.ValueMember = "MaQuocGia";
 
@@ -96,12 +87,40 @@ namespace QuanLyKhachHang.GUI
             cboQuocGiaCang.DisplayMember = "TenQuocGia";
             cboQuocGiaCang.ValueMember = "MaQuocGia";
 
-            cboLocQuocGia.SelectedValue = 2;
+            cboLocQuocGia.SelectedValue = 24;
             cboLocChau.SelectedValue = 6;
 
             LoadTinhThanh();
-            
+            Load_DanhMucQuocGia();
+            LoadLocQuocGia();
+            LoadLocTinhThanh();
         }
+        private void LoadLocQuocGia()
+        {
+                var quocgia = from p in context.GetAllQuocGia()
+                              where p.MaChau == 6
+                              select new { p.TenVietTac, p.TenQuocGia, p.TenQuocGiaE, p.ChauTa.TenChauLuc, p.GhiChu };
+                dgQuocGia.DataSource = quocgia.ToList();
+                //stt
+                for (int i = 0; i < dgQuocGia.Rows.Count; i++)
+                {
+                    dgQuocGia.Rows[i].Cells[0].Value = i + 1;
+                }  
+        }
+
+        private void LoadLocTinhThanh()
+        {  
+                var tinhthanh = from p in context.TinhThanhTas
+                                where p.MaQuocGia == 24
+                                select new { p.TenVietTac, p.TenTinhThanh, p.QuocGiaTa.TenQuocGia, p.GhiChu };
+                dgTinhThanh.DataSource = tinhthanh.ToList();
+                //stt
+                for (int i = 0; i < dgTinhThanh.Rows.Count; i++)
+                {
+                    dgTinhThanh.Rows[i].Cells[0].Value = i + 1;
+                }
+        }
+
 
         #region Xu ly tab danh muc ngoai te
 
