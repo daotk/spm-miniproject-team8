@@ -11,7 +11,8 @@
     <RootNamespace>QuanLyKhachHang</RootNamespace>
     <AssemblyName>QuanLyKhachHang</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,6 +35,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Collector, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Management.Collector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.CollectorEnum, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Management.CollectorEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.PolicyEnum, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.PolicyEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.RegSvrEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.RegSvrEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.SqlEnum.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -55,95 +88,97 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerData1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="GUI\AddNewCustomer.cs">
+    <Compile Include="GUI\Fm_AddNewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\AddNewCustomer.Designer.cs">
-      <DependentUpon>AddNewCustomer.cs</DependentUpon>
+    <Compile Include="GUI\Fm_AddNewCustomer.Designer.cs">
+      <DependentUpon>Fm_AddNewCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\add_.cs">
+    <Compile Include="GUI\Fm_CustomerManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\add_.Designer.cs">
-      <DependentUpon>add_.cs</DependentUpon>
+    <Compile Include="GUI\Fm_CustomerManagement.Designer.cs">
+      <DependentUpon>Fm_CustomerManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CustomerManagement.cs">
+    <Compile Include="GUI\Fm_EditCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\CustomerManagement.Designer.cs">
-      <DependentUpon>CustomerManagement.cs</DependentUpon>
+    <Compile Include="GUI\Fm_EditCustomer.Designer.cs">
+      <DependentUpon>Fm_EditCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\EditCustomer.cs">
+    <Compile Include="GUI\Fm_CauHinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\EditCustomer.Designer.cs">
-      <DependentUpon>EditCustomer.cs</DependentUpon>
+    <Compile Include="GUI\Fm_CauHinh.Designer.cs">
+      <DependentUpon>Fm_CauHinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Login.cs">
+    <Compile Include="GUI\Fm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="GUI\Fm_Login.Designer.cs">
+      <DependentUpon>Fm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\MainForm.cs">
+    <Compile Include="GUI\Fm_MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="GUI\Fm_MainForm.Designer.cs">
+      <DependentUpon>Fm_MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\QuanLyDanhMuc.cs">
+    <Compile Include="GUI\Fm_QuanLyDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\QuanLyDanhMuc.Designer.cs">
-      <DependentUpon>QuanLyDanhMuc.cs</DependentUpon>
+    <Compile Include="GUI\Fm_QuanLyDanhMuc.Designer.cs">
+      <DependentUpon>Fm_QuanLyDanhMuc.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Search.cs">
+    <Compile Include="GUI\Fm_Search.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Search.Designer.cs">
-      <DependentUpon>Search.cs</DependentUpon>
+    <Compile Include="GUI\Fm_Search.Designer.cs">
+      <DependentUpon>Fm_Search.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\ViewCustomer.cs">
+    <Compile Include="GUI\Fm_ViewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ViewCustomer.Designer.cs">
-      <DependentUpon>ViewCustomer.cs</DependentUpon>
+    <Compile Include="GUI\Fm_ViewCustomer.Designer.cs">
+      <DependentUpon>Fm_ViewCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\AddNewCustomer.resx">
-      <DependentUpon>AddNewCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_AddNewCustomer.resx">
+      <DependentUpon>Fm_AddNewCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\add_.resx">
-      <DependentUpon>add_.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_CustomerManagement.resx">
+      <DependentUpon>Fm_CustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CustomerManagement.resx">
-      <DependentUpon>CustomerManagement.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_EditCustomer.resx">
+      <DependentUpon>Fm_EditCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\EditCustomer.resx">
-      <DependentUpon>EditCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_CauHinh.resx">
+      <DependentUpon>Fm_CauHinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_Login.resx">
+      <DependentUpon>Fm_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_MainForm.resx">
+      <DependentUpon>Fm_MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\QuanLyDanhMuc.resx">
-      <DependentUpon>QuanLyDanhMuc.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_QuanLyDanhMuc.resx">
+      <DependentUpon>Fm_QuanLyDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Search.resx">
-      <DependentUpon>Search.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_Search.resx">
+      <DependentUpon>Fm_Search.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ViewCustomer.resx">
-      <DependentUpon>ViewCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Fm_ViewCustomer.resx">
+      <DependentUpon>Fm_ViewCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="DA\CustomerData1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CustomerData1.Designer.cs</LastGenOutput>
