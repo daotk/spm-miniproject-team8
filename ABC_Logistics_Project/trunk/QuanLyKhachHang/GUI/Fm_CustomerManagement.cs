@@ -107,7 +107,7 @@ namespace QuanLyKhachHang.GUI
         private void button2_Click(object sender, EventArgs e)
         {
             Fm_AddNewCustomer Fadd = new Fm_AddNewCustomer(StrUsername);
-            if (Fadd.ShowDialog() == DialogResult.Cancel)
+            if (Fadd.ShowDialog() == DialogResult.Cancel|| Fadd.ShowDialog()== DialogResult.OK)
             {
                 if (strStatusCheck == rdAgent.Text)
                 {
@@ -139,7 +139,7 @@ namespace QuanLyKhachHang.GUI
         {
             string makh = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             Fm_ViewCustomer Fview = new Fm_ViewCustomer(makh);
-            if (Fview.ShowDialog() == DialogResult.Cancel)
+            if (Fview.ShowDialog() == DialogResult.Cancel || Fview.ShowDialog() == DialogResult.OK)
             {
                 if (strStatusCheck == rdAgent.Text)
                 {
@@ -161,6 +161,8 @@ namespace QuanLyKhachHang.GUI
                 }
             }
         }
+
+      
 
         /// <summary>
         /// xu ly su kien khi đánh text
@@ -311,7 +313,8 @@ namespace QuanLyKhachHang.GUI
         /// <param name="macheck">loại khách hàng cần phải lộc</param>
         private void LoadData_WhenRadioChange(string macheck)
         {
-            var cus = from p in context.GetLoaiKhachHang(macheck)
+            ABCLogisticEntities context1 = new ABCLogisticEntities();
+            var cus = from p in context1.GetLoaiKhachHang(macheck)
                       select new { p.MaCongTy, p.TenCTyV, p.TinhThanhTa.TenTinhThanh, p.QuocGiaTa.TenQuocGia, p.DiaChi, p.Sdt, p.LinhVucKinhDoanhTa.TenLVKD, p.NhanVienTa.HovTen };
             dataGridView1.DataSource = cus.ToList();
             //stt

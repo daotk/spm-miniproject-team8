@@ -46,7 +46,7 @@ namespace QuanLyKhachHang
         /// <param name="e"></param>
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Ban muon thoat?", "Canh bao", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
@@ -85,12 +85,12 @@ namespace QuanLyKhachHang
                 }
                 else
                 {
-                    MessageBox.Show("Bạn đã nhập xai mật khẩu!");
+                    MessageBox.Show("Bạn đã nhập sai mật khẩu!");
                 }
             }
             else
             {
-                MessageBox.Show("Bạn đã nhập xai tên tài khoản");
+                MessageBox.Show("Bạn đã nhập sai tên tài khoản");
             }
 
         }

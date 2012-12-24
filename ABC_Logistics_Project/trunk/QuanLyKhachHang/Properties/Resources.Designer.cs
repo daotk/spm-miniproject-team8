@@ -103,6 +103,16 @@ namespace QuanLyKhachHang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _642370_pictureofme3 {
+            get {
+                object obj = ResourceManager.GetObject("642370_pictureofme3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Accept_icon {
             get {
                 object obj = ResourceManager.GetObject("Accept-icon", resourceCulture);

@@ -99,7 +99,7 @@
             this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXacNhan.Location = new System.Drawing.Point(85, 190);
             this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(75, 23);
+            this.btnXacNhan.Size = new System.Drawing.Size(75, 25);
             this.btnXacNhan.TabIndex = 2;
             this.btnXacNhan.Text = "Xác nhận";
             this.btnXacNhan.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             this.btnHuyBo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuyBo.Location = new System.Drawing.Point(249, 190);
             this.btnHuyBo.Name = "btnHuyBo";
-            this.btnHuyBo.Size = new System.Drawing.Size(75, 23);
+            this.btnHuyBo.Size = new System.Drawing.Size(75, 25);
             this.btnHuyBo.TabIndex = 2;
             this.btnHuyBo.Text = "Hủy bỏ";
             this.btnHuyBo.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(313, 126);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 3;
             this.button1.Text = "Đường dẩn";
             this.button1.UseVisualStyleBackColor = true;
