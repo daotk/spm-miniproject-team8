@@ -16,6 +16,10 @@ namespace QuanLyKhachHang.GUI
         KhachHangTa customer;
         NguoiLienHeTa NguoiLH;
         string strCheck;
+
+        public delegate void LoadDatadelegate(bool loaddata);
+        public event LoadDatadelegate loadDatawhenEdit;
+
         public Fm_ViewCustomer(string pMaKhachHang)
         {
             MaKhachHang = pMaKhachHang;
@@ -170,7 +174,12 @@ namespace QuanLyKhachHang.GUI
         /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
+            if (this.loadDatawhenEdit != null)
+            {
+                this.loadDatawhenEdit(true);
+            }
             this.Close();
+
         }
         /// <summary>
         /// 
